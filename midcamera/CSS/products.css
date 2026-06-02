@@ -1,0 +1,814 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Montserrat:wght@600;700;800&display=swap');
+
+/* Wrapper riêng tránh xung đột */
+.main-products {
+    background-color: #FFFFFF;
+    min-height: 100vh;
+}
+
+/* Breadcrumb */
+.breadcrumb-container {
+    width: 100%;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 25px 24px 0 24px;
+    box-sizing: border-box;
+}
+
+.breadcrumb {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.9rem;
+    color: #666;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    list-style: none;
+}
+
+.breadcrumb a {
+    color: #666;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.breadcrumb a:hover {
+    color: #111;
+}
+
+.breadcrumb-separator {
+    color: #8E8E93;
+}
+
+.breadcrumb-active {
+    color: #111;
+    font-weight: 500;
+}
+
+/* Page Layout */
+.products-layout {
+    width: 100%;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 30px 24px 80px 24px;
+    display: flex;
+    gap: 24px;
+    align-items: flex-start;
+    box-sizing: border-box;
+}
+
+/* Sidebar lọc */
+.products-sidebar {
+    width: 280px;
+    background-color: #f4f6f8;
+    border: 1px solid #eee;
+    border-radius: 8px;
+    padding: 25px;
+    flex-shrink: 0;
+    position: sticky;
+    top: 24px;
+}
+
+.sidebar-title {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1rem;
+    font-weight: 700;
+    color: #111;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 25px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #111;
+}
+
+.filter-section {
+    margin-bottom: 30px;
+}
+
+.filter-section:last-child {
+    margin-bottom: 0;
+}
+
+.filter-section h4 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    color: #8E8E93;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: 15px;
+}
+
+/* Danh mục highlight active */
+.category-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.category-item {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.95rem;
+    color: #666;
+    cursor: pointer;
+    padding: 6px 12px;
+    border-left: 3px solid transparent;
+    transition: all 0.3s ease;
+}
+
+.category-item:hover {
+    color: #111;
+    background-color: rgba(0,0,0,0.02);
+}
+
+.category-item.active {
+    font-weight: 600;
+    color: #111;
+    border-left: 3px solid #111;
+    background-color: rgba(0,0,0,0.04);
+}
+
+/* Checkbox & Range Filter */
+.filter-options {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.filter-option {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.9rem;
+    color: #333;
+    cursor: pointer;
+}
+
+.filter-option input[type="checkbox"] {
+    accent-color: #111;
+    width: 16px;
+    height: 16px;
+    cursor: pointer;
+}
+
+/* Thanh trượt giá */
+.price-slider-box {
+    padding-top: 10px;
+}
+
+.price-slider-box input[type="range"] {
+    width: 100%;
+    accent-color: #111;
+    cursor: pointer;
+    margin-bottom: 10px;
+}
+
+.price-label-display {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.85rem;
+    color: #666;
+    display: flex;
+    justify-content: space-between;
+}
+
+.price-label-display span {
+    font-weight: 600;
+    color: #111;
+}
+
+/* Nút áp dụng nhỏ gọn */
+.btn-apply-filter {
+    width: 100%;
+    padding: 10px 20px;
+    font-size: 0.8rem;
+    margin-top: 15px;
+}
+
+/* Grid Sản Phẩm */
+.products-content {
+    flex: 1;
+    min-width: 0;
+}
+
+.products-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 24px;
+}
+
+@media (min-width: 768px) {
+    .products-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (min-width: 1024px) {
+    .products-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+/* ==========================================================================
+   PRODUCT CARD STYLING (MONOCHROME & MODERN DESIGN SYSTEM)
+   ========================================================================== */
+.camera-card {
+    background-color: #ffffff;
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    border-radius: 16px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+    height: 100%;
+    box-sizing: border-box;
+}
+
+.camera-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.12);
+}
+
+.card-img-wrapper {
+    width: 100%;
+    height: 200px;
+    overflow: hidden;
+    background: #f5f5f5;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 16px 16px 0 0;
+}
+
+.card-img-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    padding: 20px;
+    transition: transform 0.25s ease;
+}
+
+.camera-card:hover .card-img-wrapper img {
+    transform: scale(1.03);
+}
+
+.main-products .camera-card .card-info {
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.product-type-tag {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.75rem;
+    color: #8E8E93;
+    margin-bottom: 8px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    display: block;
+}
+
+.main-products .camera-card h3 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 18px;
+    font-weight: 700;
+    color: #111;
+    margin-top: 0;
+    margin-bottom: 10px;
+    line-height: 1.3;
+}
+
+.card-desc {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.88rem;
+    color: #666;
+    margin-bottom: 16px;
+    line-height: 1.5;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    min-height: 2.7em;
+}
+
+.card-divider {
+    height: 1px;
+    background-color: rgba(0, 0, 0, 0.08);
+    margin: 16px 0;
+    margin-top: auto;
+}
+
+.card-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.card-price-block {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.price-tag {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #111;
+}
+
+.card-button-block {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    flex-wrap: wrap;
+    flex-shrink: 0;
+}
+
+/* Nút THUÊ NGAY */
+.btn-rent {
+    background-color: #111;
+    color: #fff !important;
+    border: none;
+    padding: 7px 12px;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 12px;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background-color 0.2s ease, transform 0.1s ease;
+    display: inline-block;
+    white-space: nowrap;
+    flex-shrink: 0;
+}
+
+.btn-rent:hover {
+    background-color: #333;
+}
+
+.btn-rent.disabled {
+    background-color: #8E8E93 !important;
+    cursor: not-allowed;
+    opacity: 0.6;
+    border-color: #8E8E93 !important;
+}
+
+/* Nút XEM NHANH */
+.btn-quick-view {
+    background: transparent;
+    border: 1px solid currentColor;
+    color: #111;
+    padding: 7px 12px;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 12px;
+    cursor: pointer;
+    transition: background-color 0.2s ease, color 0.2s ease;
+    text-align: center;
+    white-space: nowrap;
+    flex-shrink: 0;
+}
+
+.btn-quick-view:hover {
+    background-color: #111;
+    color: #fff;
+}
+
+.compare-checkbox-label {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.8rem;
+    color: #666;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    cursor: pointer;
+    transition: color 0.3s;
+}
+
+.compare-checkbox-label:hover {
+    color: #111;
+}
+
+.compare-checkbox-label input {
+    accent-color: #111;
+    cursor: pointer;
+}
+
+/* Quickview Modal */
+.modal-quickview {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 2000;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+    padding: 20px;
+}
+
+.modal-quickview.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.modal-box {
+    background-color: #fff;
+    border-radius: 8px;
+    max-width: 750px;
+    width: 100%;
+    padding: 35px;
+    position: relative;
+    box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+    transform: translateY(-20px);
+    transition: transform 0.3s ease;
+    overflow-y: auto;
+    max-height: 90vh;
+}
+
+.modal-quickview.active .modal-box {
+    transform: translateY(0);
+}
+
+.modal-close-btn {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    color: #666;
+    cursor: pointer;
+    transition: color 0.3s;
+    line-height: 1;
+}
+
+.modal-close-btn:hover {
+    color: #111;
+}
+
+.modal-layout {
+    display: flex;
+    gap: 35px;
+    align-items: flex-start;
+}
+
+.modal-left {
+    flex: 1.1;
+}
+
+.modal-img-wrapper {
+    aspect-ratio: 4/3;
+    background-color: #f9f9f9;
+    border-radius: 6px;
+    overflow: hidden;
+    border: 1px solid #eee;
+}
+
+.modal-img-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.modal-right {
+    flex: 1.2;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.modal-right h2 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #111;
+    margin-bottom: 0;
+    border-left: none;
+    padding-left: 0;
+}
+
+.modal-price {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: #111;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 12px;
+}
+
+.modal-desc {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.9rem;
+    color: #555;
+    line-height: 1.6;
+}
+
+.modal-specs-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-bottom: 10px;
+}
+
+.modal-specs-list li {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.85rem;
+    color: #333;
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 6px;
+    border-bottom: 1px dashed #eee;
+}
+
+.modal-specs-list li span:first-child {
+    color: #666;
+}
+
+.modal-specs-list li span:last-child {
+    font-weight: 600;
+}
+
+.modal-action-buttons {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin-top: 10px;
+}
+
+.modal-action-buttons .btn-primary,
+.modal-action-buttons .btn-outline {
+    padding: 12px 15px;
+    font-size: 0.8rem;
+}
+
+/* Compare Bar */
+.compare-bar {
+    position: fixed;
+    bottom: -100px;
+    left: 0;
+    width: 100%;
+    height: 80px;
+    background-color: #1C1C1E;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1500;
+    box-shadow: 0 -5px 25px rgba(0,0,0,0.15);
+    transition: bottom 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+    padding: 0 20px;
+}
+
+.compare-bar.active {
+    bottom: 0;
+}
+
+.compare-container {
+    max-width: 1100px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.compare-info {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.95rem;
+    color: #CCCCCC;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.compare-info span {
+    font-weight: 700;
+    color: #FFFFFF;
+    background-color: #2A2A2C;
+    padding: 3px 10px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+}
+
+.compare-items-preview {
+    display: flex;
+    gap: 15px;
+}
+
+.compare-thumb {
+    width: 45px;
+    height: 45px;
+    border-radius: 4px;
+    overflow: hidden;
+    border: 1px solid #444;
+    background: #2A2A2C;
+    position: relative;
+}
+
+.compare-thumb img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.compare-thumb-remove {
+    position: absolute;
+    top: -2px;
+    right: -2px;
+    width: 14px;
+    height: 14px;
+    background: #fff;
+    color: #000;
+    font-size: 9px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.btn-compare-action {
+    padding: 10px 25px;
+    font-size: 0.8rem;
+    font-weight: 700;
+    background-color: #FFFFFF;
+    color: #111;
+    border: 1px solid #FFFFFF;
+}
+
+.btn-compare-action:hover {
+    background-color: #f1f1f1;
+    color: #111;
+}
+
+/* Compare Popup */
+.compare-popup {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.6);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 2500;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s, visibility 0.3s;
+    padding: 20px;
+}
+
+.compare-popup.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.compare-popup-box {
+    background-color: #fff;
+    border-radius: 8px;
+    max-width: 900px;
+    width: 100%;
+    padding: 35px;
+    position: relative;
+    max-height: 90vh;
+    overflow-y: auto;
+    box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+}
+
+.compare-popup-title {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: #111;
+    margin-bottom: 25px;
+    text-transform: uppercase;
+}
+
+.compare-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.9rem;
+}
+
+.compare-table th, .compare-table td {
+    padding: 12px 15px;
+    border: 1px solid #eee;
+    text-align: center;
+}
+
+.compare-table th {
+    background-color: #f4f6f8;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    color: #111;
+}
+
+.compare-table td:first-child, .compare-table th:first-child {
+    text-align: left;
+    font-weight: 600;
+    background-color: #fcfcfc;
+    width: 200px;
+}
+
+.compare-table img {
+    width: 120px;
+    aspect-ratio: 4/3;
+    object-fit: cover;
+    border-radius: 4px;
+    border: 1px solid #eee;
+    margin-bottom: 10px;
+}
+
+.compare-product-name {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    color: #111;
+    font-size: 0.95rem;
+    display: block;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .products-layout {
+        flex-direction: column;
+        gap: 30px;
+        padding-bottom: 50px;
+    }
+    
+    .products-sidebar {
+        width: 100%;
+    }
+    
+    .modal-layout {
+        flex-direction: column;
+        gap: 20px;
+    }
+    
+    .compare-container {
+        flex-direction: column;
+        gap: 15px;
+        height: auto;
+    }
+    
+    .compare-bar {
+        height: auto;
+        padding: 15px 20px;
+    }
+}
+
+/* ==========================================================================
+   NÂNG CẤP BỘ LỌC TÌNH TRẠNG & BADGE TRỰC QUAN (MID CAMERA)
+   ========================================================================== */
+.status-badge-floating {
+    position: absolute;
+    top: 12px;
+    left: 12px;
+    padding: 4px 10px;
+    border-radius: 9999px;
+    font-family: 'Inter', sans-serif;
+    font-size: 11px;
+    font-weight: 600;
+    z-index: 5;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    pointer-events: none;
+    transition: all 0.3s ease;
+    color: #ffffff;
+}
+
+.status-badge-floating.available {
+    background-color: #22C55E;
+}
+
+.status-badge-floating.rented {
+    background-color: #EF4444;
+}
+
+.status-badge-floating.maintenance {
+    background-color: #F59E0B;
+}
+
+/* Đồ họa thẻ card bảo trì */
+.camera-card:has(.status-badge-floating.maintenance) img {
+    filter: grayscale(100%);
+    opacity: 0.7;
+}
+
+.camera-card:has(.status-badge-floating.maintenance) {
+    border-color: #E5E5E5;
+}

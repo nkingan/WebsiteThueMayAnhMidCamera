@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Đăng nhập & Đăng ký — MIDCAMERA</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../CSS/header.css">
+    <link rel="stylesheet" href="../CSS/footer.css">
+    <link rel="stylesheet" href="../CSS/auth.css">
+</head>
+<body>
+
+    <!-- 🧭 HEADER ĐỘNG -->
+    <div id="global-header" data-active-nav="account"></div>
+
+    <main class="main-auth">
+        
+        <div class="auth-wrapper">
+            
+            <!-- Cột trái - Visual Area -->
+            <div class="auth-visual">
+                <div class="visual-quote">
+                    "Không cần sở hữu để tạo ra những khoảnh khắc đẹp."
+                </div>
+                <div class="visual-sub">
+                    Đăng ký tài khoản MIDCAMERA ngay hôm nay để được tích lũy điểm thưởng, lưu lịch sử đặt hàng và nhận báo giá ưu đãi giảm 10% cho lần thuê đầu tiên.
+                </div>
+                <div class="visual-logo">
+                    MID<span>CAMERA</span>
+                </div>
+            </div>
+
+            <!-- Cột phải - Form Area -->
+            <div class="auth-form">
+                
+                <!-- Tabs chuyển đổi -->
+                <ul class="auth-tabs">
+                    <li class="auth-tab-item active" data-target="login">Đăng nhập</li>
+                    <li class="auth-tab-item" data-target="register">Đăng ký</li>
+                </ul>
+
+                <!-- FORM ĐĂNG NHẬP -->
+                <form id="formLogin" class="auth-form-content active" onsubmit="handleLogin(event)">
+                    <div class="form-group">
+                        <label>Số điện thoại hoặc Email *</label>
+                        <input type="text" id="loginId" required placeholder="0987654321 hoặc example@gmail.com">
+                    </div>
+
+                    <div class="form-group">
+                        <label>Mật khẩu *</label>
+                        <a href="javascript:void(0)" class="forgot-password-link">Quên mật khẩu?</a>
+                        <input type="password" id="loginPassword" required placeholder="••••••••">
+                    </div>
+
+                    <button type="submit" class="btn-auth-submit">ĐĂNG NHẬP</button>
+
+                    <div class="social-login-separator">Hoặc đăng nhập bằng</div>
+
+                    <div class="social-buttons">
+                        <a href="javascript:void(0)" class="btn-social btn-social-google" onclick="handleSocialLogin('Google')">
+                            <i class="fa-brands fa-google"></i> Google
+                        </a>
+                        <a href="javascript:void(0)" class="btn-social btn-social-facebook" onclick="handleSocialLogin('Facebook')">
+                            <i class="fa-brands fa-facebook-f"></i> Facebook
+                        </a>
+                    </div>
+                </form>
+
+                <!-- FORM ĐĂNG KÝ -->
+                <form id="formRegister" class="auth-form-content" onsubmit="handleRegister(event)">
+                    <div class="form-group">
+                        <label>Họ và tên của bạn *</label>
+                        <input type="text" id="regName" required placeholder="Nguyễn Văn A">
+                    </div>
+
+                    <div class="form-group">
+                        <label>Số điện thoại liên hệ *</label>
+                        <input type="tel" id="regPhone" required placeholder="0987654321">
+                    </div>
+
+                    <div class="form-group">
+                        <label>Địa chỉ Email *</label>
+                        <input type="email" id="regEmail" required placeholder="example@gmail.com">
+                    </div>
+
+                    <div class="form-group">
+                        <label>Mật khẩu đăng ký *</label>
+                        <input type="password" id="regPassword" required placeholder="Tối thiểu 6 ký tự" oninput="checkPasswordStrength(this.value)">
+                        
+                        <!-- Khung đo độ mạnh mật khẩu -->
+                        <div class="password-strength-box">
+                            <div class="password-strength-bar">
+                                <div class="password-strength-fill" id="strengthBarFill"></div>
+                            </div>
+                            <span class="password-strength-text" id="strengthBarText">Độ bảo mật mật khẩu</span>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Nhập lại mật khẩu *</label>
+                        <input type="password" id="regConfirmPassword" required placeholder="Trùng khớp mật khẩu trên">
+                    </div>
+
+                    <button type="submit" class="btn-auth-submit">ĐĂNG KÝ TÀI KHOẢN</button>
+                </form>
+
+            </div>
+
+        </div>
+
+    </main>
+
+    <!-- 🧭 FOOTER ĐỘNG -->
+    <div id="global-footer"></div>
+
+    <!-- 🛠️ JAVASCRIPT ĐỘNG -->
+    <script src="../js/main.js"></script>
+    <script src="../js/auth.js"></script>
+</body>
+</html>

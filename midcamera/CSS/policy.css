@@ -1,0 +1,174 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Montserrat:wght@600;700;800&display=swap');
+
+/* Wrapper riêng tránh xung đột */
+.main-policy {
+    background-color: #FFFFFF;
+    font-family: 'Inter', sans-serif;
+    color: #333;
+}
+
+/* Hero nhỏ */
+.policy-hero {
+    background-color: #f4f6f8;
+    padding: 60px 20px;
+    text-align: center;
+    border-bottom: 1px solid #eee;
+}
+
+.policy-hero h1 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: #111;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 10px;
+}
+
+.policy-hero p {
+    font-size: 1rem;
+    color: #666;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* Accordion Container */
+.policy-container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 60px 20px 80px 20px;
+}
+
+.policy-accordion {
+    border: 1px solid #eee;
+    border-radius: 8px;
+    overflow: hidden;
+    background-color: #fff;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.02);
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+}
+
+.accordion-item {
+    border-bottom: 1px solid #eee;
+}
+
+.accordion-item:last-child {
+    border-bottom: none;
+}
+
+/* Accordion Header */
+.accordion-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 22px 25px;
+    cursor: pointer;
+    background-color: #fff;
+    transition: background-color 0.3s ease;
+    user-select: none;
+}
+
+.accordion-header:hover {
+    background-color: #f9f9f9;
+}
+
+.accordion-header h3 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: #111;
+    margin-bottom: 0;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.accordion-icon {
+    font-size: 0.95rem;
+    color: #111;
+    transition: transform 0.3s ease;
+}
+
+.accordion-item.active .accordion-icon {
+    transform: rotate(180deg);
+}
+
+/* Accordion Content */
+.accordion-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease-out, padding 0.3s ease;
+    padding: 0 25px;
+    background-color: #fff;
+}
+
+.accordion-item.active .accordion-content {
+    max-height: 1000px; /* Đủ lớn để hiện đầy đủ nội dung */
+    padding: 10px 25px 25px 25px;
+    border-top: 1px solid #eee;
+}
+
+.accordion-content p {
+    font-size: 0.95rem;
+    color: #555;
+    line-height: 1.8;
+    margin-bottom: 15px;
+}
+
+.accordion-content p:last-child {
+    margin-bottom: 0;
+}
+
+.accordion-content ul {
+    list-style-type: none;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-bottom: 15px;
+}
+
+.accordion-content ul li {
+    font-size: 0.95rem;
+    color: #555;
+    position: relative;
+    padding-left: 20px;
+}
+
+.accordion-content ul li::before {
+    content: "•";
+    color: #111;
+    font-weight: bold;
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+
+/* Callout đặc biệt */
+.policy-callout {
+    background-color: #f4f6f8;
+    border-left: 3px solid #111;
+    padding: 18px 20px;
+    border-radius: 0;
+    margin: 20px 0;
+    font-size: 0.9rem;
+    color: #333;
+    line-height: 1.6;
+}
+
+.policy-callout strong {
+    color: #111;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .policy-hero {
+        padding: 50px 20px;
+    }
+    .policy-hero h1 {
+        font-size: 1.8rem;
+    }
+    .policy-container {
+        padding: 40px 20px 60px 20px;
+    }
+}

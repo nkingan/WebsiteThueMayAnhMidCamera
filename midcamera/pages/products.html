@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thiết bị cho thuê — MIDCAMERA</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../CSS/header.css">
+    <link rel="stylesheet" href="../CSS/footer.css">
+    <link rel="stylesheet" href="../CSS/products.css">
+</head>
+<body>
+
+    <!-- 🧭 HEADER ĐỘNG -->
+    <div id="global-header" data-active-nav="mayanh"></div>
+
+    <main class="main-products">
+        
+        <!-- 🧭 BREADCRUMB -->
+        <div class="breadcrumb-container">
+            <ul class="breadcrumb">
+                <li><a href="../index.html">Trang chủ</a></li>
+                <li class="breadcrumb-separator">/</li>
+                <li class="breadcrumb-active">Thiết bị</li>
+            </ul>
+        </div>
+
+        <!-- 💼 LAYOUT SẢN PHẨM -->
+        <div class="products-layout">
+            
+            <!-- 🎛️ SIDEBAR BỘ LỌC -->
+            <aside class="products-sidebar">
+                <h3 class="sidebar-title">Bộ lọc thiết bị</h3>
+
+                <!-- Bộ lọc Danh mục -->
+                <div class="filter-section">
+                    <h4>Danh mục</h4>
+                    <ul class="category-list">
+                        <li class="category-item active" data-category="all">Tất cả sản phẩm</li>
+                        <li class="category-item" data-category="Mirrorless">Mirrorless</li>
+                        <li class="category-item" data-category="Compact">Compact cao cấp</li>
+                        <li class="category-item" data-category="Action">Action / Pocket</li>
+                        <li class="category-item" data-category="Film">Film / Instax</li>
+                    </ul>
+                </div>
+
+                <!-- Bộ lọc Thương hiệu -->
+                <div class="filter-section">
+                    <h4>Thương hiệu</h4>
+                    <div class="filter-options">
+                        <label class="filter-option">
+                            <input type="checkbox" name="brand" value="Canon"> Canon
+                        </label>
+                        <label class="filter-option">
+                            <input type="checkbox" name="brand" value="Fujifilm"> Fujifilm
+                        </label>
+                        <label class="filter-option">
+                            <input type="checkbox" name="brand" value="Sony"> Sony
+                        </label>
+                        <label class="filter-option">
+                            <input type="checkbox" name="brand" value="DJI"> DJI
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Bộ lọc Giá thuê -->
+                <div class="filter-section">
+                    <h4>Giá thuê / ngày</h4>
+                    <div class="price-slider-box">
+                        <input type="range" id="priceRange" min="50000" max="300000" step="10000" value="300000">
+                        <div class="price-label-display">
+                            <span>50.000₫</span>
+                            <span>Tối đa: <span id="priceRangeValue">300.000₫</span></span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Bộ lọc Tình trạng -->
+                <div class="filter-section">
+                    <h4>Tình trạng</h4>
+                    <div class="filter-options">
+                        <label class="filter-option">
+                            <input type="checkbox" name="status" value="available"> Sẵn sàng
+                        </label>
+                        <label class="filter-option">
+                            <input type="checkbox" name="status" value="rented"> Đang được thuê
+                        </label>
+                        <label class="filter-option">
+                            <input type="checkbox" name="status" value="maintenance"> Đang bảo trì
+                        </label>
+                    </div>
+                </div>
+
+                <button class="btn-outline btn-apply-filter" id="btnResetFilter">XÓA BỘ LỌC</button>
+            </aside>
+
+            <!-- 🛍️ GRID SẢN PHẨM -->
+            <section class="products-content">
+                <div class="products-grid" id="productsGrid">
+                    <!-- Danh sách máy ảnh sẽ được load động từ JavaScript -->
+                </div>
+            </section>
+        </div>
+
+    </main>
+
+    <!-- 🔍 QUICK VIEW MODAL -->
+    <div class="modal-quickview" id="quickviewModal">
+        <div class="modal-box">
+            <button class="modal-close-btn" id="btnCloseQuickview">&times;</button>
+            <div class="modal-body" id="quickviewBody">
+                <!-- Nội dung được tiêm bằng JavaScript -->
+            </div>
+            <div class="modal-footer" id="quickviewFooter">
+                <!-- Các nút hành động được tiêm bằng JavaScript -->
+            </div>
+        </div>
+    </div>
+
+    <!-- 📊 COMPARE BAR -->
+    <div class="compare-bar" id="compareBar">
+        <div class="compare-container">
+            <div class="compare-info">
+                <span id="compareCount">0</span> Thiết bị đã chọn so sánh
+                <div class="compare-items-preview" id="compareThumbs">
+                    <!-- Preview ảnh nhỏ sản phẩm so sánh -->
+                </div>
+            </div>
+            <button class="btn-compare-action" id="btnOpenComparePopup">SO SÁNH NGAY</button>
+        </div>
+    </div>
+
+    <!-- 📊 COMPARE POPUP -->
+    <div class="compare-popup" id="comparePopup">
+        <div class="compare-popup-box">
+            <button class="modal-close-btn" id="btnCloseComparePopup">&times;</button>
+            <h3 class="compare-popup-title">BẢNG SO SÁNH THÔNG SỐ CHI TIẾT</h3>
+            <div style="overflow-x: auto;">
+                <table class="compare-table" id="compareTable">
+                    <!-- Render bảng so sánh bằng JavaScript -->
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <!-- 🧭 FOOTER ĐỘNG -->
+    <div id="global-footer"></div>
+
+    <!-- 🛠️ JAVASCRIPT ĐỘNG -->
+    <script src="../js/main.js"></script>
+    <script src="../js/products.js"></script>
+</body>
+</html>

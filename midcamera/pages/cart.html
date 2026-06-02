@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Giỏ hàng của bạn — MIDCAMERA</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../CSS/header.css">
+    <link rel="stylesheet" href="../CSS/footer.css">
+    <link rel="stylesheet" href="../CSS/cart.css">
+</head>
+<body>
+
+    <!-- 🧭 HEADER ĐỘNG -->
+    <div id="global-header" data-active-nav="cart"></div>
+
+    <main class="main-cart">
+        
+        <div class="cart-container">
+            
+            <!-- 🏷️ TIẾN TRÌNH 3 BƯỚC -->
+            <div class="checkout-progress">
+                <div class="progress-step active">
+                    <div class="step-circle">1</div>
+                    <span class="step-label">Giỏ hàng</span>
+                </div>
+                <div class="progress-line"></div>
+                <div class="progress-step upcoming">
+                    <div class="step-circle">2</div>
+                    <span class="step-label">Xác nhận</span>
+                </div>
+                <div class="progress-line"></div>
+                <div class="progress-step upcoming">
+                    <div class="step-circle">3</div>
+                    <span class="step-label">Thanh toán</span>
+                </div>
+            </div>
+
+            <!-- 🛒 LAYOUT GIỎ HÀNG -->
+            <div class="cart-layout" id="cartLayoutBox">
+                
+                <!-- Cột trái - Danh sách sản phẩm -->
+                <div class="cart-list-wrapper">
+                    <h2 class="cart-list-header">Danh sách thiết bị chọn thuê</h2>
+                    <div class="cart-list" id="cartListItems">
+                        <!-- Loaded dynamically -->
+                    </div>
+                </div>
+
+                <!-- Cột phải - Tổng kết -->
+                <div class="cart-summary">
+                    <h2 class="summary-title">Tóm tắt đơn hàng</h2>
+                    
+                    <div class="summary-row">
+                        <span>Tạm tính tiền máy</span>
+                        <span id="summarySubtotal">0₫</span>
+                    </div>
+                    <div class="summary-row">
+                        <span>Tiền phụ kiện đi kèm</span>
+                        <span id="summaryAccessories">0₫</span>
+                    </div>
+                    <div class="summary-row">
+                        <span>Trị giá cọc thiết bị</span>
+                        <span id="summaryDeposit" style="font-weight: 600;">0₫</span>
+                    </div>
+                    
+                    <div class="summary-row total-row">
+                        <span>TỔNG TIỀN THUÊ</span>
+                        <span class="summary-total-price" id="summaryTotal">0₫</span>
+                    </div>
+
+                    <p class="deposit-note">
+                        * <strong>Lưu ý về đặt cọc:</strong> Trị giá cọc đại diện cho giá trị cọc quy đổi bằng tiền mặt. MIDCAMERA hỗ trợ bạn cọc bằng <strong>Căn cước công dân gắn chip (CCCD)</strong> hoặc giấy tờ cá nhân khác để không cần phải đặt cọc tiền mặt.
+                    </p>
+
+                    <button class="btn-primary btn-continue-checkout" id="btnContinueCheckout">TIẾP TỤC XÁC NHẬN</button>
+                </div>
+
+            </div>
+
+            <!-- 📦 GIỎ HÀNG TRỐNG (Mặc định ẩn) -->
+            <div class="empty-cart-box" id="emptyCartBox" style="display: none;">
+                <div class="empty-cart-icon"><i class="fa-solid fa-cart-flatbed-suitcase"></i></div>
+                <h3>Giỏ hàng của bạn đang trống</h3>
+                <p>Bạn chưa lựa chọn thiết bị nào để đặt thuê. Khám phá ngay kho máy ảnh và ống kính chất lượng cao của chúng tôi.</p>
+                <a href="products.html" class="btn-primary">QUAY LẠI CỬA HÀNG</a>
+            </div>
+
+        </div>
+
+    </main>
+
+    <!-- 🧭 FOOTER ĐỘNG -->
+    <div id="global-footer"></div>
+
+    <!-- 🛠️ JAVASCRIPT ĐỘNG -->
+    <script src="../js/main.js"></script>
+    <script src="../js/cart.js"></script>
+</body>
+</html>

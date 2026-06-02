@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Khách hàng đánh giá — MIDCAMERA</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../CSS/header.css">
+    <link rel="stylesheet" href="../CSS/footer.css">
+    <link rel="stylesheet" href="../CSS/reviews.css">
+</head>
+<body>
+
+    <!-- 🧭 HEADER ĐỘNG -->
+    <div id="global-header" data-active-nav="banggia"></div>
+
+    <main class="main-reviews">
+        
+        <!-- 📊 TỔNG HỢP ĐIỂM -->
+        <section class="reviews-summary">
+            <div class="summary-container">
+                
+                <div class="summary-left">
+                    <div class="score-big">4.9</div>
+                    <div class="score-details">
+                        <div class="score-stars">★★★★★</div>
+                        <span class="score-text">Đánh giá trung bình từ 120+ khách hàng tại Vinh</span>
+                    </div>
+                </div>
+
+                <div class="summary-right">
+                    <!-- 5 Sao -->
+                    <div class="star-distribution-row">
+                        <span>5 sao</span>
+                        <div class="distribution-bar">
+                            <div class="distribution-fill" style="width: 90%;"></div>
+                        </div>
+                        <span>90%</span>
+                    </div>
+                    <!-- 4 Sao -->
+                    <div class="star-distribution-row">
+                        <span>4 sao</span>
+                        <div class="distribution-bar">
+                            <div class="distribution-fill" style="width: 8%;"></div>
+                        </div>
+                        <span>8%</span>
+                    </div>
+                    <!-- 3 Sao -->
+                    <div class="star-distribution-row">
+                        <span>3 sao</span>
+                        <div class="distribution-bar">
+                            <div class="distribution-fill" style="width: 2%;"></div>
+                        </div>
+                        <span>2%</span>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- 📑 TABS LỌC ĐÁNH GIÁ -->
+        <div class="filter-tabs-container">
+            <ul class="reviews-filter-tabs">
+                <li class="reviews-tab-item active" data-stars="all">Tất cả đánh giá</li>
+                <li class="reviews-tab-item" data-stars="5">5 Sao (★★★★★)</li>
+                <li class="reviews-tab-item" data-stars="4">4 Sao (★★★★)</li>
+                <li class="reviews-tab-item" data-stars="3">3 Sao (★★★)</li>
+            </ul>
+        </div>
+
+        <!-- 🛍️ GRID DANH SÁCH ĐÁNH GIÁ -->
+        <section class="reviews-grid-section">
+            <div class="reviews-grid" id="reviewsGridContainer">
+                <!-- Loaded dynamically -->
+            </div>
+        </section>
+
+    </main>
+
+    <!-- 🧭 FOOTER ĐỘNG -->
+    <div id="global-footer"></div>
+
+    <!-- 🛠️ JAVASCRIPT ĐỘNG -->
+    <script src="../js/main.js"></script>
+    <script src="../js/reviews.js"></script>
+</body>
+</html>

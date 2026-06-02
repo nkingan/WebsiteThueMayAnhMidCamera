@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tài khoản cá nhân — MIDCAMERA</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../CSS/header.css">
+    <link rel="stylesheet" href="../CSS/footer.css">
+    <link rel="stylesheet" href="../CSS/account.css">
+</head>
+<body>
+
+    <!-- 🧭 HEADER ĐỘNG -->
+    <div id="global-header" data-active-nav="account"></div>
+
+    <main class="main-account">
+        
+        <div class="account-container">
+            
+            <div class="account-wrapper">
+                
+                <!-- 🧭 SIDEBAR TÀI KHOẢN -->
+                <aside class="account-sidebar">
+                    
+                    <!-- Profile tóm tắt -->
+                    <div class="user-profile-brief">
+                        <div class="avatar-large" id="sidebarAvatar">NKV</div>
+                        <h3 id="sidebarName">Nguyễn Khánh Vân</h3>
+                        <span id="sidebarEmail">Midcamera37@gmail.com</span>
+                    </div>
+
+                    <!-- Menu list -->
+                    <ul class="account-menu">
+                        <li class="account-menu-item active" data-target="profile">
+                            <i class="fa-regular fa-user"></i> Thông tin cá nhân
+                        </li>
+                        <li class="account-menu-item" data-target="orders">
+                            <i class="fa-solid fa-rectangle-list"></i> Lịch sử đơn hàng
+                        </li>
+                        <li class="account-menu-item" data-target="rewards">
+                            <i class="fa-solid fa-award"></i> Điểm thưởng tích lũy
+                        </li>
+                        
+                        <li class="logout-divider"></li>
+                        <li class="account-menu-item btn-logout" id="btnLogout">
+                            <i class="fa-solid fa-power-off"></i> Đăng xuất
+                        </li>
+                    </ul>
+
+                </aside>
+
+                <!-- 🖥️ VÙNG NỘI DUNG CHÍNH -->
+                <section class="account-content">
+                    
+                    <!-- 1. MÀN HÌNH THÔNG TIN CÁ NHÂN -->
+                    <div class="account-pane active" id="pane-profile">
+                        <h2 class="content-heading">Thông tin cá nhân</h2>
+                        
+                        <form id="profileForm" class="profile-info-grid" onsubmit="event.preventDefault(); saveProfileChanges();">
+                            <div class="info-group">
+                                <label>Họ và tên</label>
+                                <input type="text" id="profName" value="Nguyễn Khánh Vân">
+                            </div>
+                            <div class="info-group">
+                                <label>Số điện thoại</label>
+                                <input type="tel" id="profPhone" value="0987.654.321">
+                            </div>
+                            <div class="info-group">
+                                <label>Địa chỉ Email</label>
+                                <input type="email" id="profEmail" value="Midcamera37@gmail.com">
+                            </div>
+                            <div class="info-group">
+                                <label>Ngày tham gia</label>
+                                <input type="text" id="profCreated" value="17/12/2025" readonly>
+                            </div>
+                            <div class="info-group" style="grid-column: 1/-1;">
+                                <label>Địa chỉ mặc định nhận máy</label>
+                                <input type="text" id="profAddress" value="45 Bạch Liêu, TP. Vinh, Nghệ An">
+                            </div>
+
+                            <button type="submit" class="btn-primary" style="margin-top: 15px; align-self: flex-start;">LƯU THAY ĐỔI</button>
+                        </form>
+                    </div>
+
+                    <!-- 2. MÀN HÌNH LỊCH SỬ ĐƠN HÀNG -->
+                    <div class="account-pane" id="pane-orders" style="display: none;">
+                        <h2 class="content-heading">Lịch sử đặt thuê thiết bị</h2>
+                        
+                        <div class="orders-history-list" id="ordersHistoryContainer">
+                            <!-- loaded dynamically -->
+                        </div>
+                    </div>
+
+                    <!-- 3. MÀN HÌNH ĐIỂM THƯỞNG TÍCH LŨY -->
+                    <div class="account-pane" id="pane-rewards" style="display: none;">
+                        <h2 class="content-heading">Tích lũy điểm thưởng thành viên</h2>
+                        
+                        <div class="rewards-box">
+                            <div class="rewards-info">
+                                <h4>Thạng Hạng Thành Viên: Silver</h4>
+                                <p>Tích lũy 10.000₫ tương đương 1 điểm thưởng. Sử dụng điểm để được trừ tiền trực tiếp vào đơn đặt thuê tiếp theo.</p>
+                            </div>
+                            <div class="rewards-points">
+                                120 <br> <span>điểm</span>
+                            </div>
+                        </div>
+
+                        <h3 style="font-family: 'Montserrat'; font-size: 1rem; font-weight: 700; margin-bottom: 20px;">Lịch sử tích lũy điểm</h3>
+                        <div class="orders-history-list">
+                            <div class="order-item" style="border-bottom: 1px dashed #eee; padding: 15px 0;">
+                                <div class="order-item-info">
+                                    <h4 style="font-size: 0.9rem;">Thuê Fujifilm X100V (#MID492817)</h4>
+                                    <span class="order-item-date">Tích lũy +60 điểm • 25/05/2026</span>
+                                </div>
+                                <span style="font-weight: 700; color: #27AE60;">+60 Điểm</span>
+                            </div>
+                            
+                            <div class="order-item" style="border-bottom: none; padding: 15px 0;">
+                                <div class="order-item-info">
+                                    <h4 style="font-size: 0.9rem;">Thuê Canon EOS R50 (#MID281734)</h4>
+                                    <span class="order-item-date">Tích lũy +60 điểm • 10/05/2026</span>
+                                </div>
+                                <span style="font-weight: 700; color: #27AE60;">+60 Điểm</span>
+                            </div>
+                        </div>
+                    </div>
+
+                </section>
+
+            </div>
+
+        </div>
+
+    </main>
+
+    <!-- 🧭 FOOTER ĐỘNG -->
+    <div id="global-footer"></div>
+
+    <!-- 🛠️ JAVASCRIPT ĐỘNG -->
+    <script src="../js/main.js"></script>
+    <script src="../js/account.js"></script>
+</body>
+</html>

@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Xác nhận đặt thuê — MIDCAMERA</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../CSS/header.css">
+    <link rel="stylesheet" href="../CSS/footer.css">
+    <link rel="stylesheet" href="../CSS/checkout.css">
+</head>
+<body>
+
+    <!-- 🧭 HEADER ĐỘNG -->
+    <div id="global-header" data-active-nav="cart"></div>
+
+    <main class="main-checkout">
+        
+        <div class="checkout-container">
+            
+            <!-- 🏷️ TIẾN TRÌNH 3 BƯỚC -->
+            <div class="checkout-progress" id="checkoutProgressBox">
+                <div class="progress-step completed">
+                    <div class="step-circle">1</div>
+                    <span class="step-label">Giỏ hàng</span>
+                </div>
+                <div class="progress-line completed"></div>
+                <div class="progress-step active" id="stepBox2">
+                    <div class="step-circle">2</div>
+                    <span class="step-label">Xác nhận</span>
+                </div>
+                <div class="progress-line" id="stepLine2"></div>
+                <div class="progress-step upcoming" id="stepBox3">
+                    <div class="step-circle">3</div>
+                    <span class="step-label">Thanh toán</span>
+                </div>
+            </div>
+
+            <!-- 🛒 LAYOUT THANH TOÁN -->
+            <div class="checkout-layout">
+                
+                <!-- Cột trái - Vùng nội dung (Thay đổi giữa Bước 2 và Bước 3) -->
+                <div class="checkout-content-area">
+                    
+                    <!-- 📝 MÀN HÌNH BƯỚC 2: FORM XÁC NHẬN THÔNG TIN -->
+                    <div class="checkout-form-box" id="screenStep2">
+                        <h2 class="checkout-box-title">Thông tin giao nhận thiết bị</h2>
+                        
+                        <form id="checkoutForm" class="form-grid-2col" onsubmit="event.preventDefault(); goToPaymentScreen();">
+                            <div class="date-input-group">
+                                <label>Họ và tên khách hàng *</label>
+                                <input type="text" id="custName" required placeholder="Nguyễn Văn A">
+                            </div>
+                            
+                            <div class="date-input-group">
+                                <label>Số điện thoại liên hệ *</label>
+                                <input type="tel" id="custPhone" required placeholder="0901234567">
+                            </div>
+                            
+                            <div class="date-input-group">
+                                <label>Email nhận hóa đơn *</label>
+                                <input type="email" id="custEmail" required placeholder="example@gmail.com">
+                            </div>
+
+                            <div class="date-input-group">
+                                <label>Số CCCD gắn chip *</label>
+                                <input type="text" id="custCccd" required placeholder="037092837483">
+                            </div>
+
+                            <div class="date-input-group form-group-full">
+                                <label>Địa chỉ nhận bàn giao máy ảnh *</label>
+                                <input type="text" id="custAddress" required placeholder="45 Bạch Liêu, TP. Vinh, Nghệ An">
+                            </div>
+
+                            <div class="date-input-group form-group-full">
+                                <label>Ghi chú thêm về đơn hàng</label>
+                                <textarea id="custNote" rows="3" placeholder="Yêu cầu thêm về pin sạc, cài đặt sẵn thẻ nhớ..."></textarea>
+                            </div>
+
+                            <!-- Khung lưu ý đặt cọc viền đen nền xám nhạt -->
+                            <div class="deposit-notice form-group-full">
+                                <strong>LƯU Ý QUAN TRỌNG VỀ THỦ TỤC NHẬN THIẾT BỊ:</strong><br>
+                                Để đảm bảo an toàn thiết bị ngành ảnh cao cấp, khi nhận bàn giao máy ảnh bạn cần chuẩn bị: <br>
+                                1. Căn cước công dân gắn chip bản gốc (để MIDCAMERA đối chiếu thông tin).<br>
+                                2. Không cần đặt cọc tiền mặt nếu thông tin khớp CCCD và lịch sử thuê tốt. <br>
+                                3. Trường hợp chưa đủ điều kiện, trị giá cọc thiết bị tạm tính sẽ được áp dụng tương đương với <strong>50% trị giá trị thiết bị</strong>.
+                            </div>
+
+                            <button type="submit" class="btn-confirm-order form-group-full">TIẾP TỤC ĐẾN THANH TOÁN</button>
+                        </form>
+                    </div>
+
+                    <!-- 💳 MÀN HÌNH BƯỚC 3: PHƯƠNG THỨC THANH TOÁN -->
+                    <div class="checkout-form-box" id="screenStep3" style="display: none;">
+                        <h2 class="checkout-box-title">Chọn phương thức thanh toán tiền thuê</h2>
+                        
+                        <div class="payment-section">
+                            
+                            <!-- Bảng các tab phương thức -->
+                            <div class="payment-methods">
+                                <!-- Chuyển khoản ngân hàng -->
+                                <div class="payment-method-tab active" id="methodQr" onclick="selectPaymentMethod('qr')">
+                                    <div class="method-radio-circle"></div>
+                                    <div class="method-details">
+                                        <h4>Chuyển khoản Ngân hàng (Quét QR trực tuyến)</h4>
+                                        <p>Xử lý tự động nhanh chóng. Hệ thống xác nhận đơn ngay khi nhận tiền.</p>
+                                    </div>
+                                </div>
+
+                                <!-- Tiền mặt / Quẹt thẻ -->
+                                <div class="payment-method-tab" id="methodCod" onclick="selectPaymentMethod('cod')">
+                                    <div class="method-radio-circle"></div>
+                                    <div class="method-details">
+                                        <h4>Thanh toán bằng Tiền mặt / Quẹt thẻ khi nhận máy</h4>
+                                        <p>Thanh toán trực tiếp cho kỹ thuật viên bàn giao thiết bị của MIDCAMERA.</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Khung hiển thị QR code chuyển khoản -->
+                            <div class="qr-code-box" id="qrCodeContainer">
+                                <h4>QUÉT MÃ QR ĐỂ CHUYỂN KHOẢN</h4>
+                                <!-- Tạo QR chuyển khoản ngân hàng mẫu -->
+                                <img src="https://api.qrserver.com/v1/create-qr-code/?size=180x180&data=MIDCAMERA-PAYMENT" alt="QR Code Bank Transfer">
+                                <div class="qr-info-row">
+                                    <strong>Ngân hàng:</strong> MB Bank (Ngoại thương Việt Nam)<br>
+                                    <strong>Số tài khoản:</strong> 3737.9999.8888<br>
+                                    <strong>Chủ tài khoản:</strong> CÔNG TY MIDCAMERA VINH<br>
+                                    <strong>Số tiền chuyển:</strong> <span id="qrTransferAmount" style="font-weight: 700; color: #111;">0₫</span><br>
+                                    <strong>Nội dung chuyển khoản:</strong> <span id="qrTransferCode" style="font-weight: 700; color: #111; font-family: monospace;">MID123456</span>
+                                </div>
+                            </div>
+
+                            <button class="btn-confirm-order" onclick="confirmOrderPlacement()">XÁC NHẬN ĐẶT THUÊ THÀNH CÔNG</button>
+                            <button class="btn-outline" style="width: 100%; border-width: 1px;" onclick="goBackToForm()">QUAY LẠI SỬA THÔNG TIN</button>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- Cột phải - Tóm tắt đơn hàng -->
+                <div class="checkout-summary">
+                    <h2 class="summary-title">Tóm tắt đơn đặt thuê</h2>
+                    
+                    <div class="summary-items-list" id="checkoutSummaryItems">
+                        <!-- Loaded dynamically -->
+                    </div>
+
+                    <div class="summary-row">
+                        <span>Tiền thuê tạm tính</span>
+                        <span id="checkoutSubtotal">0₫</span>
+                    </div>
+                    <div class="summary-row">
+                        <span>Giá trị cọc thiết bị</span>
+                        <span id="checkoutDeposit">0₫</span>
+                    </div>
+                    
+                    <div class="summary-row total-row">
+                        <span>TỔNG THANH TOÁN THUÊ</span>
+                        <span class="summary-total-price" id="checkoutTotal">0₫</span>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+    </main>
+
+    <!-- 🧭 FOOTER ĐỘNG -->
+    <div id="global-footer"></div>
+
+    <!-- 🛠️ JAVASCRIPT ĐỘNG -->
+    <script src="../js/main.js"></script>
+    <script src="../js/checkout.js"></script>
+</body>
+</html>

@@ -1,0 +1,776 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Montserrat:wght@600;700;800&display=swap');
+
+/* Wrapper riêng tránh xung đột */
+.main-detail {
+    background-color: #FFFFFF;
+    padding: 40px 0 80px 0;
+    min-height: 100vh;
+}
+
+/* Breadcrumb */
+.breadcrumb-container {
+    max-width: 1100px;
+    margin: 0 auto 30px auto;
+    padding: 0 20px;
+}
+
+.breadcrumb {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.9rem;
+    color: #666;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    list-style: none;
+}
+
+.breadcrumb a {
+    color: #666;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.breadcrumb a:hover {
+    color: #111;
+}
+
+.breadcrumb-separator {
+    color: #8E8E93;
+}
+
+.breadcrumb-active {
+    color: #111;
+    font-weight: 500;
+}
+
+/* Layout 2 cột */
+.detail-wrapper {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex;
+    gap: 60px;
+    align-items: flex-start;
+}
+
+/* Cột Trái - Gallery */
+.detail-gallery {
+    flex: 1.1;
+    display: flex;
+    flex-direction: column;
+}
+
+.main-image-wrapper {
+    aspect-ratio: 4/3;
+    overflow: hidden;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    border: 1px solid #eee;
+}
+
+.main-image-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.thumbnail-strip {
+    display: flex;
+    gap: 12px;
+    margin-top: 15px;
+    overflow-x: auto;
+}
+
+.thumbnail-item {
+    width: 80px;
+    height: 60px;
+    border-radius: 4px;
+    overflow: hidden;
+    border: 2px solid transparent;
+    cursor: pointer;
+    background-color: #f9f9f9;
+    flex-shrink: 0;
+    transition: border-color 0.3s;
+}
+
+.thumbnail-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.thumbnail-item.active {
+    border-color: #111;
+}
+
+/* Cột Phải - Info */
+.detail-info {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.category-badge {
+    background-color: #f4f6f8;
+    color: #111;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    font-size: 0.8rem;
+    padding: 4px 12px;
+    border-radius: 4px;
+    align-self: flex-start;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.product-title {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 2rem;
+    font-weight: 700;
+    color: #111;
+    margin-bottom: 5px;
+    border-left: none;
+    padding-left: 0;
+}
+
+.price-box {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: #111;
+}
+
+.divider {
+    border-bottom: 1px solid #eee;
+    margin: 10px 0;
+}
+
+/* Date Picker Box */
+.date-picker-box {
+    background-color: #f4f6f8;
+    border-radius: 8px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.date-picker-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+}
+
+.date-input-group {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.date-input-group label {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: #666;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.date-input-group input[type="date"] {
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 10px 12px;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.9rem;
+    color: #333;
+    outline: none;
+    background-color: #fff;
+    transition: border-color 0.3s;
+}
+
+.date-input-group input[type="date"]:focus {
+    border-color: #111;
+}
+
+.total-summary-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid #e5e5e7;
+    padding-top: 15px;
+    margin-top: 5px;
+}
+
+.total-summary-row span:first-child {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.9rem;
+    color: #666;
+}
+
+.total-price-display {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: #111;
+}
+
+/* Nút Action */
+.action-buttons-box {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-top: 10px;
+}
+
+.action-buttons-box .btn-add-to-cart {
+    width: 100%;
+    background-color: #111;
+    color: #fff;
+    border-color: #111;
+}
+
+.action-buttons-box .btn-add-to-cart:hover {
+    background-color: #333;
+    border-color: #333;
+}
+
+.action-buttons-box .btn-rent-now {
+    width: 100%;
+}
+
+/* Tabs bên dưới */
+.detail-tabs-container {
+    max-width: 1100px;
+    margin: 60px auto 0 auto;
+    padding: 0 20px;
+}
+
+.detail-tabs {
+    display: flex;
+    border-bottom: 1px solid #eee;
+    list-style: none;
+}
+
+.tab-item {
+    padding: 12px 24px;
+    cursor: pointer;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: #666;
+    border-bottom: 2px solid transparent;
+    transition: all 0.3s ease;
+}
+
+.tab-item:hover {
+    color: #111;
+}
+
+.tab-item.active {
+    color: #111;
+    border-bottom: 2px solid #111;
+}
+
+.tab-content-wrapper {
+    padding: 30px 0;
+}
+
+.tab-pane {
+    display: none;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.95rem;
+    color: #444;
+    line-height: 1.8;
+}
+
+.tab-pane.active {
+    display: block;
+}
+
+.specs-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+}
+
+.specs-table td {
+    padding: 12px 15px;
+    border-bottom: 1px solid #eee;
+}
+
+.specs-table td:first-child {
+    font-weight: 600;
+    color: #111;
+    width: 250px;
+}
+
+.specs-table td:last-child {
+    color: #555;
+}
+
+/* Phụ kiện gợi ý */
+.accessories-section {
+    max-width: 1100px;
+    margin: 40px auto 0 auto;
+    padding: 0 20px;
+    border-top: 1px solid #eee;
+    padding-top: 50px;
+}
+
+.accessories-section h3 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #111;
+    margin-bottom: 25px;
+    text-transform: uppercase;
+}
+
+.accessories-row {
+    display: flex;
+    gap: 20px;
+    overflow-x: auto;
+    padding-bottom: 15px;
+}
+
+.accessory-card {
+    min-width: 160px;
+    max-width: 160px;
+    background-color: #f9f9f9;
+    border: 1px solid #eee;
+    border-radius: 8px;
+    padding: 15px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.accessory-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+}
+
+.accessory-img-wrapper {
+    width: 70px;
+    height: 70px;
+    border-radius: 4px;
+    overflow: hidden;
+    background: #fff;
+    border: 1px solid #eee;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.accessory-img-wrapper img {
+    width: 80%;
+    height: 80%;
+    object-fit: contain;
+}
+
+.accessory-card h4 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: #111;
+    margin-bottom: 0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: 100%;
+}
+
+.accessory-price {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: #333;
+}
+
+.btn-add-accessory {
+    background: none;
+    border: none;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 0.8rem;
+    color: #111;
+    cursor: pointer;
+    border-bottom: 2px solid #111;
+    padding-bottom: 2px;
+    margin-top: 5px;
+    transition: opacity 0.3s;
+}
+
+.btn-add-accessory:hover {
+    opacity: 0.7;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .detail-wrapper {
+        flex-direction: column;
+        gap: 40px;
+    }
+    
+    .detail-gallery, .detail-info {
+        width: 100%;
+    }
+    
+    .specs-table td:first-child {
+        width: 150px;
+    }
+}
+
+/* ==========================================================================
+   OVERLAP CALENDAR WARNINGS & MAINTENANCE WARNINGS (MID CAMERA)
+   ========================================================================== */
+.invalid-date {
+    border-color: #E74C3C !important;
+    background-color: #FDEDEC !important;
+    color: #C0392B !important;
+}
+
+.overlap-warning-box {
+    background-color: #FDEDEC;
+    border-left: 4px solid #E74C3C;
+    border-radius: 4px;
+    padding: 15px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    color: #C0392B;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.85rem;
+    display: flex;
+    gap: 12px;
+    align-items: flex-start;
+    line-height: 1.5;
+}
+
+.overlap-warning-box i {
+    font-size: 1.1rem;
+    margin-top: 2px;
+    flex-shrink: 0;
+}
+
+.maint-alert-box {
+    background-color: #F8F9FA;
+    border-left: 4px solid #6C757D;
+    border-radius: 4px;
+    padding: 15px;
+    margin-bottom: 20px;
+    color: #495057;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.85rem;
+    display: flex;
+    gap: 12px;
+    align-items: flex-start;
+    line-height: 1.5;
+}
+
+.maint-alert-box i {
+    font-size: 1.1rem;
+    margin-top: 2px;
+    color: #6C757D;
+    flex-shrink: 0;
+}
+
+/* ==========================================================================
+   REVIEWS TAB DESIGN (MID CAMERA)
+   ========================================================================== */
+.reviews-wrapper {
+    display: flex;
+    gap: 50px;
+    align-items: flex-start;
+    margin-top: 10px;
+}
+
+/* Cột trái - Tóm tắt điểm số */
+.reviews-summary {
+    flex: 0.8;
+    background-color: #F8F9FA;
+    border: 1px solid #EEEEEE;
+    border-radius: 8px;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+    position: sticky;
+    top: 20px;
+}
+
+.rating-average {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+}
+
+.average-score {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 3rem;
+    font-weight: 800;
+    color: #111111;
+    line-height: 1;
+}
+
+.stars-display {
+    color: #111111;
+    font-size: 1.2rem;
+    letter-spacing: 2px;
+}
+
+.reviews-count {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.85rem;
+    color: #666666;
+}
+
+.rating-bars {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.rating-bar-row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    width: 100%;
+}
+
+.star-num {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: #333;
+    min-width: 25px;
+}
+
+.bar-bg {
+    flex: 1;
+    height: 8px;
+    background-color: #E5E5E7;
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.bar-fill {
+    height: 100%;
+    background-color: #111111;
+    border-radius: 4px;
+    transition: width 0.6s ease;
+}
+
+.star-percent-count {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.8rem;
+    color: #666666;
+    min-width: 15px;
+    text-align: right;
+}
+
+/* Cột phải - Danh sách đánh giá & Form viết */
+.reviews-list-section {
+    flex: 1.5;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.reviews-section-title {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: #111111;
+    border-left: none;
+    padding-left: 0;
+    margin-bottom: 5px;
+    text-transform: uppercase;
+}
+
+.reviews-list-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.no-reviews-msg {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.95rem;
+    color: #8E8E93;
+    text-align: center;
+    padding: 30px 0;
+}
+
+.review-item {
+    border-bottom: 1px solid #EEEEEE;
+    padding-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.review-item:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+}
+
+.review-item-header {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.review-item-avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: #111111;
+    color: #FFFFFF;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.review-item-meta {
+    flex-grow: 1;
+}
+
+.review-item-meta h4 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: #111111;
+    margin-bottom: 2px;
+}
+
+.review-item-date {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.8rem;
+    color: #8E8E93;
+}
+
+.review-item-stars {
+    color: #111111;
+    font-size: 0.9rem;
+    letter-spacing: 1px;
+}
+
+.review-item-comment {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.95rem;
+    color: #444444;
+    line-height: 1.6;
+}
+
+/* Form viết đánh giá */
+.write-review-box {
+    background-color: #F8F9FA;
+    border: 1px solid #EEEEEE;
+    border-radius: 8px;
+    padding: 30px;
+    margin-top: 20px;
+}
+
+.write-review-box h3 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: #111111;
+    margin-bottom: 20px;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+}
+
+.review-form {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.form-group label {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: #666666;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.form-group input[type="text"],
+.form-group textarea {
+    border: 1px solid #DDDDDD;
+    border-radius: 4px;
+    padding: 12px;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.9rem;
+    color: #333333;
+    outline: none;
+    background-color: #FFFFFF;
+    transition: border-color 0.3s;
+}
+
+.form-group input[type="text"]:focus,
+.form-group textarea:focus {
+    border-color: #111111;
+}
+
+.star-rating-select {
+    display: flex;
+    gap: 8px;
+    font-size: 1.25rem;
+    color: #111111;
+    cursor: pointer;
+    align-items: center;
+    height: 45px;
+}
+
+.star-rating-select i {
+    transition: transform 0.2s ease;
+}
+
+.star-rating-select i:hover {
+    transform: scale(1.15);
+}
+
+/* Responsive Đánh giá */
+@media (max-width: 768px) {
+    .reviews-wrapper {
+        flex-direction: column;
+        gap: 30px;
+    }
+    
+    .reviews-summary {
+        position: static;
+        width: 100%;
+        box-sizing: border-box;
+    }
+    
+    .form-row {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+}
+

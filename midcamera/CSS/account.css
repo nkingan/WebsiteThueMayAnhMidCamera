@@ -1,0 +1,339 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Montserrat:wght@600;700;800&display=swap');
+
+/* Wrapper riêng tránh xung đột */
+.main-account {
+    background-color: #f4f6f8;
+    padding: 50px 0 80px 0;
+    min-height: 100vh;
+    font-family: 'Inter', sans-serif;
+}
+
+.account-container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.account-wrapper {
+    display: grid;
+    grid-template-columns: 240px 1fr;
+    gap: 30px;
+    align-items: flex-start;
+}
+
+/* 🧭 SIDEBAR TÀI KHOẢN */
+.account-sidebar {
+    background-color: #ffffff;
+    border-radius: 8px;
+    border: 1px solid #eee;
+    padding: 25px;
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.02);
+}
+
+.user-profile-brief {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 12px;
+}
+
+.avatar-large {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background-color: #f4f6f8;
+    color: #111;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 800;
+    font-size: 1.3rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #eee;
+}
+
+.user-profile-brief h3 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: #111;
+    margin-bottom: 2px;
+}
+
+.user-profile-brief span {
+    font-size: 0.85rem;
+    color: #666;
+}
+
+/* Menu items */
+.account-menu {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.account-menu-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 15px;
+    border-radius: 4px;
+    cursor: pointer;
+    color: #666;
+    font-family: 'Inter', sans-serif;
+    font-weight: 500;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+}
+
+.account-menu-item:hover {
+    background-color: #f9f9f9;
+    color: #111;
+}
+
+.account-menu-item.active {
+    background-color: #f4f6f8;
+    color: #111;
+    border-left: 3px solid #111;
+    padding-left: 12px;
+    font-weight: 600;
+}
+
+.account-menu-item i {
+    font-size: 1rem;
+    width: 20px;
+    text-align: center;
+}
+
+.logout-divider {
+    border-top: 1px solid #eee;
+    margin-top: 10px;
+    padding-top: 15px;
+}
+
+.btn-logout {
+    color: #8E8E93;
+}
+
+.btn-logout:hover {
+    color: #111;
+}
+
+/* 🖥️ CONTENT AREA */
+.account-content {
+    background-color: #ffffff;
+    border-radius: 8px;
+    border: 1px solid #eee;
+    padding: 35px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.02);
+    min-height: 450px;
+}
+
+.content-heading {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: #111;
+    text-transform: uppercase;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 15px;
+    margin-bottom: 25px;
+    letter-spacing: 0.5px;
+}
+
+/* Thông tin cá nhân Form */
+.profile-info-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.info-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.info-group label {
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+    font-size: 0.85rem;
+    color: #666;
+    text-transform: uppercase;
+}
+
+.info-group input {
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 10px 15px;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.95rem;
+    color: #111;
+    background-color: #fcfcfc;
+    outline: none;
+}
+
+.info-group input:focus {
+    border-color: #111;
+    background-color: #fff;
+}
+
+/* Lịch sử đơn hàng */
+.orders-history-list {
+    display: flex;
+    flex-direction: column;
+}
+
+.order-item {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    border-bottom: 1px solid #eee;
+    padding: 20px 0;
+}
+
+.order-item:last-child {
+    border-bottom: none;
+}
+
+.order-item-img {
+    width: 70px;
+    height: 55px;
+    border-radius: 4px;
+    overflow: hidden;
+    background-color: #f9f9f9;
+    border: 1px solid #eee;
+    flex-shrink: 0;
+}
+
+.order-item-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.order-item-info {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.order-item-info h4 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: #111;
+    margin-bottom: 0;
+}
+
+.order-item-date {
+    font-size: 0.8rem;
+    color: #666;
+}
+
+.order-item-price-box {
+    text-align: right;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    margin-left: 20px;
+}
+
+.order-item-price {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: #111;
+}
+
+/* Huy hiệu trạng thái */
+.status-badge {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 0.75rem;
+    padding: 4px 10px;
+    border-radius: 4px;
+    text-transform: uppercase;
+    display: inline-block;
+    letter-spacing: 0.5px;
+}
+
+/* Trạng thái Đang thuê */
+.status-badge.renting {
+    background-color: #f4f6f8;
+    color: #111;
+    border: 1px solid #333;
+}
+
+/* Trạng thái Hoàn thành */
+.status-badge.completed {
+    background-color: #f4f6f8;
+    color: #666;
+    border: 1px solid #eee;
+}
+
+/* Trạng thái Đã hủy */
+.status-badge.cancelled {
+    background-color: #f4f6f8;
+    color: #A0A0A5;
+    text-decoration: line-through;
+    border: 1px solid #eee;
+}
+
+/* Bảng tin tích lũy điểm thưởng */
+.rewards-box {
+    background-color: #f4f6f8;
+    border-radius: 8px;
+    padding: 25px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+    border: 1px solid #eee;
+}
+
+.rewards-info h4 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: #111;
+    margin-bottom: 4px;
+}
+
+.rewards-info p {
+    font-size: 0.85rem;
+    color: #666;
+    margin-bottom: 0;
+}
+
+.rewards-points {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 2rem;
+    font-weight: 800;
+    color: #111;
+    text-align: right;
+}
+
+.rewards-points span {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #666;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .account-wrapper {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+    
+    .profile-info-grid {
+        grid-template-columns: 1fr;
+    }
+}

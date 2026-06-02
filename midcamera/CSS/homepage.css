@@ -1,0 +1,611 @@
+/* ==========================================================================
+   MIDCAMERA GLOBAL BRAND STYLE GUIDE & HOMEPAGE CSS
+   Giao diện: Minimalist & Tech Professional (Trắng - Đen - Xám)
+   ========================================================================== */
+
+/* 1. KHAI BÁO BẢNG MÀU VÀ FONT CHỮ TOÀN TRANG */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Montserrat:wght@600;700;800&display=swap');
+
+:root {
+    /* --- BẢNG MÀU CHỦ ĐẠO MỚI (MONOCHROME & TITANIUM) --- */
+    --bg-white: #FFFFFF;           /* Nền chính trang web */
+    --bg-light: #F5F5F7;           /* Nền phụ: Xám siêu nhẹ */
+    --bg-dark: #121212;            /* Nền tối */
+    --bg-pure-black: #000000;      /* Đen tuyệt đối */
+
+    /* --- MÀU ĐIỂM NHẤN MỚI --- */
+    --color-accent: #2A2A2C;       /* Xám đậm thời thượng (Trùng tone màu nền Header) */
+    --color-accent-hover: #000000; /* Hover đổi sang Đen tuyền */
+    --color-border: #E5E5E5;       /* Màu viền mảnh */
+    
+    /* Trạng thái máy ảnh */
+    --color-success: #27AE60;      
+    --bg-success-light: #E8F8F5;   
+
+    /* --- MÀU CHỮ TOÀN TRANG (TYPOGRAPHY) --- */
+    --text-main: #1D1D1F;          /* Đen Charcoal */
+    --text-muted: #8E8E93;         /* Xám mờ */
+    --text-light: #FFFFFF;         /* Chữ trắng */
+
+    /* --- PHÔNG CHỮ CHUẨN THIẾT KẾ --- */
+    --font-title: 'Montserrat', sans-serif; 
+    --font-body: 'Inter', sans-serif;       
+    
+    /* --- ĐỘ BO GÓC (BORDER RADIUS) --- */
+    --radius-sm: 4px;
+    --radius-md: 8px;              
+}
+
+/* 2. CÀI ĐẶT CƠ BẢN & ĐỒNG BỘ HÓA TOÀN TRANG */
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--font-body);
+    background-color: var(--bg-white);
+    color: var(--text-main);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+}
+
+/* 3. ĐỊNH DẠNG CÁC CẤP TIÊU ĐỀ (HEADINGS) */
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-title);
+    color: var(--bg-pure-black);
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    margin-bottom: 1rem;
+}
+
+h1 { 
+    font-size: 2.5rem; 
+    font-weight: 800; 
+} 
+h2 { 
+    font-size: 1.8rem; 
+    border-left: 4px solid var(--color-accent);
+    padding-left: 12px; 
+} 
+h3 { 
+    font-size: 1.2rem; 
+} 
+
+p {
+    margin-bottom: 1rem;
+    color: var(--text-main);
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+/* 4. CÁC THÀNH PHẦN GIAO DIỆN CHUNG (COMPONENTS) */
+.btn-primary {
+    display: inline-block;
+    font-family: var(--font-title);
+    font-weight: 700;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    background-color: var(--bg-pure-black);
+    color: var(--text-light);
+    padding: 12px 28px;
+    border: 1px solid var(--bg-pure-black);
+    border-radius: var(--radius-sm);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-align: center;
+}
+
+.btn-primary:hover {
+    background-color: var(--color-accent);
+    border-color: var(--color-accent);
+    color: var(--text-light);
+    transform: translateY(-2px);
+}
+
+.btn-outline {
+    display: inline-block;
+    font-family: var(--font-title);
+    font-weight: 700;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    background-color: transparent;
+    color: var(--bg-pure-black);
+    padding: 12px 28px;
+    border: 2px solid var(--bg-pure-black);
+    border-radius: var(--radius-sm);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-align: center;
+}
+
+.btn-outline:hover {
+    background-color: var(--bg-pure-black);
+    color: var(--text-light);
+}
+
+.btn-rent {
+    display: inline-block;
+    font-family: var(--font-title);
+    font-weight: 600;
+    font-size: 0.8rem;
+    background-color: var(--color-accent); 
+    color: var(--text-light);
+    padding: 8px 18px;
+    border: none;
+    border-radius: var(--radius-sm);
+    text-align: center;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.btn-rent:hover {
+    background-color: var(--color-accent-hover);
+}
+
+/* Card máy ảnh chuẩn */
+.camera-card {
+    background-color: var(--bg-white); 
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+    display: flex;
+    flex-direction: column;
+}
+
+.camera-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+    border-color: var(--color-accent); 
+}
+
+.card-img-wrapper {
+    aspect-ratio: 4/3;
+    overflow: hidden;
+    background: #f9f9f9;
+    position: relative;
+}
+
+.card-img-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.camera-card:hover .card-img-wrapper img {
+    transform: scale(1.05);
+}
+
+.card-info {
+    padding: 20px;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.card-info h3 {
+    font-family: var(--font-title);
+    font-size: 1.2rem;
+    color: #111;
+    margin-bottom: 8px;
+}
+
+.card-desc {
+    font-size: 0.95rem;
+    color: #666;
+    margin-bottom: 20px;
+    flex-grow: 1;
+    line-height: 1.5;
+}
+
+.card-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: auto;
+}
+
+.price-tag {
+    font-family: var(--font-title);
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #111;
+}
+
+/* 5. PHẦN CSS CHI TIẾT DÀNH CHO TRANG CHỦ (.main-homepage) */
+.main-homepage {
+    overflow-x: hidden;
+}
+
+/* Section chung */
+.section-container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 80px 20px;
+}
+
+.section-header {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.section-header h2 {
+    font-size: 2.2rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #111;
+    display: inline-block;
+    border-left: none;
+    padding-left: 0;
+    margin-bottom: 15px;
+}
+
+.section-header p {
+    font-size: 1.1rem;
+    color: #666;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* 🎥 Hero Section */
+.hero-section {
+    min-height: 85vh;
+    display: flex;
+    align-items: center;
+    color: #fff;
+    padding: 80px 20px;
+    position: relative;
+}
+
+.hero-content {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.hero-badge {
+    display: inline-block;
+    font-family: var(--font-title);
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    padding: 6px 15px;
+    background: rgba(255, 255, 255, 0.15);
+    border-radius: var(--radius-sm);
+    margin-bottom: 25px;
+    text-transform: uppercase;
+}
+
+.hero-content h1 {
+    font-size: 3.2rem;
+    color: #fff;
+    margin-bottom: 25px;
+    letter-spacing: 1px;
+    line-height: 1.2;
+    text-transform: uppercase;
+}
+
+.hero-content p {
+    font-size: 1.2rem;
+    color: #ddd;
+    margin-bottom: 40px;
+    max-width: 650px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.hero-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+/* 🔍 Bộ lọc nhanh */
+.quick-filter-section {
+    padding: 0 20px;
+    margin-top: -40px;
+    position: relative;
+    z-index: 100;
+}
+
+.filter-wrapper {
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.filter-box {
+    background: #fff;
+    border: 1px solid #eee;
+    border-radius: var(--radius-md);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+    padding: 25px 30px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)) auto;
+    gap: 20px;
+    align-items: flex-end;
+}
+
+.filter-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.filter-group label {
+    font-family: var(--font-title);
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: #111;
+    text-transform: uppercase;
+}
+
+.filter-group select {
+    border: 1px solid #ddd;
+    border-radius: var(--radius-sm);
+    padding: 12px 15px;
+    font-family: var(--font-body);
+    font-size: 0.95rem;
+    color: #333;
+    outline: none;
+    transition: border-color 0.3s;
+    background: #fff;
+}
+
+.filter-group select:focus {
+    border-color: #111;
+}
+
+/* Grid sản phẩm */
+.products-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: var(--radius-lg, 30px);
+    margin-bottom: 50px;
+}
+
+.more-link-wrapper {
+    text-align: center;
+}
+
+.link-more {
+    font-family: var(--font-title);
+    font-size: 1rem;
+    font-weight: 700;
+    color: #111;
+    border-bottom: 2px solid #111;
+    padding-bottom: 5px;
+    display: inline-block;
+}
+
+.link-more i {
+    margin-left: 8px;
+    transition: transform 0.3s;
+}
+
+.link-more:hover i {
+    transform: translateX(5px);
+}
+
+/* 🛡️ Values Section (Nền phụ) */
+.values-section {
+    background-color: var(--bg-light);
+}
+
+.values-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+}
+
+.value-card {
+    background: #fff;
+    border: 1px solid #eee;
+    border-radius: var(--radius-md);
+    padding: 40px 30px;
+    text-align: center;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.value-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+}
+
+.value-icon {
+    font-size: 2.5rem;
+    color: #111;
+    margin-bottom: 20px;
+}
+
+.value-card h3 {
+    font-size: 1.25rem;
+    margin-bottom: 12px;
+}
+
+.value-card p {
+    color: #666;
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
+
+/* 💬 Testimonials Section (Nền rất nhạt) */
+.testimonials-section {
+    background-color: #fcfcfc;
+}
+
+.testimonials-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+    gap: 30px;
+}
+
+.testimonials-grid .review-card {
+    background: #fff;
+    border: 1px solid #eee;
+    border-radius: var(--radius-md);
+    padding: 35px;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.testimonials-grid .review-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+}
+
+.review-header {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 15px;
+}
+
+.avatar-circle {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    background: var(--bg-light);
+    color: #111;
+    font-family: var(--font-title);
+    font-weight: 700;
+    font-size: 1.1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.review-header h4 {
+    font-family: var(--font-title);
+    font-size: 1rem;
+    margin-bottom: 2px;
+    color: #111;
+}
+
+.review-date {
+    font-size: 0.8rem;
+    color: #8E8E93;
+}
+
+.review-rating {
+    color: #111;
+    font-size: 0.95rem;
+    margin-bottom: 15px;
+    letter-spacing: 2px;
+}
+
+.review-content {
+    font-size: 0.95rem;
+    color: #333;
+    line-height: 1.6;
+    margin-bottom: 15px;
+}
+
+.product-badge {
+    display: inline-block;
+    background: var(--bg-light);
+    color: #666;
+    font-family: var(--font-title);
+    font-weight: 600;
+    font-size: 0.8rem;
+    padding: 4px 10px;
+    border-radius: var(--radius-sm);
+}
+
+/* 📩 Call to Action Section */
+.cta-section {
+    background: #eaece0; /* Section call-to-action */
+    padding: 80px 20px;
+    text-align: center;
+}
+
+.cta-container {
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.cta-container h2 {
+    font-size: 2.2rem;
+    font-weight: 800;
+    letter-spacing: 1px;
+    margin-bottom: 20px;
+    color: #111;
+}
+
+.cta-container p {
+    font-size: 1.1rem;
+    color: #444;
+    margin-bottom: 35px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .section-container {
+        padding: 50px 20px;
+    }
+    
+    .section-header h2 {
+        font-size: 1.8rem;
+    }
+    
+    .hero-section {
+        min-height: 60vh;
+    }
+    
+    .hero-content h1 {
+        font-size: 2.2rem;
+    }
+    
+    .filter-box {
+        grid-template-columns: 1fr;
+        padding: 20px;
+    }
+    
+    .filter-box button {
+        width: 100%;
+        margin-top: 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-content h1 {
+        font-size: 1.8rem;
+    }
+    
+    .testimonials-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* 🎥 Video Section */
+.video-section {
+    background-color: var(--bg-white);
+}
+
+.video-wrapper {
+    max-width: 800px;
+    margin: 0 auto;
+    aspect-ratio: 16/9;
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+    border: 1px solid var(--color-border);
+}
+
+.video-wrapper iframe {
+    width: 100%;
+    height: 100%;
+    display: block;
+}

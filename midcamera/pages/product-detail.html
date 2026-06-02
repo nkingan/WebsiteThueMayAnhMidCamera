@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chi tiết thiết bị — MIDCAMERA</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../CSS/header.css">
+    <link rel="stylesheet" href="../CSS/footer.css">
+    <link rel="stylesheet" href="../CSS/product-detail.css">
+</head>
+<body>
+
+    <!-- 🧭 HEADER ĐỘNG -->
+    <div id="global-header" data-active-nav="mayanh"></div>
+
+    <main class="main-detail">
+        
+        <!-- 🧭 BREADCRUMB -->
+        <div class="breadcrumb-container">
+            <ul class="breadcrumb">
+                <li><a href="../index.html">Trang chủ</a></li>
+                <li class="breadcrumb-separator">/</li>
+                <li><a href="products.html">Thiết bị</a></li>
+                <li class="breadcrumb-separator">/</li>
+                <li class="breadcrumb-active" id="breadcrumbProductName">Chi tiết thiết bị</li>
+            </ul>
+        </div>
+
+        <!-- 📸 DETAIL WRAPPER -->
+        <div class="detail-wrapper">
+            
+            <!-- Cột trái - Gallery ảnh -->
+            <div class="detail-gallery">
+                <div class="main-image-wrapper">
+                    <img src="" alt="" id="productMainImage">
+                </div>
+                <div class="thumbnail-strip" id="productThumbnailStrip">
+                    <!-- Thumbnail images load dynamically -->
+                </div>
+            </div>
+
+            <!-- Cột phải - Info -->
+            <div class="detail-info">
+                <span class="category-badge" id="productCategory">Mirrorless</span>
+                <h1 class="product-title" id="productName">Tên thiết bị</h1>
+                <div class="price-box" id="productPrice">0₫/ngày</div>
+                
+                <div class="divider"></div>
+                <p id="productShortDesc">Mô tả ngắn của sản phẩm.</p>
+                <div class="divider"></div>
+
+                <!-- Date Picker Box -->
+                <div class="date-picker-box">
+                    <div class="date-picker-row">
+                        <div class="date-input-group">
+                            <label>Ngày nhận máy</label>
+                            <input type="date" id="startDatePicker">
+                        </div>
+                        <div class="date-input-group">
+                            <label>Ngày trả máy</label>
+                            <input type="date" id="returnDatePicker">
+                        </div>
+                    </div>
+                    
+                    <div class="total-summary-row">
+                        <span>Số ngày thuê: <span id="daysCount" style="font-weight:700; color:#111;">3</span> ngày</span>
+                        <div class="total-price-display" id="totalPriceDisplay">0₫</div>
+                    </div>
+                </div>
+
+                <!-- Action Buttons Box -->
+                <div class="action-buttons-box">
+                    <button class="btn-primary btn-add-to-cart" id="btnAddToCart">THÊM VÀO GIỎ HÀNG</button>
+                    <button class="btn-outline btn-rent-now" id="btnRentNow">ĐẶT THUÊ NGAY</button>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- 📑 TABS BÊN DƯỚI -->
+        <div class="detail-tabs-container">
+            <ul class="detail-tabs">
+                <li class="tab-item active" data-tab="desc">Mô tả chi tiết</li>
+                <li class="tab-item" data-tab="specs">Thông số kỹ thuật</li>
+                <li class="tab-item" data-tab="reviews">Đánh giá</li>
+            </ul>
+
+            <div class="tab-content-wrapper">
+                <!-- Tab mô tả -->
+                <div class="tab-pane active" id="tab-desc">
+                    <p id="productLongDesc">Nội dung mô tả đầy đủ của sản phẩm.</p>
+                </div>
+
+                <!-- Tab thông số -->
+                <div class="tab-pane" id="tab-specs">
+                    <table class="specs-table">
+                        <tbody id="productSpecsTableBody">
+                            <!-- Specs load dynamically -->
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- Tab đánh giá -->
+                <div class="tab-pane" id="tab-reviews">
+                    <div class="reviews-wrapper">
+                        <!-- Cột trái: Tóm tắt điểm số -->
+                        <div class="reviews-summary">
+                            <div class="rating-average">
+                                <span class="average-score" id="averageScoreDisplay">4.8</span>
+                                <div class="stars-display" id="averageStarsDisplay">★★★★★</div>
+                                <span class="reviews-count" id="reviewsCountDisplay">(2 đánh giá)</span>
+                            </div>
+                            <div class="rating-bars" id="ratingBarsContainer">
+                                <!-- Rendered dynamically by JS -->
+                            </div>
+                        </div>
+                        
+                        <!-- Cột phải: Viết đánh giá & Danh sách -->
+                        <div class="reviews-list-section">
+                            <h3 class="reviews-section-title">Đánh giá từ khách hàng</h3>
+                            <div class="reviews-list-container" id="reviewsListContainer">
+                                <!-- Rendered dynamically by JS -->
+                            </div>
+                            
+                            <!-- Form viết đánh giá mới -->
+                            <div class="write-review-box">
+                                <h3>ĐỂ LẠI ĐÁNH GIÁ CỦA BẠN</h3>
+                                <form id="writeReviewForm" class="review-form">
+                                    <div class="form-row">
+                                        <div class="form-group">
+                                            <label for="reviewAuthor">Họ và tên</label>
+                                            <input type="text" id="reviewAuthor" placeholder="Nhập tên của bạn" required>
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Chọn số sao</label>
+                                            <div class="star-rating-select" id="starRatingSelect">
+                                                <i class="fa-solid fa-star" data-rating="1"></i>
+                                                <i class="fa-solid fa-star" data-rating="2"></i>
+                                                <i class="fa-solid fa-star" data-rating="3"></i>
+                                                <i class="fa-solid fa-star" data-rating="4"></i>
+                                                <i class="fa-solid fa-star" data-rating="5"></i>
+                                            </div>
+                                            <input type="hidden" id="selectedStarRatingValue" value="5">
+                                        </div>
+                                    </div>
+                                    <div class="form-group" style="margin-top: 15px;">
+                                        <label for="reviewComment">Cảm nhận của bạn</label>
+                                        <textarea id="reviewComment" rows="4" placeholder="Chia sẻ cảm nhận thực tế của bạn khi sử dụng thiết bị này..." required></textarea>
+                                    </div>
+                                    <button type="submit" class="btn-primary" style="margin-top: 20px; width: auto; padding: 12px 30px;">GỬI ĐÁNH GIÁ</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 🔌 PHỤ KIỆN GỢI Ý -->
+        <div class="accessories-section">
+            <h3>Gợi ý phụ kiện đi kèm</h3>
+            <div class="accessories-row" id="accessoriesRow">
+                <!-- Render phụ kiện gợi ý -->
+            </div>
+        </div>
+
+    </main>
+
+    <!-- 🧭 FOOTER ĐỘNG -->
+    <div id="global-footer"></div>
+
+    <!-- 🛠️ JAVASCRIPT ĐỘNG -->
+    <script src="../js/main.js"></script>
+    <script src="../js/product-detail.js"></script>
+</body>
+</html>

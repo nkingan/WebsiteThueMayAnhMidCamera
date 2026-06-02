@@ -1,0 +1,397 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Montserrat:wght@600;700;800&display=swap');
+
+/* Wrapper riêng tránh xung đột */
+.main-checkout {
+    background-color: #FFFFFF;
+    padding: 50px 0 80px 0;
+    min-height: 100vh;
+    font-family: 'Inter', sans-serif;
+}
+
+.checkout-container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* 🏷️ TIẾN TRÌNH 3 BƯỚC */
+.checkout-progress {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0;
+    margin-bottom: 50px;
+}
+
+.progress-step {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.step-circle {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 0.95rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s;
+}
+
+/* Các trạng thái của vòng tròn */
+.progress-step.completed .step-circle {
+    background-color: #111;
+    color: #fff;
+}
+
+.progress-step.active .step-circle {
+    background-color: #fff;
+    color: #111;
+    border: 2px solid #111;
+}
+
+.progress-step.upcoming .step-circle {
+    background-color: #f4f6f8;
+    color: #666;
+}
+
+.step-label {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: #666;
+}
+
+.progress-step.active .step-label {
+    color: #111;
+    font-weight: 700;
+}
+
+.progress-line {
+    width: 80px;
+    height: 2px;
+    background-color: #eee;
+    margin: 0 15px;
+    transition: background-color 0.3s;
+}
+
+.progress-line.completed {
+    background-color: #111;
+}
+
+/* Layout 2 cột */
+.checkout-layout {
+    display: flex;
+    gap: 40px;
+    align-items: flex-start;
+}
+
+/* Cột Trái - Form hoặc Thanh toán */
+.checkout-content-area {
+    flex: 2;
+}
+
+/* BƯỚC 2 - FORM XÁC NHẬN */
+.checkout-form-box {
+    background-color: #fff;
+    border: 1px solid #eee;
+    border-radius: 8px;
+    padding: 35px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.02);
+}
+
+.checkout-box-title {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: #111;
+    text-transform: uppercase;
+    margin-bottom: 25px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #eee;
+}
+
+.form-grid-2col {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.form-group-full {
+    grid-column: 1 / -1;
+}
+
+.checkout-form-box label {
+    display: block;
+    font-family: 'Inter', sans-serif;
+    font-weight: 500;
+    font-size: 0.85rem;
+    color: #333;
+    margin-bottom: 8px;
+}
+
+.checkout-form-box input[type="text"],
+.checkout-form-box input[type="tel"],
+.checkout-form-box input[type="email"],
+.checkout-form-box textarea {
+    width: 100%;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 12px 15px;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.9rem;
+    color: #333;
+    outline: none;
+    background-color: #fff;
+    transition: border-color 0.3s;
+}
+
+.checkout-form-box input:focus,
+.checkout-form-box textarea:focus {
+    border-color: #111;
+}
+
+/* Khung cọc đặc biệt */
+.deposit-notice {
+    background-color: #f4f6f8;
+    border-left: 3px solid #111;
+    padding: 15px 20px;
+    border-radius: 0;
+    margin: 25px 0;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.9rem;
+    color: #333;
+    line-height: 1.6;
+}
+
+.deposit-notice strong {
+    color: #111;
+}
+
+/* BƯỚC 3 - KHU THANH TOÁN (Mặc định ẩn hoặc hiện theo tab) */
+.payment-section {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+/* Phương thức thanh toán */
+.payment-methods {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.payment-method-tab {
+    border: 1px solid #eee;
+    border-radius: 8px;
+    padding: 18px 20px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    transition: all 0.3s ease;
+}
+
+.payment-method-tab:hover {
+    border-color: #bbb;
+}
+
+.payment-method-tab.active {
+    border-color: #111;
+    background-color: #f9f9f9;
+}
+
+.method-radio-circle {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    border: 2px solid #ddd;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    transition: border-color 0.3s;
+}
+
+.payment-method-tab.active .method-radio-circle {
+    border-color: #111;
+}
+
+.method-radio-circle::after {
+    content: '';
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: transparent;
+    transition: background-color 0.3s;
+}
+
+.payment-method-tab.active .method-radio-circle::after {
+    background-color: #111;
+}
+
+.method-details h4 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: #111;
+    margin-bottom: 4px;
+}
+
+.method-details p {
+    font-size: 0.85rem;
+    color: #666;
+    margin-bottom: 0;
+}
+
+/* QR Code Box */
+.qr-code-box {
+    border: 1px solid #eee;
+    border-radius: 8px;
+    padding: 25px;
+    text-align: center;
+    background-color: #fff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    margin-top: 10px;
+}
+
+.qr-code-box img {
+    max-width: 200px;
+    border: 1px solid #eee;
+    border-radius: 8px;
+    padding: 10px;
+    background: #fff;
+}
+
+.qr-info-row {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.9rem;
+    color: #333;
+    line-height: 1.6;
+}
+
+.qr-info-row strong {
+    color: #111;
+}
+
+/* Nút Submit */
+.btn-confirm-order {
+    width: 100%;
+    padding: 15px 30px;
+    font-size: 1.1rem;
+    font-weight: 700;
+    background-color: #111;
+    color: #fff;
+    border: 1px solid #111;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+    margin-top: 20px;
+    text-align: center;
+}
+
+.btn-confirm-order:hover {
+    background-color: #333;
+    border-color: #333;
+}
+
+/* Cột Phải - Order Summary */
+.checkout-summary {
+    flex: 1;
+    background-color: #f4f6f8;
+    border-radius: 8px;
+    padding: 25px;
+    border: 1px solid #eee;
+}
+
+.summary-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 12px 0;
+    border-bottom: 1px solid #eee;
+    font-size: 0.95rem;
+    color: #333;
+}
+
+.summary-row:last-of-type {
+    border-bottom: none;
+    margin-bottom: 15px;
+}
+
+.summary-row.total-row {
+    border-top: 2px solid #111;
+    border-bottom: none;
+    padding-top: 15px;
+    margin-top: 10px;
+}
+
+.summary-row.total-row span:first-child {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    color: #111;
+}
+
+.summary-total-price {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: #111;
+}
+
+/* Danh sách máy tóm tắt */
+.summary-items-list {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-bottom: 20px;
+    border-bottom: 2px solid #ddd;
+    padding-bottom: 15px;
+}
+
+.summary-item-brief {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.9rem;
+    color: #333;
+}
+
+.summary-item-brief span:first-child {
+    font-weight: 600;
+    color: #111;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .checkout-layout {
+        flex-direction: column;
+        gap: 30px;
+    }
+    
+    .checkout-content-area, .checkout-summary {
+        width: 100%;
+    }
+    
+    .form-grid-2col {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+}
+
+/* Style for form validation errors */
+.checkout-form-box input.invalid-input {
+    border-color: #ff3b30 !important;
+    background-color: #fff8f8;
+}
