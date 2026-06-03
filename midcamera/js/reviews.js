@@ -4,7 +4,7 @@
 let REVIEWS_DATA = [
     {
         name: "Vũ Trọng Sinh",
-        avatar: "MH",
+        avatar: "TS",
         date: "31/05/2026",
         stars: 5,
         device: "Fujifilm X100V",
