@@ -5,6 +5,23 @@
     background-color: #FFFFFF;
     min-height: 100vh;
 }
+.btn-detail {
+    margin-left: 12px;
+}
+
+.btn-book,
+.btn-detail {
+    background-color: #111;
+    color: #fff;
+    border: none;
+    padding: 7px 12px;
+    border-radius: 8px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 12px;
+    font-weight: 500;
+    text-decoration: none;
+    cursor: pointer;
+}
 
 /* Breadcrumb */
 .breadcrumb-container {
@@ -259,6 +276,10 @@
     display: flex;
     flex-direction: column;
     flex-grow: 1;
+}
+
+.product-header h2 {
+    margin-bottom: 8px;
 }
 
 .product-type-tag {

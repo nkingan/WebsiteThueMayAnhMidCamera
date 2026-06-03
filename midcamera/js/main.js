@@ -5,8 +5,8 @@ const PRODUCTS_DATA = [
     {
         id: "canon-r50",
         name: "Canon EOS R50",
-        price: 150000,
-        deposit: 5000000,
+        price: 200000,
+        deposit: 2000000,
         category: "Mirrorless",
         brand: "Canon",
         image: "images/canon_r50.jpg",
@@ -15,7 +15,7 @@ const PRODUCTS_DATA = [
         longDesc: "Canon EOS R50 là chiếc máy ảnh mirrorless dòng APS-C hướng tới sự nhỏ gọn và tiện lợi tối đa cho người dùng. Với cảm biến 24.2 Megapixel kết hợp cùng bộ xử lý hình ảnh DIGIC X đỉnh cao, máy cho khả năng ghi lại hình ảnh sắc nét ngay cả trong điều kiện thiếu sáng. Hệ thống lấy nét tự động thông minh Dual Pixel CMOS AF II tự động phát hiện và theo dõi mắt, khuôn mặt của người lẫn động vật cực nhạy. Phù hợp hoàn hảo cho các bạn trẻ sáng tạo nội dung, làm vlog, chụp ảnh du lịch hoặc đời thường.",
         status: "available",
         bookedRanges: [
-            { start: "2026-06-05", end: "2026-06-08" }
+            { start: "2026-06-04", end: "2026-06-08" }
         ],
         gallery: [
             "images/canon_r50.jpg"
@@ -41,8 +41,8 @@ const PRODUCTS_DATA = [
     {
         id: "fuji-xt100",
         name: "Fujifilm X-T100",
-        price: 130000,
-        deposit: 4000000,
+        price: 180000,
+        deposit: 1500000,
         category: "Mirrorless",
         brand: "Fujifilm",
         image: "images/fuji_xt100.png",
@@ -76,8 +76,8 @@ const PRODUCTS_DATA = [
     {
         id: "fuji-xs10",
         name: "Fujifilm X-S10",
-        price: 120000,
-        deposit: 3500000,
+        price: 260000,
+        deposit: 3000000,
         category: "Mirrorless",
         brand: "Fujifilm",
         image: "images/fuji_xs10.jpg",
@@ -111,8 +111,8 @@ const PRODUCTS_DATA = [
     {
         id: "fuji-x100vi",
         name: "Fujifilm X100VI",
-        price: 200000,
-        deposit: 12000000,
+        price: 300000,
+        deposit: 5000000,
         category: "Compact",
         brand: "Fujifilm",
         image: "images/fuji_x100vi.jpg",
@@ -146,8 +146,8 @@ const PRODUCTS_DATA = [
     {
         id: "dji-pocket3",
         name: "DJI Pocket 3",
-        price: 180000,
-        deposit: 6000000,
+        price: 150000,
+        deposit: 1000000,
         category: "Action",
         brand: "DJI",
         image: "images/pocket3.jpg",
@@ -180,8 +180,8 @@ const PRODUCTS_DATA = [
     {
         id: "fuji-instax",
         name: "Fujifilm Instax Mini 12",
-        price: 80000,
-        deposit: 1500000,
+        price: 120000,
+        deposit: 800000,
         category: "Film",
         brand: "Fujifilm",
         image: "images/instax12.png",
@@ -207,9 +207,9 @@ const PRODUCTS_DATA = [
 
 // Mảng Phụ kiện tập trung
 const ACCESSORIES_DATA = [
-    { id: "acc-battery", name: "Bộ Pin sạc dự phòng", price: 30000, image: "images/pocket3.jpg" },
-    { id: "acc-tripod", name: "Chân máy Tripod Benro", price: 40000, image: "images/canon_r50.jpg" },
-    { id: "acc-sdcard", name: "Thẻ nhớ SanDisk 64GB 170MB/s", price: 20000, image: "images/fuji_xt10.jpg" }
+    { id: "acc-battery", name: "Bộ Pin sạc dự phòng", price: 30000, image: "images/pin.jpg" },
+    { id: "acc-tripod", name: "Chân máy Tripod Benro", price: 40000, image: "images/chanmay.jpg" },
+    { id: "acc-sdcard", name: "Thẻ nhớ SanDisk 64GB 170MB/s", price: 20000, image: "images/thenho.jpg" }
 ];
 
 

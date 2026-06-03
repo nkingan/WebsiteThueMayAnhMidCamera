@@ -104,7 +104,7 @@ function renderReviews() {
             </div>
             <div class="review-rating-stars">${starsStr}</div>
             <p class="review-text">"${rev.content}"</p>
-            <span class="rented-product-badge">Đã thuê: ${rev.product}</span>
+            <span class="rented-product-badge">Đã có lịch trong hôm nay: ${rev.product}</span>
         `;
         reviewsGridContainer.appendChild(card);
     });
