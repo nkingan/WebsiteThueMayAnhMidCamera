@@ -609,3 +609,28 @@ a {
     height: 100%;
     display: block;
 }
+.video-wrapper video {
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    display: block;
+}
+footer p, 
+footer li,
+footer div:not([class*="logo"]) {
+    color: #e5e7eb !important;
+    font-size: 0.9rem;
+    line-height: 1.6;
+}
+
+footer [class*="logo"] span,
+footer h2 span,
+footer h3 span {
+    font-size: inherit !important;      
+    font-weight: inherit !important;  
+    color: #ffffff !important;         
+}
+
+footer i, 
+footer svg {
+    color: #ffffff !important;
+}
