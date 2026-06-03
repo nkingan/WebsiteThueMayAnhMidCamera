@@ -18,9 +18,7 @@ const PRODUCTS_DATA = [
             { start: "2026-06-05", end: "2026-06-08" }
         ],
         gallery: [
-            "images/canon_r50.jpg",
-            "images/fuji_xm5.jpg",
-            "images/pocket3.jpg"
+            "images/canon_r50.jpg"
         ],
         specs: {
             "Cảm biến": "APS-C CMOS 24.2 MP",
@@ -56,9 +54,7 @@ const PRODUCTS_DATA = [
             { start: "2026-06-10", end: "2026-06-12" }
         ],
         gallery: [
-            "images/fuji_xt100.png",
-            "images/fuji_xt20.jpg",
-            "images/fuji_xt10.jpg"
+            "images/fuji_xt100.png"
         ],
         specs: {
             "Cảm biến": "APS-C CMOS 24.2 MP",
@@ -78,24 +74,22 @@ const PRODUCTS_DATA = [
         ]
     },
     {
-        id: "fuji-xt10",
-        name: "Fujifilm X-T10",
+        id: "fuji-xs10",
+        name: "Fujifilm X-S10",
         price: 120000,
         deposit: 3500000,
         category: "Mirrorless",
         brand: "Fujifilm",
-        image: "images/fuji_xt10.jpg",
+        image: "images/fuji_xs10.jpg",
         desc: "Kích thước cơ động, hệ thống điều khiển cơ khí trực quan, mang lại niềm vui chụp ảnh thuần túy của dòng X-T.",
         shortDesc: "Kích thước cơ động, hệ thống điều khiển cơ khí trực quan, mang lại niềm vui chụp ảnh thuần túy của dòng X-T.",
-        longDesc: "Fujifilm X-T10 là chiếc máy ảnh không gương lật nhỏ gọn thừa hưởng phong cách thiết kế cơ khí cơ học cơ động của dòng X-T cao cấp. Sở hữu cảm biến X-Trans CMOS II độc quyền đem lại độ chi tiết ảnh vượt trội cùng khả năng tái tạo màu da cực kỳ nịnh mắt. Bố cục các bánh răng điều khiển tốc độ, bù trừ sáng bằng kim loại mang lại trải nghiệm thao tác nhiếp ảnh hoài cổ, đầy cảm xúc.",
+        longDesc: "Fujifilm X-S10 là chiếc máy ảnh không gương lật nhỏ gọn thừa hưởng phong cách thiết kế cơ khí cơ học cơ động của dòng X-T cao cấp. Sở hữu cảm biến X-Trans CMOS II độc quyền đem lại độ chi tiết ảnh vượt trội cùng khả năng tái tạo màu da cực kỳ nịnh mắt. Bố cục các bánh răng điều khiển tốc độ, bù trừ sáng bằng kim loại mang lại trải nghiệm thao tác nhiếp ảnh hoài cổ, đầy cảm xúc.",
         status: "rented",
         bookedRanges: [
             { start: "2026-05-28", end: "2026-06-03" }
         ],
         gallery: [
-            "images/fuji_xt10.jpg",
-            "images/fuji_xt20.jpg",
-            "images/fuji_x100vi.jpg"
+            "images/fuji_xs10.jpg"
         ],
         specs: {
             "Cảm biến": "X-Trans CMOS II 16.3 MP",
@@ -115,8 +109,8 @@ const PRODUCTS_DATA = [
         ]
     },
     {
-        id: "fuji-x100v",
-        name: "Fujifilm X100V",
+        id: "fuji-x100vi",
+        name: "Fujifilm X100VI",
         price: 200000,
         deposit: 12000000,
         category: "Compact",
@@ -124,15 +118,13 @@ const PRODUCTS_DATA = [
         image: "images/fuji_x100vi.jpg",
         desc: "Chiếc compact đường phố tối thượng với ống kính f/2 23mm cố định, cảm biến X-Trans IV và kính ngắm lai độc quyền.",
         shortDesc: "Chiếc compact đường phố tối thượng với ống kính f/2 23mm cố định, cảm biến X-Trans IV và kính ngắm lai độc quyền.",
-        longDesc: "Fujifilm X100V đại diện cho thế hệ thứ 5 của dòng máy ảnh compact đường phố huyền thoại X100. Máy được nâng cấp ống kính 23mm F2.0 thế hệ mới cho độ nét rìa ảnh vượt trội. Thiết kế thân máy bằng nhôm tinh luyện kết hợp cảm biến X-Trans CMOS 4 và bộ xử lý X-Processor 4 mạnh mẽ. Kính ngắm lai quang học và điện tử độc quyền cùng các giả lập màu phim mới nhất khiến X100V trở thành chiếc máy ảnh được khao khát nhất bởi các nhiếp ảnh gia đường phố.",
+        longDesc: "Fujifilm X100VI đại diện cho thế hệ thứ 5 của dòng máy ảnh compact đường phố huyền thoại X100. Máy được nâng cấp ống kính 23mm F2.0 thế hệ mới cho độ nét rìa ảnh vượt trội. Thiết kế thân máy bằng nhôm tinh luyện kết hợp cảm biến X-Trans CMOS 4 và bộ xử lý X-Processor 4 mạnh mẽ. Kính ngắm lai quang học và điện tử độc quyền cùng các giả lập màu phim mới nhất khiến X100V trở thành chiếc máy ảnh được khao khát nhất bởi các nhiếp ảnh gia đường phố.",
         status: "available",
         bookedRanges: [
             { start: "2026-06-15", end: "2026-06-20" }
         ],
         gallery: [
-            "images/fuji_x100vi.jpg",
-            "images/fuji_xs20.jpg",
-            "images/fuji_xs10.jpg"
+            "images/fuji_x100vi.jpg"
         ],
         specs: {
             "Cảm biến": "X-Trans CMOS 4 26.1 MP",
@@ -165,9 +157,7 @@ const PRODUCTS_DATA = [
         status: "maintenance",
         bookedRanges: [],
         gallery: [
-            "images/pocket3.jpg",
-            "images/fuji_xm5.jpg",
-            "images/canon_r50.jpg"
+            "images/pocket3.jpg"
         ],
         specs: {
             "Cảm biến": "CMOS 1.0-inch",
@@ -189,21 +179,19 @@ const PRODUCTS_DATA = [
     },
     {
         id: "fuji-instax",
-        name: "Fujifilm Instax Mini",
+        name: "Fujifilm Instax Mini 12",
         price: 80000,
         deposit: 1500000,
         category: "Film",
         brand: "Fujifilm",
-        image: "images/fuji_xm5.jpg",
+        image: "images/instax12.png",
         desc: "Máy ảnh chụp lấy liền dễ thương, lưu giữ khoảnh khắc bằng những tấm ảnh film mang phong cách cổ điển tức thì.",
         shortDesc: "Máy ảnh chụp lấy liền dễ thương, lưu giữ khoảnh khắc bằng những tấm ảnh film mang phong cách cổ điển tức thì.",
         longDesc: "Fujifilm Instax Mini là chiếc máy ảnh chụp lấy liền nhỏ nhắn xinh xắn, giúp lưu trữ trực quan mọi khoảnh khắc vui đùa của nhóm bạn bằng những tấm phim cơ học in ngay lập tức. Thiết kế gọn tay, màu sắc tươi tắn lý tưởng cho các buổi party, dã ngoại hoặc tặng làm quà lưu niệm.",
         status: "available",
         bookedRanges: [],
         gallery: [
-            "images/fuji_xm5.jpg",
-            "images/fuji_x100vi.jpg",
-            "images/fuji_xt100.png"
+            "images/instax12.png"
         ],
         specs: {
             "Loại film": "Fujifilm Instax Mini",
