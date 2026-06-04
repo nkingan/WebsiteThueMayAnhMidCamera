@@ -19,3 +19,25 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 });
+// ==========================================================================
+// SCRIPT ĐIỀU KHIỂN MŨI TÊN TRƯỢT ĐÁNH GIÁ (MIDCAMERA)
+// ==========================================================================
+
+const track = document.getElementById("reviews-track");
+const prevBtn = document.getElementById("slide-arrow-prev");
+const nextBtn = document.getElementById("slide-arrow-next");
+
+// Thêm câu lệnh if này để chắc chắn các nút tồn tại trên trang mới chạy, tránh bị lỗi file JS
+if (track && prevBtn && nextBtn) {
+    nextBtn.addEventListener("click", () => {
+        // Trượt sang phải bằng chiều rộng của 1 thẻ đánh giá + khoảng cách gap (20px)
+        const slideWidth = track.querySelector('.review-card').clientWidth + 20; 
+        track.scrollBy({ left: slideWidth, behavior: 'smooth' });
+    });
+
+    prevBtn.addEventListener("click", () => {
+        // Trượt sang trái
+        const slideWidth = track.querySelector('.review-card').clientWidth + 20;
+        track.scrollBy({ left: -slideWidth, behavior: 'smooth' });
+    });
+}

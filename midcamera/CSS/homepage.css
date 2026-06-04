@@ -589,31 +589,6 @@ a {
     }
 }
 
-/* 🎥 Video Section */
-.video-section {
-    background-color: var(--bg-white);
-}
-
-.video-wrapper {
-    max-width: 800px;
-    margin: 0 auto;
-    aspect-ratio: 16/9;
-    border-radius: var(--radius-md);
-    overflow: hidden;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.08);
-    border: 1px solid var(--color-border);
-}
-
-.video-wrapper iframe {
-    width: 100%;
-    height: 100%;
-    display: block;
-}
-.video-wrapper video {
-    border-radius: 8px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-    display: block;
-}
 footer p, 
 footer li,
 footer div:not([class*="logo"]) {
@@ -634,3 +609,165 @@ footer i,
 footer svg {
     color: #ffffff !important;
 }
+
+/* 🎥 Video Section */
+.video-section {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 60px 20px;
+    text-align: center;
+}
+
+.video-description {
+    font-size: 1.15rem;
+    font-weight: 500;
+    line-height: 1.6;
+    color: #2c3e50;
+    max-width: 850px;
+    margin: 0 auto 30px auto; /* Tạo khoảng cách thông thoáng với video */
+}
+
+.video-container {
+    max-width: 1000px; /* Phóng to khung video lên kích thước lý tưởng */
+    margin: 0 auto;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12); /* Tạo bóng đổ sang xịn mịn */
+}
+
+.video-container video {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+/* --- CSS CHO SLIDER ĐÁNH GIÁ --- */
+.customer-reviews-slider {
+    max-width: 1200px;
+    margin: 60px auto;
+    padding: 0 20px;
+}
+
+.reviews-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.reviews-header .section-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    margin: 0;
+}
+
+.view-all-link {
+    color: #000;
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.3s ease;
+}
+.view-all-link:hover { color: #555; }
+
+/* Bọc slider và mũi tên */
+.slider-wrapper {
+    position: relative;
+}
+
+/* Thanh trượt (Track) */
+.reviews-track {
+    display: flex;
+    gap: 20px;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    padding: 10px 0 20px 0;
+    margin: 0;
+    list-style: none;
+    scrollbar-width: none; /* Ẩn thanh cuộn trên Firefox */
+}
+.reviews-track::-webkit-scrollbar {
+    display: none; /* Ẩn thanh cuộn trên Chrome/Safari */
+}
+
+/* Card Đánh giá */
+.review-card {
+    flex: 0 0 calc(25% - 15px); /* Hiển thị đúng 4 cột trên máy tính */
+    scroll-snap-align: start;
+    background: #fff;
+    border: 1px solid #eaeaea;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.review-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.08);
+}
+
+/* Khung ảnh ở trên */
+.review-img {
+    width: 100%;
+    aspect-ratio: 1 / 1; /* Cắt ảnh thành hình vuông đều nhau */
+}
+.review-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Nội dung chữ ở dưới */
+.review-content {
+    padding: 20px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    justify-content: space-between;
+}
+.review-text {
+    font-size: 0.9rem;
+    color: #444;
+    font-style: italic;
+    line-height: 1.5;
+    margin-bottom: 15px;
+}
+.review-author {
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: #000;
+}
+
+/* --- MŨI TÊN CHUYỂN TRANG --- */
+.slide-arrow {
+    position: absolute;
+    top: 40%; /* Căn mũi tên nằm giữa phần hình ảnh */
+    transform: translateY(-50%);
+    width: 40px;
+    height: 40px;
+    background: #fff;
+    border: 1px solid #ccc;
+    border-radius: 50%;
+    font-size: 1.5rem;
+    cursor: pointer;
+    z-index: 10;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    transition: all 0.2s ease;
+}
+.slide-arrow:hover {
+    background: #000;
+    color: #fff;
+    border-color: #000;
+}
+.prev-arrow { left: -20px; }
+.next-arrow { right: -20px; }
+
+/* Đáp ứng giao diện đt & mtb */
+@media (max-width: 992px) { .review-card { flex: 0 0 calc(33.333% - 14px); } }
+@media (max-width: 768px) { 
+    .review-card { flex: 0 0 calc(50% - 10px); }
+    .slide-arrow { display: none; } /* Ẩn mũi tên trên đt để người dùng vuốt tay */
+}
+@media (max-width: 480px) { .review-card { flex: 0 0 100%; } }
