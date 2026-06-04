@@ -771,3 +771,25 @@ footer svg {
     .slide-arrow { display: none; } /* Ẩn mũi tên trên đt để người dùng vuốt tay */
 }
 @media (max-width: 480px) { .review-card { flex: 0 0 100%; } }
+/* Nới rộng khung chứa của phần Sẵn sàng kể câu chuyện... */
+.cta-container {
+    max-width: 1000px !important; /* Tăng chiều rộng lên đủ lớn để chứa hết chữ */
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Đảm bảo tiêu đề và đoạn văn bên trong được phép duỗi hết cỡ */
+.cta-container h2, 
+.cta-container p {
+    max-width: 100% !important; /* Bỏ giới hạn chiều rộng của chữ */
+    width: 100%;
+}
+
+/* --- ĐÁP ỨNG GIAO DIỆN ĐIỆN THOẠI (Mobile) --- */
+/* Trên điện thoại màn hình nhỏ, bắt buộc nó phải rớt dòng để không bị tràn màn hình */
+@media (max-width: 768px) {
+    .cta-container h2, 
+    .cta-container p {
+        word-wrap: break-word; /* Tự động xuống dòng khi xem trên đt */
+    }
+}
