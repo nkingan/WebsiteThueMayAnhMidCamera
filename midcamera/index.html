@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="CSS/header.css">
     <link rel="stylesheet" href="CSS/footer.css">
     <link rel="stylesheet" href="CSS/homepage.css">
+    <link rel="stylesheet" href="CSS/reviews.css">
 </head>
 <body class="page-trangchu">
 
@@ -25,44 +26,6 @@
                 <div class="hero-buttons">
                     <a href="pages/products.html" class="btn-primary">THUÊ MÁY NGAY</a>
                     <a href="pages/about.html" class="btn-outline" style="border-color: #fff; color: #fff;">TÌM HIỂU THÊM</a>
-                </div>
-            </div>
-        </section>
-
-        <!-- 🔍 QUICK FILTER BAR -->
-        <section class="quick-filter-section">
-            <div class="container filter-wrapper">
-                <div class="filter-box">
-                    <div class="filter-group">
-                        <label>Thương hiệu</label>
-                        <select id="filterBrand">
-                            <option value="">Tất cả</option>
-                            <option value="Canon">Canon</option>
-                            <option value="Fujifilm">Fujifilm</option>
-                            <option value="Sony">Sony</option>
-                            <option value="DJI">DJI</option>
-                        </select>
-                    </div>
-                    <div class="filter-group">
-                        <label>Loại thiết bị</label>
-                        <select id="filterType">
-                            <option value="">Tất cả</option>
-                            <option value="Mirrorless">Mirrorless</option>
-                            <option value="Compact">Compact cao cấp</option>
-                            <option value="Action">Action / Pocket</option>
-                            <option value="Film">Film</option>
-                        </select>
-                    </div>
-                    <div class="filter-group">
-                        <label>Mức giá thuê</label>
-                        <select id="filterPrice">
-                            <option value="">Mọi mức giá</option>
-                            <option value="0-100000">Dưới 100.000₫/ngày</option>
-                            <option value="100000-150000">100.000₫ - 150.000₫/ngày</option>
-                            <option value="150000-250000">Trên 150.000₫/ngày</option>
-                        </select>
-                    </div>
-                    <button class="btn-primary" id="btnQuickSearch">TÌM KIẾM</button>
                 </div>
             </div>
         </section>
@@ -171,6 +134,7 @@
                      Trình duyệt của bạn không hỗ trợ phát video này.
                   </video>            
                 </div>
+            </div>
         </section>
 
         <!-- 💬 TESTIMONIALS SECTION (Nền rất nhạt #fcfcfc) -->
@@ -180,34 +144,114 @@
                     <h2>Khách hàng nói về chúng tôi</h2>
                     <p>Những phản hồi chân thực nhất từ cộng đồng nhiếp ảnh tại Vinh, Nghệ An.</p>
                 </div>
+                
+                <!-- Đã thêm thẻ div class="row" bao bọc bên ngoài để 2 đánh giá có thể nằm ngang cạnh nhau -->
+                <div class="row">
+                    <!-- Đã sửa col-12 thành col-md-6 -->
+                    <div class="col-md-6 mb-3">
+                        <div class="review-card-v2 p-4 border border-secondary shadow-sm rounded-4">
+                            <!-- Top Row (Thông tin khách hàng & Verified) -->
+                            <div class="d-flex align-items-start justify-content-between gap-3 flex-wrap mb-3">
+                                <div class="d-flex align-items-center gap-3">
+                                    <div class="reviewer-avatar">TS</div>
+                                    <div>
+                                        <span class="d-block fw-bold text-dark fs-6">Vũ Trọng Sinh</span>
+                                        <span class="d-block text-secondary fs-7"><i class="ti ti-calendar-event me-1"></i>31/05/2026</span>
+                                    </div>
+                                </div>
+                                
+                                <div class="verified-badge">
+                                    <i class="ti ti-shield-check"></i>
+                                    <span>Đã xác thực thuê</span>
+                                </div>
+                            </div>
 
-                <div class="testimonials-grid">
-                    <div class="review-card">
-                        <div class="review-header">
-                            <div class="avatar-circle">M</div>
-                            <div>
-                                <h4>Minh Hoàng</h4>
-                                <span class="review-date">24/05/2026</span>
+                            <!-- Stars, Device & Usecase tags -->
+                            <div class="d-flex flex-wrap align-items-center gap-2 mb-3">
+                                <div class="card-stars d-flex gap-1 me-2"><i class="ti ti-star-filled text-warning"></i><i class="ti ti-star-filled text-warning"></i><i class="ti ti-star-filled text-warning"></i><i class="ti ti-star-filled text-warning"></i><i class="ti ti-star-filled text-warning"></i></div>
+                                <span class="device-pill"><i class="ti ti-camera"></i> Fujifilm X100V</span>
+                                <span class="use-case-pill"><i class="ti ti-video"></i> Vlog &amp; Đời thường</span>
+                            </div>
+
+                            <!-- Content text -->
+                            <p class="review-body-text mb-0">Thuê máy đi du lịch tại MID là lựa chọn chuẩn xác nhất. Máy nhỏ gọn, chụp ảnh phong cảnh và chân dung gia đình đều rất đẹp. Các bạn nhân viên thì 10 điểm, hỗ trợ cực kỳ chuyên nghiệp và thân thiện. Gia đình mình đã có một bộ ảnh du lịch rất ưng ý nhờ sự hỗ trợ của các bạn!</p>
+
+                            <!-- Photos outcome -->
+                            <div class="review-photos d-flex gap-2 flex-wrap mt-3">
+                                <div class="review-photo-thumb overflow-hidden">
+                                    <!-- Đã sửa bỏ "../" trong đường dẫn ảnh -->
+                                    <img src="images/review/Canon.png" alt="Ảnh chụp thực tế của khách hàng" class="w-100 h-100 object-fit-cover pointer lightbox-trigger">
+                                </div>
+                            </div>
+
+                            <!-- Card Footer (Thời gian thuê & Nút hữu ích) -->
+                            <div class="d-flex align-items-center justify-content-between border-top border-secondary-subtle pt-3 mt-3">
+                                <div class="text-secondary-subtle fs-7">
+                                    <i class="ti ti-clock-hour-4 me-1"></i>Thời gian thuê: <strong>2 ngày</strong>
+                                </div>
+                                <button class="helpful-btn d-flex align-items-center gap-1.5 " data-name="Vũ Trọng Sinh" data-date="31/05/2026">
+                                    <i class="ti ti-thumb-up"></i>
+                                    Hữu ích <span class="badge bg-dark-secondary text-secondary ms-1 helpful-badge">100</span>
+                                </button>
                             </div>
                         </div>
-                        <div class="review-rating">★★★★★</div>
-                        <p class="review-content">Dịch vụ tuyệt vời! Mình thuê Fujifilm X100V đi du lịch Đà Lạt, máy siêu mới, hoạt động hoàn hảo. Setup màu sẵn cực đẹp. Sẽ ủng hộ dài lâu.</p>
-                        <span class="product-badge">Đã thuê: Fujifilm X100V</span>
                     </div>
 
-                    <div class="review-card">
-                        <div class="review-header">
-                            <div class="avatar-circle">K</div>
-                            <div>
-                                <h4>Khánh Chi</h4>
-                                <span class="review-date">20/05/2026</span>
+                    <!-- Đã sửa col-12 thành col-md-6 -->
+                    <div class="col-md-6 mb-3">
+                        <div class="review-card-v2 p-4 border border-secondary shadow-sm rounded-4">
+                            <!-- Top Row (Thông tin khách hàng & Verified) -->
+                            <div class="d-flex align-items-start justify-content-between gap-3 flex-wrap mb-3">
+                                <div class="d-flex align-items-center gap-3">
+                                    <div class="reviewer-avatar">MH</div>
+                                    <div>
+                                        <span class="d-block fw-bold text-dark fs-6">Nguyễn Minh Hoàng</span>
+                                        <span class="d-block text-secondary fs-7"><i class="ti ti-calendar-event me-1"></i>28/05/2026</span>
+                                    </div>
+                                </div>
+                                
+                                <div class="verified-badge">
+                                    <i class="ti ti-shield-check"></i>
+                                    <span>Đã xác thực thuê</span>
+                                </div>
+                            </div>
+
+                            <!-- Stars, Device & Usecase tags -->
+                            <div class="d-flex flex-wrap align-items-center gap-2 mb-3">
+                                <div class="card-stars d-flex gap-1 me-2"><i class="ti ti-star-filled text-warning"></i><i class="ti ti-star-filled text-warning"></i><i class="ti ti-star-filled text-warning"></i><i class="ti ti-star-filled text-warning"></i><i class="ti ti-star-filled text-warning"></i></div>
+                                <span class="device-pill"><i class="ti ti-camera"></i> Fujifilm X100V</span>
+                                <span class="use-case-pill"><i class="ti ti-video"></i> Vlog &amp; Đời thường</span>
+                            </div>
+
+                            <!-- Content text -->
+                            <p class="review-body-text mb-0">Dịch vụ cực tốt! Các bạn trẻ của MID hỗ trợ và tư vấn rất nhiệt tình, nhờ có MID mà gia đình mình đã có một bộ ảnh đầy tháng cho con gái vô cùng ưng ý và ý nghĩa. Chắc chắn mình sẽ còn quay lại ủng hộ MiD trong những cột mốc sắp tới của con. Highly recommend cho bố mẹ nào muốn tự tay ghi lại kỷ niệm cho bé nhé!</p>
+
+                            <!-- Photos outcome -->
+                            <div class="review-photos d-flex gap-2 flex-wrap mt-3">
+                                <div class="review-photo-thumb overflow-hidden">
+                                    <!-- Đã sửa bỏ "../" trong đường dẫn ảnh -->
+                                    <img src="images/review/Fujifilm X100V.jpg" alt="Ảnh chụp thực tế của khách hàng" class="w-100 h-100 object-fit-cover pointer lightbox-trigger">
+                                </div>
+                                <div class="review-photo-thumb overflow-hidden">
+                                    <!-- Đã sửa bỏ "../" trong đường dẫn ảnh -->
+                                    <img src="images/review/Fujifilm X100V(2).jpg" alt="Ảnh chụp thực tế của khách hàng" class="w-100 h-100 object-fit-cover pointer lightbox-trigger">
+                                </div>
+                            </div>
+
+                            <!-- Card Footer (Thời gian thuê & Nút hữu ích) -->
+                            <div class="d-flex align-items-center justify-content-between border-top border-secondary-subtle pt-3 mt-3">
+                                <div class="text-secondary-subtle fs-7">
+                                    <i class="ti ti-clock-hour-4 me-1"></i>Thời gian thuê: <strong>2 ngày</strong>
+                                </div>
+                                <button class="helpful-btn d-flex align-items-center gap-1.5 " data-name="Nguyễn Minh Hoàng" data-date="28/05/2026">
+                                    <i class="ti ti-thumb-up"></i>
+                                    Hữu ích <span class="badge bg-dark-secondary text-secondary ms-1 helpful-badge">40</span>
+                                </button>
                             </div>
                         </div>
-                        <div class="review-rating">★★★★★</div>
-                        <p class="review-content">Thủ tục thuê siêu nhanh gọn, các bạn nhân viên tư vấn rất nhiệt tình cho người mới dùng máy ảnh như mình. Canon R50 chụp siêu nét dễ xài.</p>
-                        <span class="product-badge">Đã thuê: Canon EOS R50</span>
                     </div>
-                </div>
+                </div> <!-- Kết thúc thẻ div class="row" -->
+
             </div>
         </section>
 

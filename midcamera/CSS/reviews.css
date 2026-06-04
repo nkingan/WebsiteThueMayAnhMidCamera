@@ -1,170 +1,360 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Montserrat:wght@600;700;800&display=swap');
 
-/* Wrapper riêng tránh xung đột */
+:root {
+    --bg-light-deep: #F8F9FA;         /* Nền sáng rộng rãi của trang */
+    --bg-white-card: #FFFFFF;         /* Nền của các Card chính (Trắng tinh khôi) */
+    --bg-light-secondary: #F1F3F5;    /* Nền phụ cho input, hover */
+    --color-accent-gold: #FF9F0A;    /* Màu vàng/cam nghệ thuật cho ngôi sao */
+    --color-accent-gold-rgb: 255, 159, 10;
+    --color-verified-green: #198754;  /* Màu xanh xác thực uy tín (Light theme readable) */
+    
+    --text-primary: #1A1A1E;         /* Chữ chính màu xám đen đậm đà */
+    --text-secondary: #495057;       /* Chữ phụ màu xám vừa */
+    --text-muted: #868E96;           /* Chữ mờ, chú thích */
+    
+    --border-color: #E9ECEF;         /* Viền sáng mảnh mai */
+    --border-color-hover: #CED4DA;   /* Viền khi di chuột qua */
+    
+    --font-title: 'Montserrat', sans-serif;
+    --font-body: 'Inter', sans-serif;
+    
+    --radius-sm: 6px;
+    --radius-md: 12px;
+    --radius-lg: 18px;
+    
+    --transition-smooth: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+/* ── THIẾT LẬP CHUNG CHO TOÀN BỘ TRANG ── */
 .main-reviews {
+    font-family: var(--font-body);
+    background-color: var(--bg-light-deep);
+    color: var(--text-primary);
+    min-height: 80vh;
+}
+
+.font-title {
+    font-family: var(--font-title);
+}
+
+.bg-light-secondary {
+    background-color: var(--bg-light-secondary) !important;
+}
+
+.fs-7 {
+    font-size: 0.8rem;
+}
+
+/* Tinh chỉnh tiêu đề và chữ hiển thị */
+.tracking-wider {
+    letter-spacing: 0.08em;
+}
+.uppercase-spacing {
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+/* ── 1. HERO OVERVIEW CARDS ── */
+.hero-score-card, .hero-progress-card, .hero-cta-card {
+    background-color: var(--bg-white-card);
+    border: 1px solid var(--border-color) !important;
+    transition: var(--transition-smooth);
+}
+
+.hero-score-card:hover, .hero-progress-card:hover, .hero-cta-card:hover {
+    border-color: var(--border-color-hover) !important;
+    transform: translateY(-4px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05) !important;
+}
+
+.fw-black {
+    font-weight: 900;
+}
+
+/* Customize Bootstrap Progress Bars in Light Mode */
+.hero-progress-card .progress {
+    background-color: #E9ECEF !important;
+}
+
+.hero-progress-card .progress-bar {
+    background-color: var(--color-accent-gold) !important;
+    border-radius: var(--radius-sm);
+    box-shadow: 0 0 6px rgba(var(--color-accent-gold-rgb), 0.3);
+}
+
+/* CTA Icon Box */
+.cta-icon-box {
+    background-color: var(--bg-light-deep);
+    border: 1px solid var(--border-color);
+}
+
+/* Nút CTA Viết đánh giá màu tối (Black Accent) */
+.btn-warning {
+    background-color: #1A1A1E !important;
+    color: #FFFFFF !important;
+    font-weight: 600;
+    transition: var(--transition-smooth);
+}
+
+.btn-warning:hover {
+    background-color: #343438 !important;
+    color: #FFFFFF !important;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15) !important;
+}
+
+/* ── 2. TRUST STATS (CAM KẾT VÀNG) ── */
+.border-light-subtle {
+    border-color: #E9ECEF !important;
+}
+
+/* ── 3. OUTCOME GALLERY (MINH CHỨNG THỰC TẾ) ── */
+.gallery-card {
+    cursor: pointer;
+    background-color: var(--bg-white-card);
+    border: 1px solid var(--border-color) !important;
+    height: 220px;
+}
+
+.gallery-card .transition-img {
+    transition: transform 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.gallery-card:hover .transition-img {
+    transform: scale(1.08);
+}
+
+.gallery-overlay {
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.85) 0%, rgba(0, 0, 0, 0.4) 40%, rgba(0, 0, 0, 0) 100%);
+    opacity: 0.95;
+    transition: var(--transition-smooth);
+}
+
+.gallery-card:hover .gallery-overlay {
+    opacity: 1;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.95) 0%, rgba(0, 0, 0, 0.5) 50%, rgba(0, 0, 0, 0.1) 100%);
+}
+
+.shadow-hover {
+    transition: var(--transition-smooth);
+}
+.gallery-card:hover {
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08) !important;
+    border-color: var(--border-color-hover) !important;
+}
+
+/* ── 4. FILTER PANEL & BUTTONS ── */
+.filter-panel {
+    background-color: var(--bg-white-card);
+    border: 1px solid var(--border-color) !important;
+}
+
+/* Nút lọc Custom Chip (Pills) - Tông Xám Trắng Đen */
+.btn-filter {
     background-color: #FFFFFF;
-    min-height: 100vh;
-    font-family: 'Inter', sans-serif;
+    color: var(--text-secondary);
+    border: 1px solid var(--border-color-hover);
+    font-size: 0.85rem;
+    font-weight: 500;
+    padding: 6px 16px;
+    border-radius: 30px;
+    transition: var(--transition-smooth);
+    margin-bottom: 2px;
 }
 
-/* 📊 TỔNG HỢP ĐIỂM SECTION */
-.reviews-summary {
-    background-color: #f4f6f8;
-    border-bottom: 1px solid #eee;
-    padding: 60px 0;
+.btn-filter:hover {
+    background-color: var(--bg-light-deep);
+    color: var(--text-primary);
+    border-color: #A0A0A5;
 }
 
-.summary-container {
-    max-width: 1100px;
-    margin: 0 auto;
-    padding: 0 20px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 40px;
+.btn-filter.active {
+    background-color: #1A1A1E;
+    color: #FFFFFF !important;
+    border-color: #1A1A1E;
+    font-weight: 600;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
-.summary-left {
-    display: flex;
-    align-items: center;
-    gap: 30px;
+/* ── 5. REVIEW CARDS LIST ── */
+.review-card-v2 {
+    background-color: var(--bg-white-card);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-md);
+    padding: 1.5rem;
+    transition: var(--transition-smooth);
 }
 
-.score-big {
-    font-family: 'Montserrat', sans-serif;
-    font-size: 4rem;
-    font-weight: 800;
-    color: #111;
-    line-height: 1;
+.review-card-v2:hover {
+    border-color: var(--border-color-hover);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.04);
 }
 
-.score-details {
-    display: flex;
-    flex-direction: column;
-    gap: 5px;
-}
-
-.score-stars {
-    font-size: 1.3rem;
-    color: #111; /* Sao đen tinh tế, không dùng màu vàng */
-    letter-spacing: 2px;
-}
-
-.score-text {
+/* Avatar tròn thiết kế Gradient sang xám-đen-trắng */
+.reviewer-avatar {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #495057 0%, #212529 100%);
+    color: #FFFFFF;
+    font-family: var(--font-title);
+    font-weight: 700;
     font-size: 0.95rem;
-    color: #666;
-}
-
-/* Bảng phân phối sao bên phải */
-.summary-right {
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-    width: 100%;
-    max-width: 350px;
-}
-
-.star-distribution-row {
     display: flex;
     align-items: center;
-    gap: 12px;
+    justify-content: center;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+}
+
+/* Badge đã xác thực thuê máy (Giải quyết nỗi lo lắng) */
+.verified-badge {
+    background-color: rgba(25, 135, 84, 0.08);
+    color: var(--color-verified-green);
+    border: 1px solid rgba(25, 135, 84, 0.2);
+    font-size: 0.75rem;
+    font-weight: 600;
+    padding: 4px 10px;
+    border-radius: 20px;
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.verified-badge i {
     font-size: 0.85rem;
     color: #333;
 }
 
-.star-distribution-row span:first-child {
+/* Pills của thiết bị và mục đích trên Card */
+.device-pill, .use-case-pill {
+    font-size: 0.75rem;
     font-weight: 600;
-    width: 45px;
+    padding: 4px 10px;
+    border-radius: 6px;
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
 }
 
-.distribution-bar {
-    flex: 1;
-    height: 6px;
-    background-color: #eee;
-    border-radius: 3px;
+.device-pill {
+    background-color: var(--bg-light-deep);
+    color: var(--text-secondary);
+    border: 1px solid var(--border-color);
+}
+
+.use-case-pill {
+    background-color: rgba(0, 0, 0, 0.05);
+    color: #212529;
+    border: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+/* Văn bản nhận xét */
+.review-body-text {
+    color: var(--text-secondary);
+    font-size: 0.925rem;
+    line-height: 1.65;
+}
+
+/* Thumbnails ảnh đính kèm */
+.review-photo-thumb {
+    width: 80px;
+    height: 80px;
+    border-radius: var(--radius-sm);
+    border: 1px solid var(--border-color);
+    cursor: pointer;
+    overflow: hidden;
+    transition: var(--transition-smooth);
+}
+
+.review-photo-thumb:hover {
+    border-color: #1A1A1E;
+    transform: scale(1.04);
+}
+
+.review-photo-thumb img {
+    transition: var(--transition-smooth);
+}
+
+/* Nút hữu ích */
+.helpful-btn {
+    background-color: transparent;
+    border: 1px solid var(--border-color-hover);
+    color: var(--text-secondary);
+    font-size: 0.8rem;
+    padding: 4px 12px;
+    border-radius: 6px;
+    transition: var(--transition-smooth);
+    font-weight: 500;
+}
+
+.helpful-btn:hover {
+    border-color: #1A1A1E;
+    color: #1A1A1E;
+}
+
+.helpful-btn.active {
+    background-color: rgba(0, 0, 0, 0.05);
+    border-color: #1A1A1E;
+    color: #1A1A1E;
+    font-weight: 600;
+}
+
+/* ── 6. MODAL & FORM ELEMENTS ── */
+.modal-content {
+    background-color: var(--bg-white-card) !important;
+    border: 1px solid var(--border-color) !important;
+}
+
+.modal-header, .modal-footer {
+    border-color: var(--border-color) !important;
+}
+
+.form-control, .form-select {
+    background-color: #FFFFFF !important;
+    border: 1px solid var(--border-color-hover) !important;
+    color: var(--text-primary) !important;
+    transition: var(--transition-smooth);
+}
+
+.form-control:focus, .form-select:focus {
+    border-color: #1A1A1E !important;
+    box-shadow: 0 0 0 0.25rem rgba(0, 0, 0, 0.1) !important;
+}
+
+/* Star Picker (Modal Đánh Giá) */
+.star-picker .star-pick {
+    cursor: pointer;
+    color: #CED4DA;
+    transition: transform 0.15s ease, color 0.15s ease;
+}
+
+.star-picker .star-pick:hover {
+    transform: scale(1.2);
+}
+
+.star-picker .star-pick.lit {
+    color: var(--color-accent-gold);
+}
+
+.star-picker .star-pick.lit i::before {
+    content: "\ea61"; /* Ký tự sao đầy của Tabler Icon */
+}
+
+/* Form Upload Image Preview Styles */
+.form-preview-img-wrapper {
+    position: relative;
+    width: 70px;
+    height: 70px;
+    border-radius: var(--radius-sm);
     overflow: hidden;
 }
 
-.distribution-fill {
-    height: 100%;
-    background-color: #111; /* Thanh đo màu đen đồng bộ */
-    border-radius: 3px;
-}
-
-/* 📑 TABS LỌC ĐÁNH GIÁ */
-.filter-tabs-container {
-    max-width: 1100px;
-    margin: 40px auto 0 auto;
-    padding: 0 20px;
-}
-
-.reviews-filter-tabs {
-    display: flex;
-    border-bottom: 1px solid #eee;
-    list-style: none;
-    gap: 10px;
-}
-
-.reviews-tab-item {
-    padding: 12px 24px;
-    cursor: pointer;
-    font-family: 'Montserrat', sans-serif;
-    font-size: 0.95rem;
-    font-weight: 600;
-    color: #666;
-    border-bottom: 2px solid transparent;
-    transition: all 0.3s ease;
-}
-
-.reviews-tab-item:hover {
-    color: #111;
-}
-
-.reviews-tab-item.active {
-    color: #111;
-    border-bottom: 2px solid #111;
-}
-
-/* 🛍️ GRID ĐÁNH GIÁ SECTION */
-.reviews-grid-section {
-    max-width: 1100px;
-    margin: 0 auto;
-    padding: 40px 20px 80px 20px;
-}
-
-.reviews-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-    gap: 30px;
-}
-
-/* Review Card Tái sử dụng phong cách camera-card */
-.review-card {
-    background-color: #ffffff;
-    border: 1px solid #eee;
-    border-radius: 8px;
-    padding: 30px;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-}
-
-.review-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 20px rgba(0,0,0,0.05);
-}
-
-.review-card-header {
-    display: flex;
-    align-items: center;
-    gap: 15px;
-}
-
-.review-avatar {
-    width: 45px;
-    height: 45px;
+.form-preview-remove-btn {
+    position: absolute;
+    top: 2px;
+    right: 2px;
+    width: 18px;
+    height: 18px;
+    background: rgba(0, 0, 0, 0.7);
+    color: #FFFFFF;
     border-radius: 50%;
     background-color: #f4f6f8;
     color: #111;
@@ -174,60 +364,55 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    border: 1px solid #eee;
+    cursor: pointer;
+    font-size: 10px;
+    border: none;
 }
 
-.review-user-info h4 {
-    font-family: 'Montserrat', sans-serif;
-    font-size: 0.95rem;
-    font-weight: 700;
-    color: #111;
-    margin-bottom: 2px;
+.form-preview-remove-btn:hover {
+    background: #FF3B30;
 }
 
-.review-date {
-    font-size: 0.8rem;
-    color: #8E8E93;
+/* ── 7. SLIDESHOW / LIGHTBOX OVERLAY ── */
+.lightbox-overlay {
+    background-color: rgba(0, 0, 0, 0.95);
+    transition: opacity 0.3s ease;
 }
 
-.review-rating-stars {
-    font-size: 0.9rem;
-    color: #111;
-    letter-spacing: 2px;
+.lightbox-img {
+    max-height: 80vh;
+    max-width: 90vw;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.8);
+    transform: scale(0.95);
+    transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
-.review-text {
-    font-size: 0.95rem;
-    color: #333;
-    line-height: 1.7;
-    flex-grow: 1;
+.lightbox-overlay:not(.d-none) .lightbox-img {
+    transform: scale(1);
 }
 
-.rented-product-badge {
-    align-self: flex-start;
-    background-color: #f4f6f8;
-    color: #666;
-    font-family: 'Montserrat', sans-serif;
-    font-weight: 600;
-    font-size: 0.8rem;
-    padding: 4px 10px;
-    border-radius: 4px;
-    margin-top: 5px;
+.lightbox-close {
+    transition: color 0.2s;
+    cursor: pointer;
 }
 
-/* Responsive */
-@media (max-width: 768px) {
-    .summary-container {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 30px;
+.lightbox-close:hover {
+    color: var(--color-accent-gold) !important;
+}
+
+/* ── 8. ANIMATIONS ── */
+.hover-pulse:hover {
+    animation: buttonPulse 1.2s infinite;
+}
+
+@keyframes buttonPulse {
+    0% {
+        box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.2);
     }
-    
-    .summary-right {
-        max-width: 100%;
+    70% {
+        box-shadow: 0 0 0 10px rgba(0, 0, 0, 0);
     }
-    
-    .reviews-filter-tabs {
-        flex-wrap: wrap;
+    100% {
+        box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
     }
 }
