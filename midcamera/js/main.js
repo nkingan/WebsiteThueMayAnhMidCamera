@@ -111,7 +111,7 @@ const PRODUCTS_DATA = [
     {
         id: "fuji-x100vi",
         name: "Fujifilm X100VI",
-        price: 300000,
+        price: 500000,
         deposit: 5000000,
         category: "Compact",
         brand: "Fujifilm",
@@ -201,6 +201,102 @@ const PRODUCTS_DATA = [
         },
         reviews: [
             { author: "Vân Anh", date: "2026-04-28", rating: 3, comment: "Máy xinh chụp vui mắt in ảnh liền. Nhưng lưu ý chụp đủ sáng ban ngày mới đẹp, chụp tối flash hơi yếu." }
+        ]
+    },
+    {
+        id: "canon-g7",
+        name: "Canon PowerShot G7 X Mark III",
+        price: 260000,
+        deposit: 3000000,
+        category: "Mirrorless",
+        brand: "Canon",
+        image: "images/canong7.png",
+        desc: "Bước tiến mới cho phong cách nhiếp ảnh của bạn.",
+        shortDesc: "Bước tiến mới cho phong cách nhiếp ảnh của bạn.",
+        longDesc: "PowerShot G7 X Mark III có khả năng quay video 4K mà không crop, cho phép bạn sáng tạo nhiều hơn. G7X III có chức năng độc quyền là truyền phát video trực tiếp lên YouTube thông qua chức năng Live Streaming.",
+        status: "available",
+        bookedRanges: [
+            { start: "2026-06-07", end: "2026-06-09" }
+        ],
+        gallery: [
+            "images/canong7.png"
+        ],
+        specs: {
+            "Chế Độ AF": "One Shot AF, Servo AF, Manual Focus",
+            "Số Điểm Hệ Thống AF": "31",
+            "Built-in Flash": "YES",
+            "Bộ xử lý": "DIGIC 8",
+            "Digital Zoom": "4x",
+            "Optical Zoom": "4.2x",
+            "Bộ Nguồn Tiêu Chuẩn": "Battery Pack NB-13L",
+            "White Balance": "Auto (Ambience priority / White Priority), Daylight, Shade, Cloudy, Tungsten Light, White Fluorescent Light, Flash, Custom, Color Temp.",
+            "Độ nhạy sáng ISO": "125 - 12,800 (H:25,600)",
+            "Màn hình hiển thị": "LCD xoay lật đa góc 3.0 inch cảm ứng với độ phân giải 1,040,000",
+            "Trọng lượng thân máy": "304g (Đã bao gồm pin và thẻ nhớ)"
+        },
+        reviews: [
+            { author: "Thành Nhân", date: "2026-05-10", rating: 5, comment: "Máy siêu mới, lấy nét tự động mắt cực nhanh." }
+        ]
+    },
+    {
+        id: "dji-pocket4",
+        name: "DJI Pocket 4",
+        price: 150000,
+        deposit: 1000000,
+        category: "Action",
+        brand: "DJI",
+        image: "images/pocket4.png",
+        desc: " Osmo Pocket 4 với cụm nút bấm vật lý mới gồm nút Zoom bên trái và nút C (Custom) bên phải, ẩn dưới màn hình cảm ứng 2 inch.",
+        shortDesc: " Osmo Pocket 4 với cụm nút bấm vật lý mới gồm nút Zoom bên trái và nút C (Custom) bên phải, ẩn dưới màn hình cảm ứng 2 inch.",
+        longDesc: "DJI Osmo Pocket 4 nâng cấp trải nghiệm sử dụng action camera khi trang bị thêm hai nút bấm hoàn toàn mới, kết hợp cảm biến CMOS 1 inch với khẩu độ f/2.0, cho chất lượng hình ảnh lên đến 4K và hiệu ứng bokeh tự nhiên. Dải dynamic range 14 stop dùng chế độ D-Log 10 bit tái hiện màu sắc chân thực trong mọi điều kiện ánh sáng. Khả năng quay 4K/240fps còn được hỗ trợ bởi hệ thống chống rung 3 trục và loạt tính năng thông minh như ActiveTrack 7.0 và tự động lấy nét, tạo nên một công cụ linh hoạt dành cho nhà sáng tạo nội dung.",
+        status: "available",
+        bookedRanges: [
+            { start: "2026-06-10", end: "2026-06-11" }
+        ],
+        gallery: [
+            "images/pocket4.png"
+        ],
+        specs: {
+            "Cảm biến": "1-inch CMOS",
+            "Chống rung": "Gimbal cơ học 3 trục",
+            "Đầu ra âm thanh": "48 kHz 16-bit; AAC",
+            "Tốc độ bit tối đa của video": "180 Mbps",
+            "Màn hình hiển thị": "Kích thước: 2.0 inch với độ phân giải: 556×314",
+            "Định dạng Video": "MP4 (HEVC)",
+            "Định dạng ảnh": "JPEG/JPEG+DNG/DNG",
+            "Trọng lượng máy": "190.5g"
+        },
+        reviews: [
+            { author: "Quang Thắng", date: "2026-05-23", rating: 5, comment: "Chống rung đỉnh chóp, quay vlog 4K siêu nét. Cảm biến 1 inch quay thiếu sáng đỉnh thật sự." }
+        ]
+    },
+    {
+        id: "fuji-gfx100",
+        name: "Fujifilm GFX100RF",
+        price: 900000,
+        deposit: 5000000,
+        category: "Compact",
+        brand: "Fujifilm",
+        image: "images/fuji_gfx100.jpg",
+        desc: "Sở hữu cảm biến Medium Format 102MP & X-Processor 5.",
+        shortDesc: "Sở hữu cảm biến Medium Format 102MP và X-Processor 5.",
+        longDesc: "Fujifilm GFX100RF là máy ảnh medium format đầu tiên được thiết kế trong thân máy nhỏ gọn, trở thành thiết bị chụp ảnh hàng ngày tuyệt đỉnh cho các nhiếp ảnh gia. Không chỉ có chất lượng độ phân giải cao lên đến 102MP, GFX100RF còn nổi bật với ống kính góc rộng 35mm tích hợp. Điều này đã mang lại cho máy ảnh khả năng chụp đa dạng từ du lịch, đường phố và chân dung. Máy ảnh trở thành lựa chọn hoàn hảo cho người dùng nhờ sự kết hợp giữa chất lượng hình ảnh tinh tế và thiết kế đơn giản.",
+        status: "available",
+        bookedRanges: [],
+        gallery: [
+            "images/fuji_gfx100.jpg"
+        ],
+        specs: {
+            "Cảm biến": "Medium Format 43.8 x 32.9mm",
+            "Megapixel": "102MP",
+            "Ống kính": "GF 35mm f/4 (góc rộng cố định)",
+            "Màn hình hiển thị": "3.2 inch, 2.1 triệu điểm ảnh, cảm ứng, lật 3 chiều",
+            "Tốc độ chụp liên tục tối đa": "6fps",
+            "Độ phân giải video tối đa": "4K/30fps 10-bit",
+            "Cấp độ người dùng": "Chuyên nghiệp"
+        },
+        reviews: [
+            { author: "Bảo Lâm", date: "2026-04-10", rating: 5, comment: "Máy phù hợp để chụp khi đi tiệc, ánh sáng và độ phân giải sắc nét." }
         ]
     }
 ];

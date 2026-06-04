@@ -3,85 +3,376 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Khách hàng đánh giá — MIDCAMERA</title>
+    <title>Đánh giá & Phản hồi từ Khách hàng — MIDCAMERA</title>
+    
+    <!-- 📚 Bootstrap 5 & FontAwesome CDNs -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- 🎨 Tabler Icons Webfont -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css">
+    
+    <!-- 🧭 Global Style & Layout Headers/Footers -->
     <link rel="stylesheet" href="../CSS/header.css">
     <link rel="stylesheet" href="../CSS/footer.css">
     <link rel="stylesheet" href="../CSS/reviews.css">
 </head>
-<body>
+<body class="bg-light text-dark">
 
-    <!-- 🧭 HEADER ĐỘNG -->
+    <!-- 🧭 HEADER ĐỘNG (Được main.js tự động render) -->
     <div id="global-header" data-active-nav="banggia"></div>
 
-    <main class="main-reviews">
-        
-        <!-- 📊 TỔNG HỢP ĐIỂM -->
-        <section class="reviews-summary">
-            <div class="summary-container">
+    <!-- 🌟 MAIN CONTENT CONTAINER -->
+    <main class="main-reviews py-5">
+        <div class="container">
+            <h1 class="visually-hidden">Trang Đánh Giá Dịch Vụ Cho Thuê Máy Ảnh Midcamera</h1>
+
+            <!-- 1. HERO SECTION (TỔNG QUAN ĐIỂM SỐ & CAM KẾT) -->
+            <section class="row g-4 align-items-stretch mb-5 mt-3">
+                <!-- Cột trái: Điểm số trung bình -->
+                <div class="col-lg-4">
+                    <div class="hero-score-card h-100 p-4 rounded-4 text-center d-flex flex-column justify-content-center align-items-center border border-light-subtle shadow-sm bg-white">
+                        <h2 class="display-1 fw-black text-warning m-0 font-title">4.9</h2>
+                        <div class="rating-stars my-2 fs-4">
+                            <i class="ti ti-star-filled text-warning"></i>
+                            <i class="ti ti-star-filled text-warning"></i>
+                            <i class="ti ti-star-filled text-warning"></i>
+                            <i class="ti ti-star-filled text-warning"></i>
+                            <i class="ti ti-star-filled text-warning"></i>
+                        </div>
+                        <p class="text-muted small mb-0">Dựa trên 1,200+ đánh giá đã xác thực thuê</p>
+                    </div>
+                </div>
+
+                <!-- Cột giữa: Thanh tiến trình tỷ lệ sao -->
+                <div class="col-lg-5">
+                    <div class="hero-progress-card h-100 p-4 rounded-4 border border-light-subtle shadow-sm bg-white d-flex flex-column justify-content-between">
+                        <h3 class="h6 text-muted text-uppercase tracking-wider mb-3">Tỷ lệ đánh giá sao</h3>
+                        
+                        <div class="progress-list d-flex flex-column gap-2">
+                            <!-- 5 Sao -->
+                            <div class="d-flex align-items-center gap-2">
+                                <span class="small text-secondary text-nowrap" style="width: 45px;">5 sao</span>
+                                <div class="progress flex-grow-1 bg-light border border-light-subtle" style="height: 8px;">
+                                    <div class="progress-bar bg-warning" role="progressbar" style="width: 90%" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"></div>
+                                </div>
+                                <span class="small text-secondary" style="width: 35px; text-align: right;">90%</span>
+                            </div>
+                            <!-- 4 Sao -->
+                            <div class="d-flex align-items-center gap-2">
+                                <span class="small text-secondary text-nowrap" style="width: 45px;">4 sao</span>
+                                <div class="progress flex-grow-1 bg-light border border-light-subtle" style="height: 8px;">
+                                    <div class="progress-bar bg-warning" role="progressbar" style="width: 7%" aria-valuenow="7" aria-valuemin="0" aria-valuemax="100"></div>
+                                </div>
+                                <span class="small text-secondary" style="width: 35px; text-align: right;">7%</span>
+                            </div>
+                            <!-- 3 Sao -->
+                            <div class="d-flex align-items-center gap-2">
+                                <span class="small text-secondary text-nowrap" style="width: 45px;">3 sao</span>
+                                <div class="progress flex-grow-1 bg-light border border-light-subtle" style="height: 8px;">
+                                    <div class="progress-bar bg-warning" role="progressbar" style="width: 3%" aria-valuenow="3" aria-valuemin="0" aria-valuemax="100"></div>
+                                </div>
+                                <span class="small text-secondary" style="width: 35px; text-align: right;">3%</span>
+                            </div>
+                            <!-- 2 Sao -->
+                            <div class="d-flex align-items-center gap-2">
+                                <span class="small text-secondary text-nowrap" style="width: 45px;">2 sao</span>
+                                <div class="progress flex-grow-1 bg-light border border-light-subtle" style="height: 8px;">
+                                    <div class="progress-bar bg-warning" role="progressbar" style="width: 0%" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+                                </div>
+                                <span class="small text-secondary" style="width: 35px; text-align: right;">0%</span>
+                            </div>
+                            <!-- 1 Sao -->
+                            <div class="d-flex align-items-center gap-2">
+                                <span class="small text-secondary text-nowrap" style="width: 45px;">1 sao</span>
+                                <div class="progress flex-grow-1 bg-light border border-light-subtle" style="height: 8px;">
+                                    <div class="progress-bar bg-warning" role="progressbar" style="width: 0%" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+                                </div>
+                                <span class="small text-secondary" style="width: 35px; text-align: right;">0%</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Cột phải: CTA viết đánh giá -->
+                <div class="col-lg-3">
+                    <div class="hero-cta-card h-100 p-4 rounded-4 text-center d-flex flex-column justify-content-center align-items-center border border-light-subtle shadow-sm bg-white">
+                        <div class="cta-icon-box mb-3 bg-light rounded-circle border border-light-subtle d-flex justify-content-center align-items-center" style="width: 60px; height: 60px;">
+                            <i class="ti ti-message-2-share text-warning fs-3"></i>
+                        </div>
+                        <h4 class="h5 mb-2 font-title">Chia sẻ trải nghiệm</h4>
+                        <p class="text-muted small mb-3">Ý kiến của bạn giúp chúng tôi nâng cấp chất lượng dịch vụ mỗi ngày</p>
+                        <button type="button" class="btn btn-warning w-100 py-2.5 fw-bold text-dark hover-pulse border-0" data-bs-toggle="modal" data-bs-target="#writeReviewModal">
+                            <i class="ti ti-pencil-minus me-1"></i> Viết đánh giá
+                        </button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- CAM KẾT VÀNG (TRUST STATS ROW) -->
+            <section class="row text-center g-3 mb-5 py-3 border-top border-bottom border-light-subtle">
+                <div class="col-md-4 border-end border-light-subtle">
+                    <div class="p-2">
+                        <span class="d-block display-6 fw-bold text-dark font-title mb-1">98%</span>
+                        <span class="text-secondary small uppercase-spacing">Thiết bị giao đúng giờ hẹn</span>
+                    </div>
+                </div>
+                <div class="col-md-4 border-end border-light-subtle">
+                    <div class="p-2">
+                        <span class="d-block display-6 fw-bold text-dark font-title mb-1">96%</span>
+                        <span class="text-secondary small uppercase-spacing">Sensor sạch sẽ & Hoạt động hoàn hảo</span>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="p-2">
+                        <span class="d-block display-6 fw-bold text-dark font-title mb-1">100%</span>
+                        <span class="text-secondary small uppercase-spacing">Hỗ trợ kỹ thuật 24/7 trong giờ thuê</span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 2. GALLERY MINH CHỨNG THỰC TẾ (SẢN PHẨM ĐẦU RA) -->
+            <section class="gallery-section mb-5">
+                <div class="d-flex align-items-center justify-content-between mb-4">
+                    <div>
+                        <h2 class="h4 text-uppercase tracking-wide font-title mb-1 text-dark">
+                            <i class="ti ti-photo-camera-exclamation text-warning me-1"></i> Tác phẩm thực tế từ khách thuê
+                        </h2>
+                        <p class="text-secondary small mb-0">Những tấm ảnh được bắt trọn bằng chính thiết bị cho thuê của Midcamera</p>
+                    </div>
+                </div>
                 
-                <div class="summary-left">
-                    <div class="score-big">4.9</div>
-                    <div class="score-details">
-                        <div class="score-stars">★★★★★</div>
-                        <span class="score-text">Đánh giá trung bình từ 120+ khách hàng tại Vinh</span>
+                <div class="row row-cols-2 row-cols-md-4 g-3">
+                    <!-- Ảnh 1: Đà Lạt (Fujifilm X100V) -->
+                    <div class="col">
+                        <div class="gallery-card rounded-3 overflow-hidden position-relative border border-light-subtle shadow-sm shadow-hover">
+                            <img src="../images/review/DaLat.jpg" alt="Dalat hills taken by customer" class="w-100 object-fit-cover transition-img" style="height: 220px;">
+                            <div class="gallery-overlay p-3 d-flex flex-column justify-content-end position-absolute top-0 bottom-0 start-0 end-0">
+                                <span class="badge bg-warning text-dark align-self-start mb-1 small fw-semibold">Du lịch</span>
+                                <h5 class="h6 text-white fw-bold mb-0">Sương mù Đà Lạt</h5>
+                                <p class="text-light-50 small mb-0">Fujifilm X100V</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Ảnh 2: Chân dung (Sony A7IV) -->
+                    <div class="col">
+                        <div class="gallery-card rounded-3 overflow-hidden position-relative border border-light-subtle shadow-sm shadow-hover">
+                            <img src="../images/review/Vintage.jpg" alt="Portrait photo taken by customer" class="w-100 object-fit-cover transition-img" style="height: 220px;">
+                            <div class="gallery-overlay p-3 d-flex flex-column justify-content-end position-absolute top-0 bottom-0 start-0 end-0">
+                                <span class="badge bg-info text-dark align-self-start mb-1 small fw-semibold">Chân dung</span>
+                                <h5 class="h6 text-white fw-bold mb-0">Vẻ đẹp Vintage</h5>
+                                <p class="text-light-50 small mb-0">Sony A7IV • 85mm f/1.4</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Ảnh 3: Đám cưới (Canon R5) -->
+                    <div class="col">
+                        <div class="gallery-card rounded-3 overflow-hidden position-relative border border-light-subtle shadow-sm shadow-hover">
+                            <img src="../images/review/Wedding.jpg" alt="Wedding photo taken by customer" class="w-100 object-fit-cover transition-img" style="height: 220px;">
+                            <div class="gallery-overlay p-3 d-flex flex-column justify-content-end position-absolute top-0 bottom-0 start-0 end-0">
+                                <span class="badge bg-danger text-white align-self-start mb-1 small fw-semibold">Đám cưới</span>
+                                <h5 class="h6 text-white fw-bold mb-0">Lễ đường vườn hồng</h5>
+                                <p class="text-light-50 small mb-0">Canon EOS R5</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Ảnh 4: Đường phố (Fujifilm X-T5) -->
+                    <div class="col">
+                        <div class="gallery-card rounded-3 overflow-hidden position-relative border border-light-subtle shadow-sm shadow-hover">
+                            <img src="../images/review/Vinh.jpg" alt="Street neon taken by customer" class="w-100 object-fit-cover transition-img" style="height: 220px;">
+                            <div class="gallery-overlay p-3 d-flex flex-column justify-content-end position-absolute top-0 bottom-0 start-0 end-0">
+                                <span class="badge bg-success text-white align-self-start mb-1 small fw-semibold">Sự kiện / Đời thường</span>
+                                <h5 class="h6 text-white fw-bold mb-0">Thành phố Vinh</h5>
+                                <p class="text-light-50 small mb-0">Fujifilm X-T5</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 3. FILTER BAR (THANH BỘ LỌC THÔNG MINH) -->
+            <section class="filter-panel p-4 rounded-4 mb-4 border border-light-subtle shadow-sm bg-white">
+                <div class="row g-3 align-items-center mb-3">
+                    <div class="col-lg-3">
+                        <h3 class="h6 text-muted text-uppercase tracking-wider mb-0"><i class="ti ti-adjustments-horizontal text-warning me-1"></i> Bộ lọc đánh giá</h3>
+                    </div>
+                    <div class="col-lg-9 d-flex flex-wrap align-items-center justify-content-lg-end gap-3">
+                        <span class="small text-secondary" id="reviewCount">Đang tải đánh giá...</span>
+                        <div class="d-flex align-items-center gap-2">
+                            <label for="sortSelect" class="small text-secondary mb-0">Sắp xếp:</label>
+                            <select class="form-select form-select-sm bg-light border-light-subtle text-dark rounded-3" id="sortSelect" style="width: 150px;">
+                                <option value="newest">Mới nhất</option>
+                                <option value="rating">Điểm cao nhất</option>
+                                <option value="helpful">Hữu ích nhất</option>
+                            </select>
+                        </div>
                     </div>
                 </div>
 
-                <div class="summary-right">
-                    <!-- 5 Sao -->
-                    <div class="star-distribution-row">
-                        <span>5 sao</span>
-                        <div class="distribution-bar">
-                            <div class="distribution-fill" style="width: 90%;"></div>
+                <div class="filter-rows d-flex flex-column gap-3 pt-3 border-top border-light-subtle">
+                    <!-- Lọc Thiết Bị -->
+                    <div class="d-flex flex-wrap align-items-center gap-2">
+                        <span class="small text-secondary fw-semibold" style="width: 90px;">Thiết bị:</span>
+                        <div class="d-flex flex-wrap gap-1.5" id="deviceFilterGroup">
+                            <button class="btn btn-filter active" data-filter="device" data-val="all">Tất cả</button>
+                            <button class="btn btn-filter" data-filter="device" data-val="sony">Sony</button>
+                            <button class="btn btn-filter" data-filter="device" data-val="fujifilm">Fujifilm</button>
+                            <button class="btn btn-filter" data-filter="device" data-val="canon">Canon</button>
+                            <button class="btn btn-filter" data-filter="device" data-val="dji">DJI</button>
                         </div>
-                        <span>90%</span>
                     </div>
-                    <!-- 4 Sao -->
-                    <div class="star-distribution-row">
-                        <span>4 sao</span>
-                        <div class="distribution-bar">
-                            <div class="distribution-fill" style="width: 8%;"></div>
+
+                    <!-- Lọc Mục Đích -->
+                    <div class="d-flex flex-wrap align-items-center gap-2">
+                        <span class="small text-secondary fw-semibold" style="width: 90px;">Mục đích:</span>
+                        <div class="d-flex flex-wrap gap-1.5" id="usecaseFilterGroup">
+                            <button class="btn btn-filter active" data-filter="usecase" data-val="all">Tất cả</button>
+                            <button class="btn btn-filter" data-filter="usecase" data-val="travel">Du lịch</button>
+                            <button class="btn btn-filter" data-filter="usecase" data-val="wedding">Đám cưới</button>
+                            <button class="btn btn-filter" data-filter="usecase" data-val="kyYeu">Kỷ yếu</button>
+                            <button class="btn btn-filter" data-filter="usecase" data-val="vlog">Vlog & Đời thường</button>
                         </div>
-                        <span>8%</span>
                     </div>
-                    <!-- 3 Sao -->
-                    <div class="star-distribution-row">
-                        <span>3 sao</span>
-                        <div class="distribution-bar">
-                            <div class="distribution-fill" style="width: 2%;"></div>
+
+                    <!-- Lọc Số Sao -->
+                    <div class="d-flex flex-wrap align-items-center gap-2">
+                        <span class="small text-secondary fw-semibold" style="width: 90px;">Đánh giá sao:</span>
+                        <div class="d-flex flex-wrap gap-1.5" id="starsFilterGroup">
+                            <button class="btn btn-filter active" data-filter="stars" data-val="all">Tất cả</button>
+                            <button class="btn btn-filter" data-filter="stars" data-val="5">★ 5 sao</button>
+                            <button class="btn btn-filter" data-filter="stars" data-val="4">★ 4 sao</button>
+                            <button class="btn btn-filter" data-filter="stars" data-val="3">★ 3 sao</button>
                         </div>
-                        <span>2%</span>
                     </div>
                 </div>
+            </section>
 
-            </div>
-        </section>
-
-        <!-- 📑 TABS LỌC ĐÁNH GIÁ -->
-        <div class="filter-tabs-container">
-            <ul class="reviews-filter-tabs">
-                <li class="reviews-tab-item active" data-stars="all">Tất cả đánh giá</li>
-                <li class="reviews-tab-item" data-stars="5">5 Sao (★★★★★)</li>
-                <li class="reviews-tab-item" data-stars="4">4 Sao (★★★★)</li>
-                <li class="reviews-tab-item" data-stars="3">3 Sao (★★★)</li>
-            </ul>
+            <!-- 4. REVIEW CARDS GRID -->
+            <section class="reviews-section">
+                <div class="row row-cols-1 g-3" id="reviewsGrid">
+                    <!-- Danh sách đánh giá sẽ được chèn động bằng JavaScript -->
+                </div>
+            </section>
         </div>
-
-        <!-- 🛍️ GRID DANH SÁCH ĐÁNH GIÁ -->
-        <section class="reviews-grid-section">
-            <div class="reviews-grid" id="reviewsGridContainer">
-                <!-- Loaded dynamically -->
-            </div>
-        </section>
-
     </main>
 
-    <!-- 🧭 FOOTER ĐỘNG -->
+    <!-- 🛡️ BOOTSTRAP WRITE REVIEW MODAL -->
+    <div class="modal fade" id="writeReviewModal" tabindex="-1" aria-labelledby="writeReviewModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+            <div class="modal-content bg-white text-dark border border-light-subtle rounded-4 shadow-lg">
+                <!-- Header -->
+                <div class="modal-header border-light-subtle p-4 pb-3">
+                    <h5 class="modal-title font-title fw-bold text-dark" id="writeReviewModalLabel">
+                        <i class="ti ti-edit-circle text-warning me-1"></i> Gửi đánh giá của bạn
+                    </h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <!-- Body -->
+                <div class="modal-body p-4 pt-2">
+                    <form id="writeReviewForm" class="needs-validation" novalidate>
+                        <!-- Rating Stars Select -->
+                        <div class="mb-4 text-center">
+                            <label class="form-label d-block text-muted small text-uppercase tracking-wider mb-2">Chất lượng dịch vụ & thiết bị</label>
+                            <div class="star-picker fs-1 d-flex justify-content-center gap-2" id="starPicker">
+                                <span class="star-pick" data-v="1"><i class="ti ti-star"></i></span>
+                                <span class="star-pick" data-v="2"><i class="ti ti-star"></i></span>
+                                <span class="star-pick" data-v="3"><i class="ti ti-star"></i></span>
+                                <span class="star-pick" data-v="4"><i class="ti ti-star"></i></span>
+                                <span class="star-pick" data-v="5"><i class="ti ti-star"></i></span>
+                            </div>
+                            <input type="hidden" id="formStars" name="stars" value="0" required>
+                            <div class="invalid-feedback text-center mt-2">Vui lòng chọn số sao đánh giá.</div>
+                        </div>
+
+                        <!-- 2 columns input -->
+                        <div class="row g-3 mb-3">
+                            <div class="col-md-6">
+                                <label for="formName" class="form-label text-secondary small fw-medium">Họ và tên của bạn</label>
+                                <input type="text" class="form-control bg-light border-light-subtle text-dark rounded-3 py-2" id="formName" placeholder="Ví dụ: Nguyễn Văn A" required>
+                                <div class="invalid-feedback">Vui lòng nhập họ tên của bạn.</div>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="formRentalDays" class="form-label text-secondary small fw-medium">Số ngày thuê thiết bị</label>
+                                <select class="form-select bg-light border-light-subtle text-dark rounded-3 py-2" id="formRentalDays" required>
+                                    <option value="" disabled selected>Chọn thời gian thuê</option>
+                                    <option value="1 ngày">1 ngày</option>
+                                    <option value="2 ngày">2 ngày</option>
+                                    <option value="3 ngày">3 ngày</option>
+                                    <option value="4-5 ngày">4-5 ngày</option>
+                                    <option value="Trên 5 ngày">Trên 5 ngày</option>
+                                </select>
+                                <div class="invalid-feedback">Vui lòng chọn số ngày thuê.</div>
+                            </div>
+                        </div>
+
+                        <div class="row g-3 mb-3">
+                            <div class="col-md-6">
+                                <label for="formDevice" class="form-label text-secondary small fw-medium">Thiết bị đã thuê</label>
+                                <select class="form-select bg-light border-light-subtle text-dark rounded-3 py-2" id="formDevice" required>
+                                    <option value="" disabled selected>Chọn thiết bị đã thuê</option>
+                                    <option value="Sony A7IV" data-tag="sony">Sony A7IV</option>
+                                    <option value="Canon EOS R50" data-tag="canon">Canon EOS R50</option>
+                                    <option value="Fujifilm X100V" data-tag="fujifilm">Fujifilm X100V</option>
+                                    <option value="Fujifilm X-T100" data-tag="fujifilm">Fujifilm X-T100</option>
+                                    <option value="Fujifilm X-T10" data-tag="fujifilm">Fujifilm X-T10</option>
+                                    <option value="DJI Pocket 3" data-tag="dji">DJI Pocket 3</option>
+                                </select>
+                                <div class="invalid-feedback">Vui lòng chọn thiết bị.</div>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="formUsecase" class="form-label text-secondary small fw-medium">Mục đích sử dụng chính</label>
+                                <select class="form-select bg-light border-light-subtle text-dark rounded-3 py-2" id="formUsecase" required>
+                                    <option value="" disabled selected>Chọn mục đích sử dụng</option>
+                                    <option value="Du lịch" data-tag="travel">Du lịch</option>
+                                    <option value="Đám cưới" data-tag="wedding">Đám cưới</option>
+                                    <option value="Kỷ yếu" data-tag="kyYeu">Kỷ yếu</option>
+                                    <option value="Vlog" data-tag="vlog">Vlog & Đời thường</option>
+                                </select>
+                                <div class="invalid-feedback">Vui lòng chọn mục đích sử dụng.</div>
+                            </div>
+                        </div>
+
+                        <!-- Content review -->
+                        <div class="mb-3">
+                            <label for="formContent" class="form-label text-secondary small fw-medium">Nhận xét chi tiết</label>
+                            <textarea class="form-control bg-light border-light-subtle text-dark rounded-3 py-2" id="formContent" rows="4" placeholder="Thiết bị có hoạt động ổn định không? Thái độ nhân viên ra sao? Thủ tục nhận/trả máy như thế nào?..." required></textarea>
+                            <div class="invalid-feedback">Vui lòng nhập nội dung đánh giá chi tiết của bạn.</div>
+                        </div>
+
+                        <!-- Image upload and preview -->
+                        <div class="mb-3">
+                            <label for="formImageUpload" class="form-label text-secondary small fw-medium d-flex align-items-center justify-content-between">
+                                <span>Đính kèm hình ảnh thực tế (không bắt buộc)</span>
+                                <span class="text-muted text-lowercase fs-7">Chấp nhận JPG, PNG</span>
+                            </label>
+                            <input class="form-control bg-light border-light-subtle text-dark rounded-3" type="file" id="formImageUpload" accept="image/*" multiple>
+                            <div class="row row-cols-4 g-2 mt-2" id="formImagePreviewRow">
+                                <!-- Chứa các ảnh preview khi người dùng tải lên -->
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <!-- Footer -->
+                <div class="modal-footer border-light-subtle p-4 pt-3">
+                    <button type="button" class="btn btn-secondary border-0 px-4" data-bs-dismiss="modal">Đóng</button>
+                    <button type="button" class="btn btn-warning text-dark fw-bold px-4 hover-pulse border-0" id="submitReviewBtn">Gửi đánh giá ngay</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 🗺️ SIMPLE CUSTOM LIGHTBOX OVERLAY -->
+    <div id="lightboxOverlay" class="lightbox-overlay d-flex align-items-center justify-content-center position-fixed top-0 start-0 w-100 h-100 z-3 d-none">
+        <button type="button" class="lightbox-close position-absolute border-0 text-white bg-transparent fs-1 top-0 end-0 p-4" aria-label="Close Lightbox">&times;</button>
+        <img src="" alt="Enlarged photo outcome" class="lightbox-img img-fluid rounded border border-secondary shadow shadow-lg">
+    </div>
+
+    <!-- 🧭 FOOTER ĐỘNG (Được main.js tự động render) -->
     <div id="global-footer"></div>
 
-    <!-- 🛠️ JAVASCRIPT ĐỘNG -->
+    <!-- 🛠️ JAVASCRIPT LINKS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <script src="../js/main.js"></script>
-    <script src="../js/reviews.js"></script>
-</body>
+    <script src="../js/reviews.js"></script> 
+</body> 
 </html>

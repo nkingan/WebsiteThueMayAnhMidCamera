@@ -6,7 +6,7 @@
 let selectedCategory = "all";
 let selectedBrands = [];
 let selectedStatuses = [];
-let maxPrice = 300000;
+let maxPrice = 1000000;
 let comparedProductIds = [];
 let searchQuery = "";
 
@@ -177,6 +177,7 @@ function parseUrlParams() {
 }
 
 // Render danh sách sản phẩm theo bộ lọc
+// Render danh sách sản phẩm theo bộ lọc
 function renderProducts() {
     if (!productsGrid) return;
     productsGrid.innerHTML = "";
@@ -203,6 +204,10 @@ function renderProducts() {
     filteredProducts.forEach(prod => {
         const card = document.createElement("div");
         card.className = "camera-card";
+        
+        // Trả lại cursor pointer cho toàn bộ khung
+        card.style.cursor = "pointer";
+
         const isCompared = comparedProductIds.includes(prod.id) ? "checked" : "";
         const currentStatus = getProductStatus(prod);
         let statusText = "";
@@ -217,6 +222,7 @@ function renderProducts() {
             ? `<a href="javascript:void(0)" class="btn-rent disabled">BẢO DƯỠNG</a>`
             : `<a href="javascript:void(0)" onclick="rentNow('${prod.id}')" class="btn-rent">THUÊ NGAY</a>`;
 
+        // Trả về cấu trúc HTML GỐC 100% của bạn (không sợ lệch giao diện)
         card.innerHTML = `
             <div class="card-img-wrapper">
                 <span class="status-badge-floating ${currentStatus}">${statusText}</span>
@@ -241,6 +247,24 @@ function renderProducts() {
                 </div>
             </div>
         `;
+
+        // Bắt sự kiện click vào Card nhưng loại trừ CHÍNH XÁC các phần tử con
+        card.addEventListener("click", (e) => {
+            // Nếu click trúng nút Thuê, Xem nhanh, Checkbox hoặc các thẻ bọc nút thì KHÔNG chuyển trang
+            if (
+                e.target.closest('.card-button-block') || 
+                e.target.closest('.compare-checkbox-label') ||
+                e.target.tagName === "BUTTON" || 
+                e.target.tagName === "INPUT" || 
+                e.target.tagName === "A"
+            ) {
+                return; 
+            }
+            
+            // Đúng vùng trống/ảnh/chữ thì chuyển trang
+            window.location.href = `product-detail.html?id=${prod.id}`;
+        });
+
         productsGrid.appendChild(card);
     });
 }

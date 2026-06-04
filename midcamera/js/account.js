@@ -3,10 +3,13 @@
 const PRODUCT_IMAGES = {
     "canon-r50": "../images/canon_r50.jpg",
     "fuji-xt100": "../images/fuji_xt100.png",
-    "fuji-xt10": "../images/fuji_xt10.jpg",
-    "fuji-x100v": "../images/fuji_x100vi.jpg",
+    "fuji-xs10": "../images/fuji_xs10.jpg",
+    "fuji-x100vi": "../images/fuji_x100vi.jpg",
     "dji-pocket3": "../images/pocket3.jpg",
-    "fuji-instax": "../images/fuji_xm5.jpg"
+    "fuji-instax": "../images/instax12.png",
+    "canon-g7": "../images/canong7.png",
+    "dji-pocket4": "../images/pocket4.png",
+    "fuji-gfx100": "../images/fuji_gfx100.jpg"
 };
 
 let userData = null;
