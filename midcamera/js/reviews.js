@@ -126,7 +126,7 @@ let REVIEWS_DATA = [
         avatar: "VA",
         date: "02/05/2026",
         stars: 4,
-        device: "Fujifilm X-T10",
+        device: "Fujifilm X-S10",
         deviceTag: "fujifilm",
         usecase: "Du lịch",
         usecaseTag: "travel",

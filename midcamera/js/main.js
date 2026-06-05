@@ -81,9 +81,9 @@ const PRODUCTS_DATA = [
         category: "Mirrorless",
         brand: "Fujifilm",
         image: "images/fuji_xs10.jpg",
-        desc: "Kích thước cơ động, hệ thống điều khiển cơ khí trực quan, mang lại niềm vui chụp ảnh thuần túy của dòng X-T.",
-        shortDesc: "Kích thước cơ động, hệ thống điều khiển cơ khí trực quan, mang lại niềm vui chụp ảnh thuần túy của dòng X-T.",
-        longDesc: "Fujifilm X-S10 là chiếc máy ảnh không gương lật nhỏ gọn thừa hưởng phong cách thiết kế cơ khí cơ học cơ động của dòng X-T cao cấp. Sở hữu cảm biến X-Trans CMOS II độc quyền đem lại độ chi tiết ảnh vượt trội cùng khả năng tái tạo màu da cực kỳ nịnh mắt. Bố cục các bánh răng điều khiển tốc độ, bù trừ sáng bằng kim loại mang lại trải nghiệm thao tác nhiếp ảnh hoài cổ, đầy cảm xúc.",
+        desc: "Kích thước cơ động, hệ thống điều khiển cơ khí trực quan, mang lại niềm vui chụp ảnh thuần túy của dòng X-S.",
+        shortDesc: "Kích thước cơ động, hệ thống điều khiển cơ khí trực quan, mang lại niềm vui chụp ảnh thuần túy của dòng X-S.",
+        longDesc: "Fujifilm X-S10 là chiếc máy ảnh không gương lật nhỏ gọn thừa hưởng phong cách thiết kế cơ khí cơ học cơ động của dòng X-S cao cấp. Sở hữu cảm biến X-Trans CMOS II độc quyền đem lại độ chi tiết ảnh vượt trội cùng khả năng tái tạo màu da cực kỳ nịnh mắt. Bố cục các bánh răng điều khiển tốc độ, bù trừ sáng bằng kim loại mang lại trải nghiệm thao tác nhiếp ảnh hoài cổ, đầy cảm xúc.",
         status: "rented",
         bookedRanges: [
             { start: "2026-05-28", end: "2026-06-03" }
