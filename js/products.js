@@ -97,12 +97,12 @@ document.addEventListener("DOMContentLoaded", () => {
             selectedCategory = "all";
             selectedBrands = [];
             selectedStatuses = [];
-            maxPrice = 300000;
+            maxPrice = 1000000;
             if (priceRange) {
-                priceRange.value = 300000;
+                priceRange.value = 1000000;
             }
             if (priceRangeValue) {
-                priceRangeValue.textContent = "300.000₫";
+                priceRangeValue.textContent = "1.000.000₫";
             }
             
             categoryItems.forEach(i => {
@@ -222,7 +222,7 @@ function renderProducts() {
             ? `<a href="javascript:void(0)" class="btn-rent disabled">BẢO DƯỠNG</a>`
             : `<a href="javascript:void(0)" onclick="rentNow('${prod.id}')" class="btn-rent">THUÊ NGAY</a>`;
 
-        // Trả về cấu trúc HTML GỐC 100% của bạn (không sợ lệch giao diện)
+        // Trả về cấu trúc HTML GỐC 
         card.innerHTML = `
             <div class="card-img-wrapper">
                 <span class="status-badge-floating ${currentStatus}">${statusText}</span>
