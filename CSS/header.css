@@ -29,12 +29,12 @@
     position: fixed;
     top: 0;
     z-index: 1000;
-    height: 67px;
+    min-height: 67px;
     padding: 0;  
     width: 100%; 
 }
 body {
-    padding-top: 67px; /* đo chiều cao thực của header, thường = padding*2 + nội dung */
+    padding-top: 67px; /* đo chiều cao thực của header */
 }
 
 .header-container {
@@ -45,6 +45,7 @@ body {
     justify-content: space-between;
     padding: 0 20px;
     height: 100%;
+    gap: 20px;
 }
 
 /* Style Logo (Chữ MID màu trắng, chữ CAMERA màu xám sáng) */
@@ -121,6 +122,70 @@ body {
     background: none;
     cursor: pointer;
     color: var(--text-light-gray);
+}
+
+@media (max-width: 900px) {
+    .header-container {
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: space-between;
+        padding: 10px 15px;
+    }
+
+    .nav-menu {
+        width: 100%;
+        order: 2;
+        margin-top: 10px;
+    }
+
+    .nav-menu ul {
+        display: flex;
+        flex-wrap: nowrap;
+        justify-content: flex-start;
+        gap: 14px;
+        overflow-x: auto;
+        padding-bottom: 6px;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .nav-menu li {
+        flex: 0 0 auto;
+    }
+
+    .nav-menu a {
+        white-space: nowrap;
+        padding: 8px 6px;
+    }
+
+    .header-actions {
+        order: 3;
+        width: 100%;
+        justify-content: flex-end;
+        gap: 16px;
+        margin-top: 10px;
+    }
+
+    .search-box {
+        display: none;
+    }
+
+    body {
+        padding-top: 110px;
+    }
+}
+
+@media (max-width: 600px) {
+    .header-container {
+        padding: 10px 12px;
+    }
+
+    .nav-menu ul {
+        gap: 10px;
+    }
+
+    .action-icon {
+        font-size: 1.1rem;
+    }
 }
 
 /* Icon Giỏ hàng & User */
