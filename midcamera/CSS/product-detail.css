@@ -62,6 +62,9 @@
 
 .main-image-wrapper {
     aspect-ratio: 4/3;
+    max-height: 350px;          
+    max-width: 100%;
+    margin: 0 auto;
     overflow: hidden;
     background-color: #f9f9f9;
     border-radius: 8px;
@@ -71,7 +74,7 @@
 .main-image-wrapper img {
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    object-fit: contain;
     transition: transform 0.5s ease;
 }
 
@@ -224,6 +227,19 @@
     margin-top: 10px;
 }
 
+.action-buttons-box button {
+    padding: 16px 24px !important;    
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.95rem !important;    
+    font-weight: 700 !important;
+    border-radius: 8px !important;    
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-sizing: border-box;
+}
+
 .action-buttons-box .btn-add-to-cart {
     width: 100%;
     background-color: #111;
@@ -238,6 +254,32 @@
 
 .action-buttons-box .btn-rent-now {
     width: 100%;
+}
+
+.btn-disabled-overlap {
+    padding: 16px 24px !important;    
+    font-size: 0.95rem !important;    
+    font-weight: 600 !important;
+    border-radius: 8px !important;    
+    cursor: not-allowed !important;   
+    transition: all 0.3s ease;
+    box-sizing: border-box;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+/* Định dạng riêng cho nút "LỊCH TRÙNG - KHÔNG THỂ ĐẶT" (Nút đầy màu) */
+button.btn-add-to-cart.btn-disabled-overlap {
+    background-color: #8E8E93 !important; /* Màu xám trầm tối giản */
+    border: 1px solid #8E8E93 !important;
+    color: #FFFFFF !important;            /* Chữ trắng rõ ràng */
+}
+
+/* Định dạng riêng cho nút "KHÔNG KHẢ DỤNG" (Nút viền outline) */
+button.btn-rent-now.btn-disabled-overlap {
+    background-color: #F4F6F8 !important; /* Nền xám nhạt nhẹ nhàng */
+    border: 1px solid #D1D1D6 !important; /* Đường viền mượt mỏng mảnh, sạch sẽ */
+    color: #8E8E93 !important;            /* Màu chữ xám mờ tinh tế */
 }
 
 /* Tabs bên dưới */

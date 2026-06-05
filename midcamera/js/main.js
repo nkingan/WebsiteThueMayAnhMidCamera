@@ -5,8 +5,8 @@ const PRODUCTS_DATA = [
     {
         id: "canon-r50",
         name: "Canon EOS R50",
-        price: 150000,
-        deposit: 5000000,
+        price: 200000,
+        deposit: 2000000,
         category: "Mirrorless",
         brand: "Canon",
         image: "images/canon_r50.jpg",
@@ -15,12 +15,10 @@ const PRODUCTS_DATA = [
         longDesc: "Canon EOS R50 là chiếc máy ảnh mirrorless dòng APS-C hướng tới sự nhỏ gọn và tiện lợi tối đa cho người dùng. Với cảm biến 24.2 Megapixel kết hợp cùng bộ xử lý hình ảnh DIGIC X đỉnh cao, máy cho khả năng ghi lại hình ảnh sắc nét ngay cả trong điều kiện thiếu sáng. Hệ thống lấy nét tự động thông minh Dual Pixel CMOS AF II tự động phát hiện và theo dõi mắt, khuôn mặt của người lẫn động vật cực nhạy. Phù hợp hoàn hảo cho các bạn trẻ sáng tạo nội dung, làm vlog, chụp ảnh du lịch hoặc đời thường.",
         status: "available",
         bookedRanges: [
-            { start: "2026-06-05", end: "2026-06-08" }
+            { start: "2026-06-04", end: "2026-06-08" }
         ],
         gallery: [
-            "images/canon_r50.jpg",
-            "images/fuji_xm5.jpg",
-            "images/pocket3.jpg"
+            "images/canon_r50.jpg"
         ],
         specs: {
             "Cảm biến": "APS-C CMOS 24.2 MP",
@@ -43,8 +41,8 @@ const PRODUCTS_DATA = [
     {
         id: "fuji-xt100",
         name: "Fujifilm X-T100",
-        price: 130000,
-        deposit: 4000000,
+        price: 180000,
+        deposit: 1500000,
         category: "Mirrorless",
         brand: "Fujifilm",
         image: "images/fuji_xt100.png",
@@ -56,9 +54,7 @@ const PRODUCTS_DATA = [
             { start: "2026-06-10", end: "2026-06-12" }
         ],
         gallery: [
-            "images/fuji_xt100.png",
-            "images/fuji_xt20.jpg",
-            "images/fuji_xt10.jpg"
+            "images/fuji_xt100.png"
         ],
         specs: {
             "Cảm biến": "APS-C CMOS 24.2 MP",
@@ -78,24 +74,22 @@ const PRODUCTS_DATA = [
         ]
     },
     {
-        id: "fuji-xt10",
-        name: "Fujifilm X-T10",
-        price: 120000,
-        deposit: 3500000,
+        id: "fuji-xs10",
+        name: "Fujifilm X-S10",
+        price: 260000,
+        deposit: 3000000,
         category: "Mirrorless",
         brand: "Fujifilm",
-        image: "images/fuji_xt10.jpg",
+        image: "images/fuji_xs10.jpg",
         desc: "Kích thước cơ động, hệ thống điều khiển cơ khí trực quan, mang lại niềm vui chụp ảnh thuần túy của dòng X-T.",
         shortDesc: "Kích thước cơ động, hệ thống điều khiển cơ khí trực quan, mang lại niềm vui chụp ảnh thuần túy của dòng X-T.",
-        longDesc: "Fujifilm X-T10 là chiếc máy ảnh không gương lật nhỏ gọn thừa hưởng phong cách thiết kế cơ khí cơ học cơ động của dòng X-T cao cấp. Sở hữu cảm biến X-Trans CMOS II độc quyền đem lại độ chi tiết ảnh vượt trội cùng khả năng tái tạo màu da cực kỳ nịnh mắt. Bố cục các bánh răng điều khiển tốc độ, bù trừ sáng bằng kim loại mang lại trải nghiệm thao tác nhiếp ảnh hoài cổ, đầy cảm xúc.",
+        longDesc: "Fujifilm X-S10 là chiếc máy ảnh không gương lật nhỏ gọn thừa hưởng phong cách thiết kế cơ khí cơ học cơ động của dòng X-T cao cấp. Sở hữu cảm biến X-Trans CMOS II độc quyền đem lại độ chi tiết ảnh vượt trội cùng khả năng tái tạo màu da cực kỳ nịnh mắt. Bố cục các bánh răng điều khiển tốc độ, bù trừ sáng bằng kim loại mang lại trải nghiệm thao tác nhiếp ảnh hoài cổ, đầy cảm xúc.",
         status: "rented",
         bookedRanges: [
             { start: "2026-05-28", end: "2026-06-03" }
         ],
         gallery: [
-            "images/fuji_xt10.jpg",
-            "images/fuji_xt20.jpg",
-            "images/fuji_x100vi.jpg"
+            "images/fuji_xs10.jpg"
         ],
         specs: {
             "Cảm biến": "X-Trans CMOS II 16.3 MP",
@@ -115,24 +109,22 @@ const PRODUCTS_DATA = [
         ]
     },
     {
-        id: "fuji-x100v",
-        name: "Fujifilm X100V",
-        price: 200000,
-        deposit: 12000000,
+        id: "fuji-x100vi",
+        name: "Fujifilm X100VI",
+        price: 500000,
+        deposit: 5000000,
         category: "Compact",
         brand: "Fujifilm",
         image: "images/fuji_x100vi.jpg",
         desc: "Chiếc compact đường phố tối thượng với ống kính f/2 23mm cố định, cảm biến X-Trans IV và kính ngắm lai độc quyền.",
         shortDesc: "Chiếc compact đường phố tối thượng với ống kính f/2 23mm cố định, cảm biến X-Trans IV và kính ngắm lai độc quyền.",
-        longDesc: "Fujifilm X100V đại diện cho thế hệ thứ 5 của dòng máy ảnh compact đường phố huyền thoại X100. Máy được nâng cấp ống kính 23mm F2.0 thế hệ mới cho độ nét rìa ảnh vượt trội. Thiết kế thân máy bằng nhôm tinh luyện kết hợp cảm biến X-Trans CMOS 4 và bộ xử lý X-Processor 4 mạnh mẽ. Kính ngắm lai quang học và điện tử độc quyền cùng các giả lập màu phim mới nhất khiến X100V trở thành chiếc máy ảnh được khao khát nhất bởi các nhiếp ảnh gia đường phố.",
+        longDesc: "Fujifilm X100VI đại diện cho thế hệ thứ 5 của dòng máy ảnh compact đường phố huyền thoại X100. Máy được nâng cấp ống kính 23mm F2.0 thế hệ mới cho độ nét rìa ảnh vượt trội. Thiết kế thân máy bằng nhôm tinh luyện kết hợp cảm biến X-Trans CMOS 4 và bộ xử lý X-Processor 4 mạnh mẽ. Kính ngắm lai quang học và điện tử độc quyền cùng các giả lập màu phim mới nhất khiến X100V trở thành chiếc máy ảnh được khao khát nhất bởi các nhiếp ảnh gia đường phố.",
         status: "available",
         bookedRanges: [
             { start: "2026-06-15", end: "2026-06-20" }
         ],
         gallery: [
-            "images/fuji_x100vi.jpg",
-            "images/fuji_xs20.jpg",
-            "images/fuji_xs10.jpg"
+            "images/fuji_x100vi.jpg"
         ],
         specs: {
             "Cảm biến": "X-Trans CMOS 4 26.1 MP",
@@ -154,8 +146,8 @@ const PRODUCTS_DATA = [
     {
         id: "dji-pocket3",
         name: "DJI Pocket 3",
-        price: 180000,
-        deposit: 6000000,
+        price: 150000,
+        deposit: 1000000,
         category: "Action",
         brand: "DJI",
         image: "images/pocket3.jpg",
@@ -165,9 +157,7 @@ const PRODUCTS_DATA = [
         status: "maintenance",
         bookedRanges: [],
         gallery: [
-            "images/pocket3.jpg",
-            "images/fuji_xm5.jpg",
-            "images/canon_r50.jpg"
+            "images/pocket3.jpg"
         ],
         specs: {
             "Cảm biến": "CMOS 1.0-inch",
@@ -189,21 +179,19 @@ const PRODUCTS_DATA = [
     },
     {
         id: "fuji-instax",
-        name: "Fujifilm Instax Mini",
-        price: 80000,
-        deposit: 1500000,
+        name: "Fujifilm Instax Mini 12",
+        price: 120000,
+        deposit: 800000,
         category: "Film",
         brand: "Fujifilm",
-        image: "images/fuji_xm5.jpg",
+        image: "images/instax12.png",
         desc: "Máy ảnh chụp lấy liền dễ thương, lưu giữ khoảnh khắc bằng những tấm ảnh film mang phong cách cổ điển tức thì.",
         shortDesc: "Máy ảnh chụp lấy liền dễ thương, lưu giữ khoảnh khắc bằng những tấm ảnh film mang phong cách cổ điển tức thì.",
         longDesc: "Fujifilm Instax Mini là chiếc máy ảnh chụp lấy liền nhỏ nhắn xinh xắn, giúp lưu trữ trực quan mọi khoảnh khắc vui đùa của nhóm bạn bằng những tấm phim cơ học in ngay lập tức. Thiết kế gọn tay, màu sắc tươi tắn lý tưởng cho các buổi party, dã ngoại hoặc tặng làm quà lưu niệm.",
         status: "available",
         bookedRanges: [],
         gallery: [
-            "images/fuji_xm5.jpg",
-            "images/fuji_x100vi.jpg",
-            "images/fuji_xt100.png"
+            "images/instax12.png"
         ],
         specs: {
             "Loại film": "Fujifilm Instax Mini",
@@ -214,14 +202,110 @@ const PRODUCTS_DATA = [
         reviews: [
             { author: "Vân Anh", date: "2026-04-28", rating: 3, comment: "Máy xinh chụp vui mắt in ảnh liền. Nhưng lưu ý chụp đủ sáng ban ngày mới đẹp, chụp tối flash hơi yếu." }
         ]
+    },
+    {
+        id: "canon-g7",
+        name: "Canon PowerShot G7 X Mark III",
+        price: 260000,
+        deposit: 3000000,
+        category: "Mirrorless",
+        brand: "Canon",
+        image: "images/canong7.png",
+        desc: "Bước tiến mới cho phong cách nhiếp ảnh của bạn.",
+        shortDesc: "Bước tiến mới cho phong cách nhiếp ảnh của bạn.",
+        longDesc: "PowerShot G7 X Mark III có khả năng quay video 4K mà không crop, cho phép bạn sáng tạo nhiều hơn. G7X III có chức năng độc quyền là truyền phát video trực tiếp lên YouTube thông qua chức năng Live Streaming.",
+        status: "available",
+        bookedRanges: [
+            { start: "2026-06-07", end: "2026-06-09" }
+        ],
+        gallery: [
+            "images/canong7.png"
+        ],
+        specs: {
+            "Chế Độ AF": "One Shot AF, Servo AF, Manual Focus",
+            "Số Điểm Hệ Thống AF": "31",
+            "Built-in Flash": "YES",
+            "Bộ xử lý": "DIGIC 8",
+            "Digital Zoom": "4x",
+            "Optical Zoom": "4.2x",
+            "Bộ Nguồn Tiêu Chuẩn": "Battery Pack NB-13L",
+            "White Balance": "Auto (Ambience priority / White Priority), Daylight, Shade, Cloudy, Tungsten Light, White Fluorescent Light, Flash, Custom, Color Temp.",
+            "Độ nhạy sáng ISO": "125 - 12,800 (H:25,600)",
+            "Màn hình hiển thị": "LCD xoay lật đa góc 3.0 inch cảm ứng với độ phân giải 1,040,000",
+            "Trọng lượng thân máy": "304g (Đã bao gồm pin và thẻ nhớ)"
+        },
+        reviews: [
+            { author: "Thành Nhân", date: "2026-05-10", rating: 5, comment: "Máy siêu mới, lấy nét tự động mắt cực nhanh." }
+        ]
+    },
+    {
+        id: "dji-pocket4",
+        name: "DJI Pocket 4",
+        price: 150000,
+        deposit: 1000000,
+        category: "Action",
+        brand: "DJI",
+        image: "images/pocket4.png",
+        desc: " Osmo Pocket 4 với cụm nút bấm vật lý mới gồm nút Zoom bên trái và nút C (Custom) bên phải, ẩn dưới màn hình cảm ứng 2 inch.",
+        shortDesc: " Osmo Pocket 4 với cụm nút bấm vật lý mới gồm nút Zoom bên trái và nút C (Custom) bên phải, ẩn dưới màn hình cảm ứng 2 inch.",
+        longDesc: "DJI Osmo Pocket 4 nâng cấp trải nghiệm sử dụng action camera khi trang bị thêm hai nút bấm hoàn toàn mới, kết hợp cảm biến CMOS 1 inch với khẩu độ f/2.0, cho chất lượng hình ảnh lên đến 4K và hiệu ứng bokeh tự nhiên. Dải dynamic range 14 stop dùng chế độ D-Log 10 bit tái hiện màu sắc chân thực trong mọi điều kiện ánh sáng. Khả năng quay 4K/240fps còn được hỗ trợ bởi hệ thống chống rung 3 trục và loạt tính năng thông minh như ActiveTrack 7.0 và tự động lấy nét, tạo nên một công cụ linh hoạt dành cho nhà sáng tạo nội dung.",
+        status: "available",
+        bookedRanges: [
+            { start: "2026-06-10", end: "2026-06-11" }
+        ],
+        gallery: [
+            "images/pocket4.png"
+        ],
+        specs: {
+            "Cảm biến": "1-inch CMOS",
+            "Chống rung": "Gimbal cơ học 3 trục",
+            "Đầu ra âm thanh": "48 kHz 16-bit; AAC",
+            "Tốc độ bit tối đa của video": "180 Mbps",
+            "Màn hình hiển thị": "Kích thước: 2.0 inch với độ phân giải: 556×314",
+            "Định dạng Video": "MP4 (HEVC)",
+            "Định dạng ảnh": "JPEG/JPEG+DNG/DNG",
+            "Trọng lượng máy": "190.5g"
+        },
+        reviews: [
+            { author: "Quang Thắng", date: "2026-05-23", rating: 5, comment: "Chống rung đỉnh chóp, quay vlog 4K siêu nét. Cảm biến 1 inch quay thiếu sáng đỉnh thật sự." }
+        ]
+    },
+    {
+        id: "fuji-gfx100",
+        name: "Fujifilm GFX100RF",
+        price: 900000,
+        deposit: 5000000,
+        category: "Compact",
+        brand: "Fujifilm",
+        image: "images/fuji_gfx100.jpg",
+        desc: "Sở hữu cảm biến Medium Format 102MP & X-Processor 5.",
+        shortDesc: "Sở hữu cảm biến Medium Format 102MP và X-Processor 5.",
+        longDesc: "Fujifilm GFX100RF là máy ảnh medium format đầu tiên được thiết kế trong thân máy nhỏ gọn, trở thành thiết bị chụp ảnh hàng ngày tuyệt đỉnh cho các nhiếp ảnh gia. Không chỉ có chất lượng độ phân giải cao lên đến 102MP, GFX100RF còn nổi bật với ống kính góc rộng 35mm tích hợp. Điều này đã mang lại cho máy ảnh khả năng chụp đa dạng từ du lịch, đường phố và chân dung. Máy ảnh trở thành lựa chọn hoàn hảo cho người dùng nhờ sự kết hợp giữa chất lượng hình ảnh tinh tế và thiết kế đơn giản.",
+        status: "available",
+        bookedRanges: [],
+        gallery: [
+            "images/fuji_gfx100.jpg"
+        ],
+        specs: {
+            "Cảm biến": "Medium Format 43.8 x 32.9mm",
+            "Megapixel": "102MP",
+            "Ống kính": "GF 35mm f/4 (góc rộng cố định)",
+            "Màn hình hiển thị": "3.2 inch, 2.1 triệu điểm ảnh, cảm ứng, lật 3 chiều",
+            "Tốc độ chụp liên tục tối đa": "6fps",
+            "Độ phân giải video tối đa": "4K/30fps 10-bit",
+            "Cấp độ người dùng": "Chuyên nghiệp"
+        },
+        reviews: [
+            { author: "Bảo Lâm", date: "2026-04-10", rating: 5, comment: "Máy phù hợp để chụp khi đi tiệc, ánh sáng và độ phân giải sắc nét." }
+        ]
     }
 ];
 
 // Mảng Phụ kiện tập trung
 const ACCESSORIES_DATA = [
-    { id: "acc-battery", name: "Bộ Pin sạc dự phòng", price: 30000, image: "images/pocket3.jpg" },
-    { id: "acc-tripod", name: "Chân máy Tripod Benro", price: 40000, image: "images/canon_r50.jpg" },
-    { id: "acc-sdcard", name: "Thẻ nhớ SanDisk 64GB 170MB/s", price: 20000, image: "images/fuji_xt10.jpg" }
+    { id: "acc-battery", name: "Bộ Pin sạc dự phòng", price: 30000, image: "images/pin.jpg" },
+    { id: "acc-tripod", name: "Chân máy Tripod Benro", price: 40000, image: "images/chanmay.jpg" },
+    { id: "acc-sdcard", name: "Thẻ nhớ SanDisk 64GB 170MB/s", price: 20000, image: "images/thenho.jpg" }
 ];
 
 

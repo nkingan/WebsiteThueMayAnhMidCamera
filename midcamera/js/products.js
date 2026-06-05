@@ -6,7 +6,7 @@
 let selectedCategory = "all";
 let selectedBrands = [];
 let selectedStatuses = [];
-let maxPrice = 300000;
+let maxPrice = 1000000;
 let comparedProductIds = [];
 let searchQuery = "";
 
@@ -177,14 +177,16 @@ function parseUrlParams() {
 }
 
 // Render danh sách sản phẩm theo bộ lọc
+// Render danh sách sản phẩm theo bộ lọc
 function renderProducts() {
     if (!productsGrid) return;
     productsGrid.innerHTML = "";
 
     const filteredProducts = PRODUCTS_DATA.filter(prod => {
+        const currentStatus = getProductStatus(prod);
         const matchesCat = (selectedCategory === "all" || prod.category === selectedCategory);
         const matchesBrand = (selectedBrands.length === 0 || selectedBrands.includes(prod.brand));
-        const matchesStatus = (selectedStatuses.length === 0 || selectedStatuses.includes(prod.status));
+        const matchesStatus = (selectedStatuses.length === 0 || selectedStatuses.includes(currentStatus));
         const matchesPrice = (prod.price <= maxPrice);
         const matchesSearch = !searchQuery || 
             prod.name.toLowerCase().includes(searchQuery) ||
@@ -202,20 +204,28 @@ function renderProducts() {
     filteredProducts.forEach(prod => {
         const card = document.createElement("div");
         card.className = "camera-card";
+        
+        // Trả lại cursor pointer cho toàn bộ khung
+        card.style.cursor = "pointer";
+
         const isCompared = comparedProductIds.includes(prod.id) ? "checked" : "";
-
+        const currentStatus = getProductStatus(prod);
         let statusText = "";
-        if (prod.status === "available") statusText = "Sẵn sàng";
-        else if (prod.status === "rented") statusText = "Đã thuê";
-        else if (prod.status === "maintenance") statusText = "Bảo dưỡng";
+        if (currentStatus === "available")
+            statusText = "Sẵn sàng";
+        else if (currentStatus === "rented")
+            statusText = "Đã có lịch trong hôm nay";
+        else if (currentStatus === "maintenance")
+            statusText = "Bảo dưỡng";
 
-        const rentBtnHTML = prod.status === "maintenance"
+        const rentBtnHTML = currentStatus === "maintenance"
             ? `<a href="javascript:void(0)" class="btn-rent disabled">BẢO DƯỠNG</a>`
             : `<a href="javascript:void(0)" onclick="rentNow('${prod.id}')" class="btn-rent">THUÊ NGAY</a>`;
 
+        // Trả về cấu trúc HTML GỐC 100% của bạn (không sợ lệch giao diện)
         card.innerHTML = `
             <div class="card-img-wrapper">
-                <span class="status-badge-floating ${prod.status}">${statusText}</span>
+                <span class="status-badge-floating ${currentStatus}">${statusText}</span>
                 <img src="${resolveImagePath(prod.image)}" alt="${prod.name}">
             </div>
             <div class="card-info">
@@ -237,6 +247,24 @@ function renderProducts() {
                 </div>
             </div>
         `;
+
+        // Bắt sự kiện click vào Card nhưng loại trừ CHÍNH XÁC các phần tử con
+        card.addEventListener("click", (e) => {
+            // Nếu click trúng nút Thuê, Xem nhanh, Checkbox hoặc các thẻ bọc nút thì KHÔNG chuyển trang
+            if (
+                e.target.closest('.card-button-block') || 
+                e.target.closest('.compare-checkbox-label') ||
+                e.target.tagName === "BUTTON" || 
+                e.target.tagName === "INPUT" || 
+                e.target.tagName === "A"
+            ) {
+                return; 
+            }
+            
+            // Đúng vùng trống/ảnh/chữ thì chuyển trang
+            window.location.href = `product-detail.html?id=${prod.id}`;
+        });
+
         productsGrid.appendChild(card);
     });
 }
@@ -278,9 +306,32 @@ function rentNow(productId) {
 }
 
 // Xử lý Quick View Modal
+function getProductStatus(prod) {
+
+    // Ưu tiên bảo trì
+    if (prod.status === "maintenance") {
+        return "maintenance";
+    }
+    const today = new Date();
+    today.setHours(0, 0, 0, 0);
+    console.log("Today:", today);
+    console.log("Bookings:", prod.bookedRanges);
+    for (const booking of (prod.bookedRanges || [])) {
+        const start = new Date(booking.start + "T00:00:00");
+        const end = new Date(booking.end + "T23:59:59");
+        console.log(start, end);
+        if (today >= start && today <= end) {
+            return "rented";
+        }
+    }
+
+    return "available";
+} 
+
 function openQuickview(productId) {
     const prod = PRODUCTS_DATA.find(p => p.id === productId);
     if (!prod) return;
+    const currentStatus = getProductStatus(prod);
 
     // Lọc bỏ duplicate và chỉ giữ các dòng thông số chuẩn
     const allowedSpecs = [
@@ -308,32 +359,31 @@ function openQuickview(productId) {
         }
     });
 
-    // Sẵn sàng vs Đã thuê vs Bảo dưỡng status badge
+    // Sẵn sàng vs Đã có lịch trong hôm nay vs Bảo dưỡng status badge
     let badgeClass = "";
     let badgeText = "";
-    if (prod.status === "available") {
+    if (currentStatus === "available") {
         badgeClass = "available";
         badgeText = "Sẵn sàng";
-    } else if (prod.status === "rented") {
+    } else if (currentStatus === "rented") {
         badgeClass = "rented";
-        badgeText = "Đã thuê";
-    } else if (prod.status === "maintenance") {
+        badgeText = "Đã có lịch trong hôm nay";
+    } else if (currentStatus === "maintenance") {
         badgeClass = "rented"; // mapped style
         badgeText = "Bảo dưỡng";
     }
-    // Wait, the status-badge.rented class in request says: .status-badge.rented { background: #fee2e2; color: #b91c1c; }
-    // Let's map "maintenance" to rented/maintenance or make badgeClass match status
-    badgeClass = prod.status; 
-    if (prod.status === "maintenance") {
+
+    badgeClass = currentStatus;
+    if (currentStatus === "maintenance") {
         badgeClass = "maintenance";
         badgeText = "Bảo dưỡng";
-    } else if (prod.status === "rented") {
-        badgeText = "Đã thuê";
+    } else if (currentStatus === "rented") {
+        badgeText = "Đã có lịch trong hôm nay";
     } else {
         badgeText = "Sẵn sàng";
     }
     
-    const statusBadgeHTML = `<span class="status-badge ${badgeClass}">${badgeText}</span>`;
+    const statusBadgeHTML = `<span class="status-badge ${badgeClass}">[${badgeText}]</span>`;
 
     const quickRentBtnHTML = prod.status === "maintenance"
         ? `<button class="btn-book disabled" style="background-color: #8E8E93; cursor: not-allowed; opacity: 0.6;" disabled>BẢO DƯỠNG</button>`
@@ -347,7 +397,9 @@ function openQuickview(productId) {
                 </div>
             </div>
             <div class="modal-right">
-                <h2>${prod.name}${statusBadgeHTML}</h2>
+                <h2 class="product-title">
+                ${prod.name}
+                ${statusBadgeHTML} </h2>
                 <div class="modal-price">${prod.price.toLocaleString("vi-VN")}₫/ngày</div>
                 <p class="modal-desc">${prod.desc}</p>
                 
@@ -508,3 +560,4 @@ function closeComparePopup() {
         comparePopup.classList.remove("active");
     }
 }
+

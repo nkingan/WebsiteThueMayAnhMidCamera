@@ -1,5 +1,7 @@
+
 <!DOCTYPE html>
 <html lang="vi">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,135 +10,232 @@
     <link rel="stylesheet" href="../CSS/header.css">
     <link rel="stylesheet" href="../CSS/footer.css">
     <link rel="stylesheet" href="../CSS/about.css">
+    
 </head>
+
 <body>
 
     <!-- 🧭 HEADER ĐỘNG -->
     <div id="global-header" data-active-nav="gioithieu"></div>
 
     <main class="main-about">
-        
-        <!-- 🎥 ABOUT HERO SECTION -->
-        <section class="about-hero" style="background: linear-gradient(rgba(0,0,0,0.65), rgba(0,0,0,0.65)), url('../images/trangchu/hero-bg.jpg') center/cover no-repeat;">
-            <div class="about-hero-content">
-                <h1>Câu chuyện MIDCAMERA</h1>
-                <p>Khởi nguồn từ niềm đam mê lưu giữ khoảnh khắc và mong muốn tối ưu hóa chi phí cho cộng đồng nhiếp ảnh tại Vinh, Nghệ An.</p>
+
+        <!-- SECTION 1 - HERO -->
+        <section class="cinematic-hero">
+            <div class="hero-gradient"></div>
+            <div class="content">
+                <h1 class="serif line1">CÂU CHUYỆN CỦA MIDCAMERA</h1>
+                <p class="subtitle sans eyebrow">Khởi nguồn từ niềm đam mê lưu giữ khoảnh khắc và mong muốn tối ưu hóa
+                    chi phí
+                    cho cộng đồng nhiếp ảnh tại Vinh, Nghệ An</p>
+            </div>
+            <div class="scroll-cue"></div>
+        </section>
+
+        <!-- SECTION 2 - STATS -->
+        <section class="stats-section">
+            <div class="stats-container reveal">
+                <div class="stat-box">
+                    <div class="stat-number serif" data-target="9">0</div>
+                    <div class="stat-label sans eyebrow">Thiết bị chuyên nghiệp</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-number serif" data-target="500">0</div>
+                    <div class="stat-label sans eyebrow">Lượt thuê thành công</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-number serif" data-target="4.9" data-decimal="true">0</div>
+                    <div class="stat-label sans eyebrow">Đánh giá khách hàng</div>
+                </div>
             </div>
         </section>
 
-        <!-- 📅 TIMELINE SECTION -->
-        <section class="about-timeline-section">
-            <h2>Hành trình phát triển</h2>
-            
-            <div class="about-timeline">
-                
-                <!-- Timeline item 1 -->
-                <div class="timeline-item">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-content">
-                        <span class="timeline-date">17/12/2025</span>
-                        <h3 style="font-family:'Montserrat'; font-size:1.05rem; font-weight:700; margin-bottom:8px;">Thành lập thương hiệu</h3>
-                        <p class="timeline-desc">MIDCAMERA được chính thức ra đời tại TP. Vinh bởi hai nhà đồng sáng lập trẻ đầy nhiệt huyết, mở đầu cho giải pháp thuê thiết bị cao cấp tại địa phương.</p>
-                    </div>
+        <!-- SECTION 3 - BEFORE/AFTER SLIDER -->
+        <section class="slider-section">
+            <h2 class="serif reveal">Thiết bị tạo ra sự khác biệt</h2>
+            <div class="slider-container reveal" id="beforeAfterSlider">
+                <!-- Bottom Image (After) -->
+                <img src="../images/trangchu/hero.jpg" class="slider-image img-after" alt="DSLR Photo">
+                <div class="slider-label label-right sans eyebrow">Sony A7 IV</div>
+
+                <!-- Overlay Image (Before) -->
+                <div class="slider-overlay" id="sliderOverlay">
+                    <img src="../images/trangchu/hero.jpg" class="img-before" alt="Phone Photo" id="sliderImgBefore">
+                    <div class="slider-label label-left sans eyebrow">Điện thoại</div>
                 </div>
 
-                <!-- Timeline item 2 -->
-                <div class="timeline-item">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-content">
-                        <span class="timeline-date">Tháng 02/2026</span>
-                        <h3 style="font-family:'Montserrat'; font-size:1.05rem; font-weight:700; margin-bottom:8px;">Mở rộng kho thiết bị</h3>
-                        <p class="timeline-desc">Hệ thống đầu tư bổ sung hơn 30 dòng máy ảnh cao cấp bao gồm các dòng Mirrorless thế hệ mới của Canon, Fujifilm và DJI Pocket 3 đình đám.</p>
-                    </div>
+                <!-- Handle -->
+                <div class="slider-handle" id="sliderHandle"></div>
+            </div>
+        </section>
+
+        <!-- SECTION 4 - TIMELINE -->
+        <section class="timeline-section">
+            <h2 class="serif reveal">Hành trình của chúng tôi</h2>
+            <div class="timeline-scroll reveal">
+
+                <div class="timeline-card hover-target">
+                    <div class="timeline-year-bg serif">2025</div>
+                    <div class="timeline-year serif">26/05/2025</div>
+                    <p class="timeline-text sans">📷 Tìm kiếm những người cùng đam mê và lý tưởng.</p>
                 </div>
 
-                <!-- Timeline item 3 -->
-                <div class="timeline-item">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-content">
-                        <span class="timeline-date">Tháng 05/2026</span>
-                        <h3 style="font-family:'Montserrat'; font-size:1.05rem; font-weight:700; margin-bottom:8px;">Đạt mốc 500+ khách hàng</h3>
-                        <p class="timeline-desc">MIDCAMERA tự hào trở thành điểm đến cho thuê tin cậy số một tại thành phố Vinh của các vlogger, nhiếp ảnh gia tự do và các cặp đôi đi du lịch.</p>
-                    </div>
+                <div class="timeline-card hover-target">
+                    <div class="timeline-year-bg serif">2025</div>
+                    <div class="timeline-year serif">20/10/2025</div>
+                    <p class="timeline-text sans">🎥 Lên ý tưởng và định hướng phát triển.</p>
+                </div>
+
+                <div class="timeline-card hover-target">
+                    <div class="timeline-year-bg serif">2025</div>
+                    <div class="timeline-year serif">17/12/2025</div>
+                    <p class="timeline-text sans">🏪 MIDCAMERA khởi nguồn tại Nghệ An.</p>
+                </div>
+
+                <div class="timeline-card hover-target">
+                    <div class="timeline-year-bg serif">2026</div>
+                    <div class="timeline-year serif">1/05/2026</div>
+                    <p class="timeline-text sans">⭐ Vượt mốc 500+ lượt thuê.</p>
                 </div>
 
             </div>
         </section>
 
-        <!-- 👥 FOUNDERS SECTION -->
-        <section class="founders-section">
-            <h2>Nhà sáng lập</h2>
-            <div class="founders-grid">
-                
-                <!-- Founder 1 -->
-                <div class="founder-card">
-                    <div class="founder-avatar">KV</div>
-                    <h3 class="founder-name">Nguyễn Khánh Vân</h3>
-                    <span class="founder-role">Co-Founder & CEO</span>
-                    <p class="founder-bio">Đam mê du lịch và nhiếp ảnh đường phố, Khánh Vân phụ trách điều hành chính và định hướng phát triển dịch vụ khách hàng bền vững tại MIDCAMERA.</p>
+        <!-- SECTION 5 - TEAM -->
+        <section class="team-section">
+            <h2 class="serif reveal">Đội ngũ của chúng tôi</h2>
+            <div class="team-spread reveal">
+
+                <div class="polaroid hover-target">
+                    <img src="../images/TeamMid/Hlinh.jpg" alt="Nguyễn Huyền Linh" class="polaroid-img">
+                    <div class="polaroid-name sans">Nguyễn Huyền Linh</div>
+                    <div class="polaroid-role serif">Founder · Nhiếp ảnh gia</div>
                 </div>
 
-                <!-- Founder 2 -->
-                <div class="founder-card">
-                    <div class="founder-avatar">KN</div>
-                    <h3 class="founder-name">Ngọ Kim Ngân</h3>
-                    <span class="founder-role">Co-Founder & CBO</span>
-                    <p class="founder-bio">Với kinh nghiệm làm việc trong ngành hình ảnh và kỹ thuật thiết bị, Kim Ngân đảm nhận vai trò quản lý kỹ thuật và chất lượng đầu ra của 100% dòng máy thuê.</p>
+                <div class="polaroid hover-target">
+                    <img src="../images/TeamMid/Kngan.jpg" alt="Ngọ Kim Ngân" class="polaroid-img">
+                    <div class="polaroid-name sans">Ngọ Kim Ngân</div>
+                    <div class="polaroid-role serif">Co-founder · Quản lý thiết bị</div>
+                </div>
+
+                <div class="polaroid hover-target">
+                    <img src="../images/TeamMid/Kvan.jpg" alt="Nguyễn Khánh Vân" class="polaroid-img">
+                    <div class="polaroid-name sans">Nguyễn Khánh Vân</div>
+                    <div class="polaroid-role serif">Kỹ thuật viên · Kế toán</div>
+                </div>
+
+                <div class="polaroid hover-target">
+                    <img src="../images/TeamMid/THien.jpg" alt="Vũ Thu Hiền" class="polaroid-img">
+                    <div class="polaroid-name sans">Vũ Thu Hiền</div>
+                    <div class="polaroid-role serif">Marketing · Content</div>
                 </div>
 
             </div>
         </section>
-
-        <!-- 🌟 MISSION QUOTE SECTION -->
-        <section class="about-mission">
-            <div class="mission-container">
-                <p class="mission-quote">"Sứ mệnh của MIDCAMERA là xóa bỏ rào cản tài chính để bất kỳ ai cũng có thể tự tin kể câu chuyện của mình bằng những khung hình chất lượng cao nhất."</p>
+        <!-- SECTION 6 - MASONRY GALLERY -->
+        <section class="gallery-section">
+            <h2 class="serif reveal">Những khoảnh khắc được tạo ra</h2>
+            <div class="masonry-grid reveal">
+                <div class="masonry-item hover-target">
+                    <img src="../images/review/canon.jpg" alt="Canon R50" class="masonry-img">
+                    <div class="masonry-caption eyebrow">Canon R50</div>
+                </div>
+                <div class="masonry-item hover-target">
+                    <img src="../images/review/Wedding.jpg" alt="fujifilm-x100v" class="masonry-img">
+                    <div class="masonry-caption eyebrow">fujifilm-x100v</div>
+                </div>
+                <div class="masonry-item hover-target">
+                    <img src="../images/review/Pocket.jpg" alt="Pocket" class="masonry-img">
+                    <div class="masonry-caption eyebrow">Pocket</div>
+                </div>
+                <div class="masonry-item hover-target">
+                    <img src="../images/review/Vintage.jpg" alt="Pocket 3" class="masonry-img">
+                    <div class="masonry-caption eyebrow">Pocket 3</div>
+                </div>
+                <div class="masonry-item hover-target">
+                    <img src="../images/review/DaLat.jpg" alt="Fujifilm XS20" class="masonry-img">
+                    <div class="masonry-caption eyebrow">Fujifilm xs20</div>
+                </div>
+                <div class="masonry-item hover-target">
+                    <img src="../images/review/FJinstaxMini(2).jpg" alt="Fujifilm xs10" class="masonry-img">
+                    <div class="masonry-caption eyebrow">Fujifilm xs10</div>
+                </div>
+                <div class="masonry-item hover-target">
+                    <img src="../images/review/Canon70.jpg" alt="Canon 24-70mm" class="masonry-img">
+                    <div class="masonry-caption eyebrow">Canon 24-70mm</div>
+                </div>
+                <div class="masonry-item hover-target">
+                    <img src="../images/review/Conon24-70.jpg" alt="Canon 24-70mm" class="masonry-img">
+                    <div class="masonry-caption eyebrow">Canon 24-70mm</div>
+                </div>
+                <div class="masonry-item hover-target">
+                    <img src="../images/review/Canon24.jpg" alt="Canon 24-70mm" class="masonry-img">
+                    <div class="masonry-caption eyebrow">Canon 24-70mm</div>
+                </div>
+                <div class="masonry-item hover-target">
+                    <img src="../images/review/Pcanh.jpg" alt="Fujifilm xt20" class="masonry-img">
+                    <div class="masonry-caption eyebrow">Fujifilm xt20</div>
+                </div>
+                <div class="masonry-item hover-target">
+                    <img src="../images/review/Conon(2).jpg" alt="Canon" class="masonry-img">
+                    <div class="masonry-caption eyebrow">Canon</div>
+                </div>
             </div>
         </section>
 
-        <!-- 🗺️ CONTACT MAP SECTION -->
-        <section class="about-map-section">
-            <h2>Liên hệ & Bản đồ</h2>
-            <div class="about-map-container">
-                
-                <!-- Cột trái - Bản đồ Google Maps nhúng thực tế của Bạch Liêu Vinh -->
-                <div class="about-map">
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3780.123549234839!2d105.6923456789!3d18.66532456789!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3139ce6b9f8f26ef%3A0x6e2c39cc2e4a8dc3!2s45%20B%E1%BA%A1ch%20Li%C3%Aau%2C%20B%E1%BA%BFn%20Th%E1%BB%A7y%2C%20Th%C3%A0nh%20ph%E1%BB%91%20Vinh%2C%20Ngh%E1%BB%87%20An%2C%20Vietnam!5e0!3m2!1sen!2s!4v1700000000000!5m2!1sen!2s" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        <!-- SECTION 8 - CTA FINALE -->
+        <section class="cta-finale">
+            <div class="cta-bg"></div>
+            <div class="cta-content reveal">
+                <h2 class="serif">Sẵn sàng kể câu chuyện của bạn?</h2>
+                <p class="sans">Thuê thiết bị chuyên nghiệp. Tạo ra những khoảnh khắc không thể quên.</p>
+                <div class="cta-buttons">
+                    <a href="products.html" class="btn-cinematic btn-primary hover-btn">Thuê máy ngay</a>
+                    <a href="products.html" class="btn-cinematic btn-secondary hover-btn">Xem thiết bị</a>
                 </div>
+            </div>
+        </section>
 
-                <!-- Cột phải - Chi tiết liên hệ -->
-                <div class="about-contact-details">
-                    <h3>MIDCAMERA VINH</h3>
-                    <p style="color:#666;">Cửa hàng mở cửa từ 08:00 - 21:00 hàng ngày (kể cả chủ nhật và ngày lễ).</p>
-                    
-                    <div class="contact-info-list">
-                        <div class="contact-info-item">
-                            <i class="fa-solid fa-location-dot"></i>
-                            <span>45 Bạch Liêu, Phường Bến Thủy, Thành Phố Vinh, Nghệ An</span>
-                        </div>
-                        <div class="contact-info-item">
-                            <i class="fa-solid fa-phone"></i>
-                            <span>Hotline: <strong>0987.654.321</strong></span>
-                        </div>
-                        <div class="contact-info-item">
-                            <i class="fa-solid fa-envelope"></i>
-                            <span>Email: <a href="mailto:Midcamera37@gmail.com">Midcamera37@gmail.com</a></span>
-                        </div>
-                        <div class="contact-info-item">
-                            <i class="fa-brands fa-facebook"></i>
-                            <span>Facebook: <a href="https://facebook.com/midcamera" target="_blank">facebook.com/midcamera</a></span>
-                        </div>
-                        <div class="contact-info-item">
-                            <i class="fa-brands fa-instagram"></i>
-                            <span>Instagram: <a href="https://instagram.com/midcamera_" target="_blank">instagram.com/midcamera_</a></span>
-                        </div>
-                        <div class="contact-info-item">
-                            <i class="fa-brands fa-tiktok"></i>
-                            <span>TikTok: <a href="https://tiktok.com/@mid_camera37" target="_blank">tiktok.com/@mid_camera37</a></span>
+        <!-- Kế thừa Map Section cho đồng nhất -->
+        <section class="map-section-dark">
+            <div class="map-container reveal">
+                <div style="text-align: center; margin-bottom: 40px;">
+                    <h2 class="sans" style="font-size: 2.2rem; color: #111;">Liên hệ & Bản đồ</h2>
+                </div>
+                <div class="map-grid">
+                    <div style="border-radius: 8px; overflow: hidden; height: 350px;">
+                        <iframe
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3780.123549234839!2d105.6923456789!3d18.66532456789!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3139ce6b9f8f26ef%3A0x6e2c39cc2e4a8dc3!2s45%20B%E1%BA%A1ch%20Li%C3%Aau%2C%20B%E1%BA%BFn%20Th%E1%BB%A7y%2C%20Th%C3%A0nh%20ph%E1%BB%91%20Vinh%2C%20Ngh%E1%BB%87%20An%2C%20Vietnam!5e0!3m2!1sen!2s!4v1700000000000!5m2!1sen!2s"
+                            width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"
+                            referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    </div>
+                    <div>
+                        <h3 class="sans" style="font-size: 1.4rem; font-weight: 700; color: #111; margin-bottom: 20px;">
+                            MIDCAMERA
+                            VINH</h3>
+                        <p class="sans" style="color: #666; margin-bottom: 20px;">Cửa hàng mở cửa từ 08:00 - 21:00 hàng
+                            ngày (kể cả
+                            chủ nhật và ngày lễ).</p>
+                        <div
+                            style="display: flex; flex-direction: column; gap: 15px; color: #444; font-family: 'Inter', sans-serif;">
+                            <div><i class="fa-solid fa-location-dot" style="width: 25px;"></i> 45 Bạch Liêu, Phường Bến
+                                Thủy, Vinh,
+                                Nghệ An</div>
+                            <div><i class="fa-solid fa-phone" style="width: 25px;"></i> Hotline:
+                                <strong>0987.654.321</strong></div>
+                            <div><i class="fa-solid fa-envelope" style="width: 25px;"></i> Midcamera37@gmail.com</div>
+                            <div><i class="fa-brands fa-facebook" style="width: 25px;"></i> <a
+                                    href="https://www.facebook.com/people/Mid-Camera-Cho-thu%C3%AA-m%C3%A1y-%E1%BA%A3nh-TpVinh/61585324122699/"
+                                    target="_blank" style="color: #111; font-weight: 600;">Mid-Camera Vinh</a></div>
+                            <div><i class="fa-brands fa-instagram" style="width: 25px;"></i> <a
+                                    href="https://www.instagram.com/midcamera_" target="_blank"
+                                    style="color: #111; font-weight: 600;">@midcamera_</a></div>
+                            <div><i class="fa-brands fa-tiktok" style="width: 25px;"></i> <a
+                                    href="https://www.tiktok.com/@mid_camera37?_r=1&_d=secCgYIASAHKAESPgo8yuz2XoQQ2NQxcc9dR7jYbCX94Bqbu7QpPiJT6jisPiXI0JyGcwU6FoHu%2BBcS5pTUuocgsssbpTKugLJSGgA%3D&_svg=1&checksum=91aa96619bb9e67ea4ea4207b75d85fd20d349b5f9a5e544e1b95df7a7aa8140&item_author_type=2&reflow_sign_scene=7&rgssign=8.1.9kfTeO7VN3Xoaj4xCr28_Q&sec_uid=MS4wLjABAAAAJ2DE9LspQLloHKHAxW3WIzHdhZI-8RYntK_x7Q5oZNpWjwSy96fQYYa7dlHPymCt&sec_user_id=MS4wLjABAAAAK6RSw9KgkYCzJwnxV82nd4AULaughNz9OuGX7P7TRe0QdbUsgm9GPC9jRjMPhtcj&share_app_id=1233&share_author_id=7624735497013969940&share_link_id=631E7A82-7368-4634-B48E-178B8EEA0A27&share_region=VN&share_scene=1&sharer_language=vi&social_share_type=5&source=h5_m&timestamp=1780511984&tt_from=copy&u_code=db4gbh2bfhm7d3&ug_btm=b6880%2Cb5836&user_id=6798028789643019266&utm_campaign=client_share&utm_medium=ios&utm_source=copy"
+                                    target="_blank" style="color: #111; font-weight: 600;">@mid_camera37</a></div>
                         </div>
                     </div>
                 </div>
-
             </div>
         </section>
 
@@ -145,7 +244,146 @@
     <!-- 🧭 FOOTER ĐỘNG -->
     <div id="global-footer"></div>
 
-    <!-- 🛠️ JAVASCRIPT ĐỘNG -->
+    <!-- 🛠️ JAVASCRIPT ĐỘNG & CUSTOM -->
     <script src="../js/main.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+
+            // 1. LENS CURSOR EFFECT (only if element exists)
+            const cursor = document.getElementById('customCursor');
+            if (cursor) {
+                let mouseX = window.innerWidth / 2;
+                let mouseY = window.innerHeight / 2;
+                let cursorX = mouseX;
+                let cursorY = mouseY;
+
+                // Lerp function for smooth lagging
+                function lerp(start, end, amt) {
+                    return (1 - amt) * start + amt * end;
+                }
+
+                document.addEventListener('mousemove', (e) => {
+                    mouseX = e.clientX;
+                    mouseY = e.clientY;
+                });
+
+                function animateCursor() {
+                    cursorX = lerp(cursorX, mouseX, 0.2);
+                    cursorY = lerp(cursorY, mouseY, 0.2);
+                    cursor.style.left = `${cursorX}px`;
+                    cursor.style.top = `${cursorY}px`;
+                    requestAnimationFrame(animateCursor);
+                }
+                animateCursor();
+
+                // Hover effects for cursor
+                const hoverTargets = document.querySelectorAll('.hover-target, a, button, .slider-container');
+                const btnTargets = document.querySelectorAll('.hover-btn');
+
+                hoverTargets.forEach(target => {
+                    target.addEventListener('mouseenter', () => cursor.classList.add('hovering'));
+                    target.addEventListener('mouseleave', () => cursor.classList.remove('hovering'));
+                });
+
+                btnTargets.forEach(target => {
+                    target.addEventListener('mouseenter', () => cursor.classList.add('hovering-btn'));
+                    target.addEventListener('mouseleave', () => cursor.classList.remove('hovering-btn'));
+                });
+            }
+
+
+            // 2. SCROLL REVEAL ANIMATIONS
+            const reveals = document.querySelectorAll('.reveal');
+            const observerOptions = { threshold: 0.1, rootMargin: "0px 0px -50px 0px" };
+
+            const revealObserver = new IntersectionObserver((entries, observer) => {
+                entries.forEach((entry, index) => {
+                    if (entry.isIntersecting) {
+                        setTimeout(() => {
+                            entry.target.classList.add('active');
+                            // Trigger counter animation if it's the stats section
+                            if (entry.target.classList.contains('stats-container')) {
+                                animateCounters();
+                            }
+                        }, index * 100);
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, observerOptions);
+
+            reveals.forEach(reveal => revealObserver.observe(reveal));
+
+
+            // 3. COUNTER ANIMATION
+            function animateCounters() {
+                const counters = document.querySelectorAll('.stat-number');
+                counters.forEach(counter => {
+                    const target = parseFloat(counter.getAttribute('data-target'));
+                    const isDecimal = counter.getAttribute('data-decimal') === 'true';
+                    const duration = 2000;
+                    let start = null;
+
+                    function step(timestamp) {
+                        if (!start) start = timestamp;
+                        const progress = Math.min((timestamp - start) / duration, 1);
+                        const easeOutQuart = 1 - Math.pow(1 - progress, 4);
+
+                        let current = easeOutQuart * target;
+
+                        if (isDecimal) {
+                            counter.innerText = current.toFixed(1) + '★';
+                        } else {
+                            if (target >= 1000) {
+                                counter.innerText = Math.floor(current).toLocaleString() + '+';
+                            } else {
+                                counter.innerText = Math.floor(current) + '+';
+                            }
+                        }
+
+                        if (progress < 1) {
+                            window.requestAnimationFrame(step);
+                        }
+                    }
+                    window.requestAnimationFrame(step);
+                });
+            }
+
+
+            // 4. BEFORE/AFTER SLIDER
+            const slider = document.getElementById('beforeAfterSlider');
+            const overlay = document.getElementById('sliderOverlay');
+            const handle = document.getElementById('sliderHandle');
+            let isDragging = false;
+
+            function slide(clientX) {
+                const rect = slider.getBoundingClientRect();
+                let x = clientX - rect.left;
+                // Clamp
+                x = Math.max(0, Math.min(x, rect.width));
+                const percent = (x / rect.width) * 100;
+
+                overlay.style.width = `${percent}%`;
+                handle.style.left = `${percent}%`;
+            }
+
+            slider.addEventListener('mousedown', (e) => { isDragging = true; slide(e.clientX); });
+            window.addEventListener('mouseup', () => { isDragging = false; });
+            window.addEventListener('mousemove', (e) => { if (isDragging) slide(e.clientX); });
+
+            // Touch support
+            slider.addEventListener('touchstart', (e) => { isDragging = true; slide(e.touches[0].clientX); });
+            window.addEventListener('touchend', () => { isDragging = false; });
+            window.addEventListener('touchmove', (e) => { if (isDragging) slide(e.touches[0].clientX); });
+
+            // Keep overlay image size consistent with container on resize
+            const overlayImg = document.getElementById('sliderImgBefore');
+            function resizeSliderImage() {
+                overlayImg.style.width = slider.offsetWidth + 'px';
+            }
+            window.addEventListener('resize', resizeSliderImage);
+            resizeSliderImage(); // initial call
+        });
+    </script>
 </body>
+
 </html>

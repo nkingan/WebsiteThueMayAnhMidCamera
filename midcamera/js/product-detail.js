@@ -331,20 +331,19 @@ function calculateTotal() {
         returnInput.classList.add("invalid-date");
 
         // Vô hiệu hóa các nút đặt thuê
-        if (btnAddToCart) {
-            btnAddToCart.disabled = true;
-            btnAddToCart.textContent = "LỊCH TRÙNG - KHÔNG THỂ ĐẶT";
-            btnAddToCart.style.backgroundColor = "#8E8E93";
-            btnAddToCart.style.borderColor = "#8E8E93";
-            btnAddToCart.style.cursor = "not-allowed";
-        }
-        if (btnRentNow) {
-            btnRentNow.disabled = true;
-            btnRentNow.textContent = "KHÔNG KHẢ DỤNG";
-            btnRentNow.style.borderColor = "#8E8E93";
-            btnRentNow.style.color = "#8E8E93";
-            btnRentNow.style.cursor = "not-allowed";
-        }
+        // Vô hiệu hóa các nút đặt thuê và gắn class để CSS xử lý style bận lịch
+if (btnAddToCart) {
+    btnAddToCart.disabled = true;
+    btnAddToCart.textContent = "LỊCH TRÙNG - KHÔNG THỂ ĐẶT";
+    btnAddToCart.className = "btn-add-to-cart btn-disabled-overlap"; // Thêm class mới
+    btnAddToCart.style = ""; // Xóa bỏ hoàn toàn inline style cũ gây lỗi viền 3D
+}
+if (btnRentNow) {
+    btnRentNow.disabled = true;
+    btnRentNow.textContent = "KHÔNG KHẢ DỤNG";
+    btnRentNow.className = "btn-rent-now btn-disabled-overlap"; // Thêm class mới
+    btnRentNow.style = ""; // Xóa bỏ hoàn toàn inline style cũ gây lỗi viền 3D
+}
 
         // Tạo hộp cảnh báo cực đẹp màu đỏ
         const alertDiv = document.createElement("div");
