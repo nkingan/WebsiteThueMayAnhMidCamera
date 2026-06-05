@@ -29,12 +29,12 @@
 
 ## 👥 Thành viên nhóm
 
-| STT | Họ và tên | Vai trò |
-|:---:|---|---|
-| 1 | Nguyễn Khánh Vân | Frontend Developer |
-| 2 | Ngọ Kim Ngân | UI/UX Designer |
-| 3 | Vũ Thu Hiền | Frontend Developer |
-| 4 | Nguyễn Huyền Linh | Content & Testing |
+| STT | Họ và tên |
+|:---:|---|
+| 1 | Nguyễn Khánh Vân |
+| 2 | Ngọ Kim Ngân |
+| 3 | Vũ Thu Hiền | 
+| 4 | Nguyễn Huyền Linh | 
 
 ---
 
