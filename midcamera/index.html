@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MIDCAMERA — Dịch vụ cho thuê máy ảnh cao cấp chuyên nghiệp</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="CSS/header.css">
+    <link rel="stylesheet" href="CSS/footer.css">
+    <link rel="stylesheet" href="CSS/homepage.css">
+</head>
+<body class="page-trangchu">
+
+    <!-- 🧭 HEADER NGUYÊN BẢN (ĐƯỜNG DẪN TƯƠNG ĐỐI CHO TRANG CHỦ) -->
+    <header class="main-header">
+        <div class="header-container">
+            <div class="logo">
+                <a href="index.html">MID<span>CAMERA</span></a>
+            </div>
+
+            <nav class="nav-menu">
+                <ul>
+                    <li><a href="index.html" class="nav-trangchu active">Trang chủ</a></li>
+                    <li><a href="pages/products.html" class="nav-mayanh">Thiết bị</a></li>
+                    <li><a href="pages/reviews.html" class="nav-banggia">Đánh giá</a></li>
+                    <li><a href="pages/policy.html" class="nav-chinhsach">Chính sách thuê</a></li>
+                    <li><a href="pages/about.html" class="nav-gioithieu">Giới thiệu</a></li>
+                </ul>
+            </nav>
+
+            <div class="header-actions">
+                <div class="search-box">
+                    <input type="text" placeholder="Tìm máy ảnh, ống kính..." id="globalSearchInput">
+                    <button type="button" id="globalSearchBtn"><i class="fa-solid fa-magnifying-glass"></i></button>
+                </div>
+                
+                <a href="pages/cart.html" class="action-icon" title="Giỏ hàng">
+                    <i class="fa-solid fa-cart-shopping"></i>
+                    <span class="cart-count" id="headerCartCount">0</span>
+                </a>
+                
+                <a href="pages/auth.html" class="action-icon" title="Tài khoản" id="headerAccountIcon">
+                    <i class="fa-solid fa-user"></i>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <main class="main-homepage">
+        
+        <!-- 🎥 HERO SECTION -->
+        <section class="hero-section" style="background: linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.55)), url('images/trangchu/hero-bg.jpg') center/cover no-repeat;">
+            <div class="hero-content">
+                <span class="hero-badge">DỊCH VỤ CHO THUÊ MÁY ẢNH CHUYÊN NGHIỆP</span>
+                <h1>SỞ HỮU KHOẢNH KHẮC<br>KHÔNG CẦN SỞ HỮU MÁY</h1>
+                <p>Trải nghiệm những dòng máy ảnh cao cấp, ống kính đỉnh cao với chi phí tối ưu nhất. Thủ tục nhanh gọn, giao nhận tận nơi.</p>
+                <div class="hero-buttons">
+                    <a href="pages/products.html" class="btn-primary">THUÊ MÁY NGAY</a>
+                    <a href="pages/about.html" class="btn-outline" style="border-color: #fff; color: #fff;">TÌM HIỂU THÊM</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- 🔍 QUICK FILTER BAR -->
+        <section class="quick-filter-section">
+            <div class="container filter-wrapper">
+                <div class="filter-box">
+                    <div class="filter-group">
+                        <label>Thương hiệu</label>
+                        <select id="filterBrand">
+                            <option value="">Tất cả</option>
+                            <option value="Canon">Canon</option>
+                            <option value="Fujifilm">Fujifilm</option>
+                            <option value="Sony">Sony</option>
+                            <option value="DJI">DJI</option>
+                        </select>
+                    </div>
+                    <div class="filter-group">
+                        <label>Loại thiết bị</label>
+                        <select id="filterType">
+                            <option value="">Tất cả</option>
+                            <option value="Mirrorless">Mirrorless</option>
+                            <option value="Compact">Compact cao cấp</option>
+                            <option value="Action">Action / Pocket</option>
+                            <option value="Film">Film</option>
+                        </select>
+                    </div>
+                    <div class="filter-group">
+                        <label>Mức giá thuê</label>
+                        <select id="filterPrice">
+                            <option value="">Mọi mức giá</option>
+                            <option value="0-100000">Dưới 100.000₫/ngày</option>
+                            <option value="100000-150000">100.000₫ - 150.000₫/ngày</option>
+                            <option value="150000-250000">Trên 150.000₫/ngày</option>
+                        </select>
+                    </div>
+                    <button class="btn-primary" id="btnQuickSearch">TÌM KIẾM</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- 📸 FEATURED PRODUCTS SECTION (Nền trắng) -->
+        <section class="featured-products-section">
+            <div class="section-container">
+                <div class="section-header">
+                    <h2>Thiết bị tiêu biểu</h2>
+                    <p>Những bộ máy ảnh được khách hàng yêu thích và thuê nhiều nhất trong tuần qua.</p>
+                </div>
+
+                <div class="products-grid">
+                    <!-- Canon EOS R50 -->
+                    <div class="camera-card">
+                        <div class="card-img-wrapper">
+                            <img src="images/canon_r50.jpg" alt="Canon EOS R50">
+                        </div>
+                        <div class="card-info">
+                            <h3>Canon EOS R50</h3>
+                            <p class="card-desc">Thiết kế nhỏ gọn, lấy nét tự động cực nhanh, hoàn hảo cho vlogger và người mới bắt đầu.</p>
+                            <div class="card-bottom">
+                                <span class="price-tag">150.000₫/ngày</span>
+                                <a href="pages/product-detail.html?id=canon-r50" class="btn-rent">THUÊ NGAY</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Fujifilm X-T100 -->
+                    <div class="camera-card">
+                        <div class="card-img-wrapper">
+                            <img src="images/fuji_xt100.png" alt="Fujifilm X-T100">
+                        </div>
+                        <div class="card-info">
+                            <h3>Fujifilm X-T100</h3>
+                            <p class="card-desc">Thiết kế hoài cổ sang trọng, giả lập màu film trứ danh cho những bức ảnh đời thường đậm chất thơ.</p>
+                            <div class="card-bottom">
+                                <span class="price-tag">130.000₫/ngày</span>
+                                <a href="pages/product-detail.html?id=fuji-xt100" class="btn-rent">THUÊ NGAY</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Fujifilm X100V -->
+                    <div class="camera-card">
+                        <div class="card-img-wrapper">
+                            <img src="images/fuji_x100vi.jpg" alt="Fujifilm X100V">
+                        </div>
+                        <div class="card-info">
+                            <h3>Fujifilm X100V</h3>
+                            <p class="card-desc">Dòng compact huyền thoại với ống kính gắn liền tiêu cự 23mm F2, chất lượng ảnh xuất sắc.</p>
+                            <div class="card-bottom">
+                                <span class="price-tag">200.000₫/ngày</span>
+                                <a href="pages/product-detail.html?id=fuji-x100v" class="btn-rent">THUÊ NGAY</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="more-link-wrapper">
+                    <a href="pages/products.html" class="link-more">Xem tất cả thiết bị <i class="fa-solid fa-arrow-right"></i></a>
+                </div>
+            </div>
+        </section>
+
+        <!-- 🛡️ CORE VALUES SECTION (Nền xám nhạt #f4f6f8) -->
+        <section class="values-section">
+            <div class="section-container">
+                <div class="section-header">
+                    <h2>Tại sao chọn MIDCAMERA</h2>
+                    <p>Chúng tôi mang lại giải pháp tối ưu cho trải nghiệm chụp ảnh chuyên nghiệp của bạn.</p>
+                </div>
+
+                <div class="values-grid">
+                    <div class="value-card">
+                        <div class="value-icon"><i class="fa-solid fa-shield-halved"></i></div>
+                        <h3>Thiết bị chính hãng</h3>
+                        <p>100% thiết bị tại MIDCAMERA đều được kiểm tra kỹ thuật khắt khe, vệ sinh và bảo dưỡng cảm biến sạch sẽ trước khi giao cho bạn.</p>
+                    </div>
+
+                    <div class="value-card">
+                        <div class="value-icon"><i class="fa-solid fa-calendar-days"></i></div>
+                        <h3>Thuê ngày linh hoạt</h3>
+                        <p>Dễ dàng thuê máy theo ngày lẻ, thuê tuần hoặc tháng. Báo giá tự động, minh bạch, không phát sinh phụ phí ẩn.</p>
+                    </div>
+
+                    <div class="value-card">
+                        <div class="value-icon"><i class="fa-solid fa-user-shield"></i></div>
+                        <h3>Thủ tục đơn giản</h3>
+                        <p>Chỉ cần Căn cước công dân gắn chip hoặc đặt cọc linh hoạt là bạn đã có thể sở hữu ngay bộ thiết bị ưng ý.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 🎥 VIDEO PRESENTATION SECTION (Nền trắng #FFFFFF) -->
+        <section class="video-section">
+            <div class="section-container">
+                <div class="section-header">
+                    <h2>Trải nghiệm thiết bị</h2>
+                    <p>Xem video đánh giá thực tế và hướng dẫn sử dụng các dòng máy ảnh cao cấp tại MIDCAMERA.</p>
+                </div>
+                <div class="video-wrapper">
+                    <iframe src="https://www.youtube.com/embed/Pj1Lg22-eW4" title="MIDCAMERA Review Video" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                </div>
+            </div>
+        </section>
+
+        <!-- 💬 TESTIMONIALS SECTION (Nền rất nhạt #fcfcfc) -->
+        <section class="testimonials-section">
+            <div class="section-container">
+                <div class="section-header">
+                    <h2>Khách hàng nói về chúng tôi</h2>
+                    <p>Những phản hồi chân thực nhất từ cộng đồng nhiếp ảnh tại Vinh, Nghệ An.</p>
+                </div>
+
+                <div class="testimonials-grid">
+                    <div class="review-card">
+                        <div class="review-header">
+                            <div class="avatar-circle">M</div>
+                            <div>
+                                <h4>Minh Hoàng</h4>
+                                <span class="review-date">24/05/2026</span>
+                            </div>
+                        </div>
+                        <div class="review-rating">★★★★★</div>
+                        <p class="review-content">Dịch vụ tuyệt vời! Mình thuê Fujifilm X100V đi du lịch Đà Lạt, máy siêu mới, hoạt động hoàn hảo. Setup màu sẵn cực đẹp. Sẽ ủng hộ dài lâu.</p>
+                        <span class="product-badge">Đã thuê: Fujifilm X100V</span>
+                    </div>
+
+                    <div class="review-card">
+                        <div class="review-header">
+                            <div class="avatar-circle">K</div>
+                            <div>
+                                <h4>Khánh Chi</h4>
+                                <span class="review-date">20/05/2026</span>
+                            </div>
+                        </div>
+                        <div class="review-rating">★★★★★</div>
+                        <p class="review-content">Thủ tục thuê siêu nhanh gọn, các bạn nhân viên tư vấn rất nhiệt tình cho người mới dùng máy ảnh như mình. Canon R50 chụp siêu nét dễ xài.</p>
+                        <span class="product-badge">Đã thuê: Canon EOS R50</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 📩 CALL TO ACTION SECTION (Nền CTA #eaece0) -->
+        <section class="cta-section">
+            <div class="cta-container">
+                <h2>SẴN SÀNG KỂ CÂU CHUYỆN CỦA BẠN?</h2>
+                <p>Đặt lịch thuê thiết bị ngay hôm nay để nhận được ưu đãi giảm giá 10% cho lần thuê đầu tiên.</p>
+                <a href="pages/products.html" class="btn-outline">KHÁM PHÁ NGAY</a>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- 🧭 FOOTER NGUYÊN BẢN (ĐƯỜNG DẪN TƯƠNG ĐỐI) -->
+    <footer class="main-footer">
+        <div class="footer-container">
+            <div class="footer-column brand-info">
+                <h3>MID<span>CAMERA</span></h3>
+                <p>Hệ thống cho thuê máy ảnh, ống kính và thiết bị ngành ảnh cao cấp. Mang đến giải pháp tối ưu cho các nhiếp ảnh gia và studio chuyên nghiệp.</p>
+                
+                <div class="social-icons">
+                    <a href="https://www.facebook.com/share/1AJJ4h3nU8/?mibextid=wwXIfr" target="_blank" title="Facebook">
+                        <i class="fa-brands fa-facebook-f"></i>
+                    </a>
+                    <a href="https://www.instagram.com/midcamera_/?utm_source=ig_web_button_share_sheet" target="_blank" title="Instagram">
+                        <i class="fa-brands fa-instagram"></i>
+                    </a>
+                    <a href="https://www.tiktok.com/@mid_camera37?is_from_webapp=1&sender_device=pc" target="_blank" title="Tiktok">
+                        <i class="fa-brands fa-tiktok"></i>
+                    </a>
+                </div>
+            </div>
+
+            <div class="footer-column">
+                <h4>Thiết Bị Cho Thuê</h4>
+                <ul>
+                    <li><a href="pages/products.html">Máy ảnh Mirrorless</a></li>
+                    <li><a href="pages/products.html">Compact cao cấp</a></li>
+                    <li><a href="pages/products.html">Gimbal & Phụ kiện</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-column">
+                <h4>Chính Sách & Hỗ Trợ</h4>
+                <ul>
+                    <li><a href="pages/policy.html">Thủ tục & Đặt cọc</a></li>
+                    <li><a href="pages/policy.html">Điều khoản dịch vụ</a></li>
+                    <li><a href="pages/policy.html">Chính sách bảo mật</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-column contact-info">
+                <h4>Liên Hệ Với Chúng Tôi</h4>
+                <p><i class="fa-solid fa-location-dot"></i> 45 Bạch Liêu, Thành Phố Vinh, Nghệ An</p>
+                <p><i class="fa-solid fa-phone"></i> Hotline: 0987.654.321</p>
+                <p><i class="fa-solid fa-envelope"></i> Email: Midcamera37@gmail.com</p>
+                <p><i class="fa-solid fa-clock"></i> Giờ làm việc: 08:00 - 21:00</p>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <div class="footer-bottom-container">
+                <p>&copy; 2026 MidCamera. All rights reserved. Thiết kế bởi Nhóm MidCamera.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- 🛠️ JAVASCRIPT ĐỘNG -->
+    <script src="js/main.js"></script>
+    <script src="js/homepage.js"></script>
+</body>
+</html>

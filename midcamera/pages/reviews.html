@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Khách hàng đánh giá — MIDCAMERA</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../CSS/header.css">
+    <link rel="stylesheet" href="../CSS/footer.css">
+    <link rel="stylesheet" href="../CSS/reviews.css">
+</head>
+<body>
+
+    <!-- 🧭 HEADER NGUYÊN BẢN -->
+    <header class="main-header">
+        <div class="header-container">
+            <div class="logo">
+                <a href="../index.html">MID<span>CAMERA</span></a>
+            </div>
+
+            <nav class="nav-menu">
+                <ul>
+                    <li><a href="../index.html" class="nav-trangchu">Trang chủ</a></li>
+                    <li><a href="products.html" class="nav-mayanh">Thiết bị</a></li>
+                    <li><a href="reviews.html" class="nav-banggia active">Đánh giá</a></li>
+                    <li><a href="policy.html" class="nav-chinhsach">Chính sách thuê</a></li>
+                    <li><a href="about.html" class="nav-gioithieu">Giới thiệu</a></li>
+                </ul>
+            </nav>
+
+            <div class="header-actions">
+                <div class="search-box">
+                    <input type="text" placeholder="Tìm máy ảnh, ống kính..." id="globalSearchInput">
+                    <button type="button" id="globalSearchBtn"><i class="fa-solid fa-magnifying-glass"></i></button>
+                </div>
+                
+                <a href="cart.html" class="action-icon" title="Giỏ hàng">
+                    <i class="fa-solid fa-cart-shopping"></i>
+                    <span class="cart-count" id="headerCartCount">0</span>
+                </a>
+                
+                <a href="auth.html" class="action-icon" title="Tài khoản" id="headerAccountIcon">
+                    <i class="fa-solid fa-user"></i>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <main class="main-reviews">
+        
+        <!-- 📊 TỔNG HỢP ĐIỂM -->
+        <section class="reviews-summary">
+            <div class="summary-container">
+                
+                <div class="summary-left">
+                    <div class="score-big">4.9</div>
+                    <div class="score-details">
+                        <div class="score-stars">★★★★★</div>
+                        <span class="score-text">Đánh giá trung bình từ 120+ khách hàng tại Vinh</span>
+                    </div>
+                </div>
+
+                <div class="summary-right">
+                    <!-- 5 Sao -->
+                    <div class="star-distribution-row">
+                        <span>5 sao</span>
+                        <div class="distribution-bar">
+                            <div class="distribution-fill" style="width: 90%;"></div>
+                        </div>
+                        <span>90%</span>
+                    </div>
+                    <!-- 4 Sao -->
+                    <div class="star-distribution-row">
+                        <span>4 sao</span>
+                        <div class="distribution-bar">
+                            <div class="distribution-fill" style="width: 8%;"></div>
+                        </div>
+                        <span>8%</span>
+                    </div>
+                    <!-- 3 Sao -->
+                    <div class="star-distribution-row">
+                        <span>3 sao</span>
+                        <div class="distribution-bar">
+                            <div class="distribution-fill" style="width: 2%;"></div>
+                        </div>
+                        <span>2%</span>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- 📑 TABS LỌC ĐÁNH GIÁ -->
+        <div class="filter-tabs-container">
+            <ul class="reviews-filter-tabs">
+                <li class="reviews-tab-item active" data-stars="all">Tất cả đánh giá</li>
+                <li class="reviews-tab-item" data-stars="5">5 Sao (★★★★★)</li>
+                <li class="reviews-tab-item" data-stars="4">4 Sao (★★★★)</li>
+                <li class="reviews-tab-item" data-stars="3">3 Sao (★★★)</li>
+            </ul>
+        </div>
+
+        <!-- 🛍️ GRID DANH SÁCH ĐÁNH GIÁ -->
+        <section class="reviews-grid-section">
+            <div class="reviews-grid" id="reviewsGridContainer">
+                <!-- Loaded dynamically -->
+            </div>
+        </section>
+
+    </main>
+
+    <!-- 🧭 FOOTER NGUYÊN BẢN -->
+    <footer class="main-footer">
+        <div class="footer-container">
+            <div class="footer-column brand-info">
+                <h3>MID<span>CAMERA</span></h3>
+                <p>Hệ thống cho thuê máy ảnh, ống kính và thiết bị ngành ảnh cao cấp. Mang đến giải pháp tối ưu cho các nhiếp ảnh gia và studio chuyên nghiệp.</p>
+                
+                <div class="social-icons">
+                    <a href="https://www.facebook.com/share/1AJJ4h3nU8/?mibextid=wwXIfr" target="_blank" title="Facebook">
+                        <i class="fa-brands fa-facebook-f"></i>
+                    </a>
+                    <a href="https://www.instagram.com/midcamera_/?utm_source=ig_web_button_share_sheet" target="_blank" title="Instagram">
+                        <i class="fa-brands fa-instagram"></i>
+                    </a>
+                    <a href="https://www.tiktok.com/@mid_camera37?is_from_webapp=1&sender_device=pc" target="_blank" title="Tiktok">
+                        <i class="fa-brands fa-tiktok"></i>
+                    </a>
+                </div>
+            </div>
+
+            <div class="footer-column">
+                <h4>Thiết Bị Cho Thuê</h4>
+                <ul>
+                    <li><a href="products.html">Máy ảnh Mirrorless</a></li>
+                    <li><a href="products.html">Compact cao cấp</a></li>
+                    <li><a href="products.html">Gimbal & Phụ kiện</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-column">
+                <h4>Chính Sách & Hỗ Trợ</h4>
+                <ul>
+                    <li><a href="policy.html">Thủ tục & Đặt cọc</a></li>
+                    <li><a href="policy.html">Điều khoản dịch vụ</a></li>
+                    <li><a href="policy.html">Chính sách bảo mật</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-column contact-info">
+                <h4>Liên Hệ Với Chúng Tôi</h4>
+                <p><i class="fa-solid fa-location-dot"></i> 45 Bạch Liêu, Thành Phố Vinh, Nghệ An</p>
+                <p><i class="fa-solid fa-phone"></i> Hotline: 0987.654.321</p>
+                <p><i class="fa-solid fa-envelope"></i> Email: Midcamera37@gmail.com</p>
+                <p><i class="fa-solid fa-clock"></i> Giờ làm việc: 08:00 - 21:00</p>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <div class="footer-bottom-container">
+                <p>&copy; 2026 MidCamera. All rights reserved. Thiết kế bởi Nhóm MidCamera.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- 🛠️ JAVASCRIPT ĐỘNG -->
+    <script src="../js/main.js"></script>
+    <script src="../js/reviews.js"></script>
+</body>
+</html>

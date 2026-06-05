@@ -1,0 +1,309 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Montserrat:wght@600;700;800&display=swap');
+
+/* Wrapper riêng tránh xung đột */
+.main-auth {
+    background-color: #f4f6f8;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 60px 20px;
+    font-family: 'Inter', sans-serif;
+}
+
+.auth-wrapper {
+    max-width: 900px;
+    width: 100%;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.06);
+    display: flex;
+    overflow: hidden;
+}
+
+/* CỘT TRÁI - VISUAL AREA */
+.auth-visual {
+    width: 45%;
+    background-color: #2A2A2C; /* Đồng màu header */
+    padding: 60px 40px;
+    color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 25px;
+    position: relative;
+    border-radius: 8px 0 0 8px;
+}
+
+.visual-quote {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.4rem;
+    font-weight: 700;
+    font-style: italic;
+    line-height: 1.5;
+    color: #ffffff;
+}
+
+.visual-sub {
+    font-size: 0.95rem;
+    font-weight: 300;
+    color: #CCCCCC;
+    line-height: 1.6;
+}
+
+.visual-logo {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.3rem;
+    font-weight: 800;
+    letter-spacing: -0.5px;
+    color: #fff;
+    margin-top: 40px;
+}
+
+.visual-logo span {
+    color: #CCCCCC;
+}
+
+/* CỘT PHẢI - FORM AREA */
+.auth-form {
+    width: 55%;
+    padding: 50px 40px;
+    background-color: #ffffff;
+    border-left: 1px solid #eee;
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+/* Tabs chuyển đổi Đăng nhập / Đăng ký */
+.auth-tabs {
+    display: flex;
+    border-bottom: 1px solid #eee;
+    list-style: none;
+    margin-bottom: 10px;
+}
+
+.auth-tab-item {
+    padding: 10px 20px;
+    cursor: pointer;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: #666;
+    border-bottom: 2px solid transparent;
+    transition: all 0.3s ease;
+}
+
+.auth-tab-item:hover {
+    color: #111;
+}
+
+.auth-tab-item.active {
+    color: #111;
+    border-bottom: 2px solid #111;
+}
+
+/* Form Container */
+.auth-form-content {
+    display: none;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.auth-form-content.active {
+    display: flex;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    position: relative;
+}
+
+.form-group label {
+    font-family: 'Inter', sans-serif;
+    font-weight: 500;
+    font-size: 0.85rem;
+    color: #333;
+}
+
+.form-group input {
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 10px 15px;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.9rem;
+    color: #333;
+    outline: none;
+    transition: border-color 0.3s;
+}
+
+.form-group input:focus {
+    border-color: #111;
+}
+
+.forgot-password-link {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.85rem;
+    color: #666;
+    text-decoration: none;
+    float: right;
+    transition: color 0.3s;
+}
+
+.forgot-password-link:hover {
+    color: #111;
+}
+
+/* Đo độ mạnh mật khẩu */
+.password-strength-box {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    margin-top: -5px;
+}
+
+.password-strength-bar {
+    height: 4px;
+    border-radius: 2px;
+    background-color: #eee;
+    width: 100%;
+    overflow: hidden;
+}
+
+.password-strength-fill {
+    height: 100%;
+    width: 0;
+    transition: width 0.3s ease, background-color 0.3s ease;
+}
+
+/* 3 trạng thái độ mạnh */
+.password-strength-fill.weak {
+    width: 33%;
+    background-color: #CCCCCC;
+}
+
+.password-strength-fill.medium {
+    width: 66%;
+    background-color: #A0A0A5;
+}
+
+.password-strength-fill.strong {
+    width: 100%;
+    background-color: #111;
+}
+
+.password-strength-text {
+    font-size: 0.75rem;
+    color: #666;
+}
+
+/* Nút Submit */
+.btn-auth-submit {
+    width: 100%;
+    padding: 12px;
+    background-color: #111;
+    color: #fff;
+    border: 1px solid #111;
+    border-radius: 4px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 5px;
+    text-align: center;
+}
+
+.btn-auth-submit:hover {
+    background-color: #333;
+    border-color: #333;
+}
+
+/* Social Buttons */
+.social-login-separator {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    font-size: 0.8rem;
+    color: #8E8E93;
+    margin: 10px 0;
+}
+
+.social-login-separator::before,
+.social-login-separator::after {
+    content: '';
+    flex: 1;
+    border-bottom: 1px solid #eee;
+}
+
+.social-login-separator:not(:empty)::before {
+    margin-right: .5em;
+}
+
+.social-login-separator:not(:empty)::after {
+    margin-left: .5em;
+}
+
+.social-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.btn-social {
+    width: 100%;
+    padding: 10px 15px;
+    border-radius: 4px;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.85rem;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    cursor: pointer;
+    transition: opacity 0.3s;
+    text-decoration: none;
+}
+
+.btn-social:hover {
+    opacity: 0.85;
+}
+
+.btn-social-google {
+    border: 1px solid #ddd;
+    background-color: #fff;
+    color: #333;
+}
+
+.btn-social-facebook {
+    background-color: #1877F2;
+    color: #fff;
+    border: 1px solid #1877F2;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .auth-wrapper {
+        flex-direction: column;
+    }
+    
+    .auth-visual, .auth-form {
+        width: 100%;
+    }
+    
+    .auth-visual {
+        padding: 40px 30px;
+        border-radius: 8px 8px 0 0;
+    }
+    
+    .auth-form {
+        padding: 40px 30px;
+        border-radius: 0 0 8px 8px;
+        border-left: none;
+    }
+}

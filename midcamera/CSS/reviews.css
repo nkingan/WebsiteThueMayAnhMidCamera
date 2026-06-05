@@ -1,0 +1,233 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Montserrat:wght@600;700;800&display=swap');
+
+/* Wrapper riêng tránh xung đột */
+.main-reviews {
+    background-color: #FFFFFF;
+    min-height: 100vh;
+    font-family: 'Inter', sans-serif;
+}
+
+/* 📊 TỔNG HỢP ĐIỂM SECTION */
+.reviews-summary {
+    background-color: #f4f6f8;
+    border-bottom: 1px solid #eee;
+    padding: 60px 0;
+}
+
+.summary-container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 40px;
+}
+
+.summary-left {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+
+.score-big {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 4rem;
+    font-weight: 800;
+    color: #111;
+    line-height: 1;
+}
+
+.score-details {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.score-stars {
+    font-size: 1.3rem;
+    color: #111; /* Sao đen tinh tế, không dùng màu vàng */
+    letter-spacing: 2px;
+}
+
+.score-text {
+    font-size: 0.95rem;
+    color: #666;
+}
+
+/* Bảng phân phối sao bên phải */
+.summary-right {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    width: 100%;
+    max-width: 350px;
+}
+
+.star-distribution-row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 0.85rem;
+    color: #333;
+}
+
+.star-distribution-row span:first-child {
+    font-weight: 600;
+    width: 45px;
+}
+
+.distribution-bar {
+    flex: 1;
+    height: 6px;
+    background-color: #eee;
+    border-radius: 3px;
+    overflow: hidden;
+}
+
+.distribution-fill {
+    height: 100%;
+    background-color: #111; /* Thanh đo màu đen đồng bộ */
+    border-radius: 3px;
+}
+
+/* 📑 TABS LỌC ĐÁNH GIÁ */
+.filter-tabs-container {
+    max-width: 1100px;
+    margin: 40px auto 0 auto;
+    padding: 0 20px;
+}
+
+.reviews-filter-tabs {
+    display: flex;
+    border-bottom: 1px solid #eee;
+    list-style: none;
+    gap: 10px;
+}
+
+.reviews-tab-item {
+    padding: 12px 24px;
+    cursor: pointer;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: #666;
+    border-bottom: 2px solid transparent;
+    transition: all 0.3s ease;
+}
+
+.reviews-tab-item:hover {
+    color: #111;
+}
+
+.reviews-tab-item.active {
+    color: #111;
+    border-bottom: 2px solid #111;
+}
+
+/* 🛍️ GRID ĐÁNH GIÁ SECTION */
+.reviews-grid-section {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 40px 20px 80px 20px;
+}
+
+.reviews-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 30px;
+}
+
+/* Review Card Tái sử dụng phong cách camera-card */
+.review-card {
+    background-color: #ffffff;
+    border: 1px solid #eee;
+    border-radius: 8px;
+    padding: 30px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.review-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+}
+
+.review-card-header {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.review-avatar {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    background-color: #f4f6f8;
+    color: #111;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 1.1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #eee;
+}
+
+.review-user-info h4 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: #111;
+    margin-bottom: 2px;
+}
+
+.review-date {
+    font-size: 0.8rem;
+    color: #8E8E93;
+}
+
+.review-rating-stars {
+    font-size: 0.9rem;
+    color: #111;
+    letter-spacing: 2px;
+}
+
+.review-text {
+    font-size: 0.95rem;
+    color: #333;
+    line-height: 1.7;
+    flex-grow: 1;
+}
+
+.rented-product-badge {
+    align-self: flex-start;
+    background-color: #f4f6f8;
+    color: #666;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    font-size: 0.8rem;
+    padding: 4px 10px;
+    border-radius: 4px;
+    margin-top: 5px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .summary-container {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 30px;
+    }
+    
+    .summary-right {
+        max-width: 100%;
+    }
+    
+    .reviews-filter-tabs {
+        flex-wrap: wrap;
+    }
+}

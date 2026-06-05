@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thiết bị cho thuê — MIDCAMERA</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../CSS/header.css">
+    <link rel="stylesheet" href="../CSS/footer.css">
+    <link rel="stylesheet" href="../CSS/products.css">
+</head>
+<body>
+
+    <!-- 🧭 HEADER NGUYÊN BẢN (ĐƯỜNG DẪN TỪ THƯ MỤC PAGES) -->
+    <header class="main-header">
+        <div class="header-container">
+            <div class="logo">
+                <a href="../index.html">MID<span>CAMERA</span></a>
+            </div>
+
+            <nav class="nav-menu">
+                <ul>
+                    <li><a href="../index.html" class="nav-trangchu">Trang chủ</a></li>
+                    <li><a href="products.html" class="nav-mayanh active">Thiết bị</a></li>
+                    <li><a href="reviews.html" class="nav-banggia">Đánh giá</a></li>
+                    <li><a href="policy.html" class="nav-chinhsach">Chính sách thuê</a></li>
+                    <li><a href="about.html" class="nav-gioithieu">Giới thiệu</a></li>
+                </ul>
+            </nav>
+
+            <div class="header-actions">
+                <div class="search-box">
+                    <input type="text" placeholder="Tìm máy ảnh, ống kính..." id="globalSearchInput">
+                    <button type="button" id="globalSearchBtn"><i class="fa-solid fa-magnifying-glass"></i></button>
+                </div>
+                
+                <a href="cart.html" class="action-icon" title="Giỏ hàng">
+                    <i class="fa-solid fa-cart-shopping"></i>
+                    <span class="cart-count" id="headerCartCount">0</span>
+                </a>
+                
+                <a href="auth.html" class="action-icon" title="Tài khoản" id="headerAccountIcon">
+                    <i class="fa-solid fa-user"></i>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <main class="main-products">
+        
+        <!-- 🧭 BREADCRUMB -->
+        <div class="breadcrumb-container">
+            <ul class="breadcrumb">
+                <li><a href="../index.html">Trang chủ</a></li>
+                <li class="breadcrumb-separator">/</li>
+                <li class="breadcrumb-active">Thiết bị</li>
+            </ul>
+        </div>
+
+        <!-- 💼 LAYOUT SẢN PHẨM -->
+        <div class="products-layout">
+            
+            <!-- 🎛️ SIDEBAR BỘ LỌC -->
+            <aside class="products-sidebar">
+                <h3 class="sidebar-title">Bộ lọc thiết bị</h3>
+
+                <!-- Bộ lọc Danh mục -->
+                <div class="filter-section">
+                    <h4>Danh mục</h4>
+                    <ul class="category-list">
+                        <li class="category-item active" data-category="all">Tất cả sản phẩm</li>
+                        <li class="category-item" data-category="Mirrorless">Mirrorless</li>
+                        <li class="category-item" data-category="Compact">Compact cao cấp</li>
+                        <li class="category-item" data-category="Action">Action / Pocket</li>
+                        <li class="category-item" data-category="Film">Film / Instax</li>
+                    </ul>
+                </div>
+
+                <!-- Bộ lọc Thương hiệu -->
+                <div class="filter-section">
+                    <h4>Thương hiệu</h4>
+                    <div class="filter-options">
+                        <label class="filter-option">
+                            <input type="checkbox" name="brand" value="Canon"> Canon
+                        </label>
+                        <label class="filter-option">
+                            <input type="checkbox" name="brand" value="Fujifilm"> Fujifilm
+                        </label>
+                        <label class="filter-option">
+                            <input type="checkbox" name="brand" value="Sony"> Sony
+                        </label>
+                        <label class="filter-option">
+                            <input type="checkbox" name="brand" value="DJI"> DJI
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Bộ lọc Giá thuê -->
+                <div class="filter-section">
+                    <h4>Giá thuê / ngày</h4>
+                    <div class="price-slider-box">
+                        <input type="range" id="priceRange" min="50000" max="300000" step="10000" value="300000">
+                        <div class="price-label-display">
+                            <span>50.000₫</span>
+                            <span>Tối đa: <span id="priceRangeValue">300.000₫</span></span>
+                        </div>
+                    </div>
+                </div>
+
+                <button class="btn-outline btn-apply-filter" id="btnResetFilter">XÓA BỘ LỌC</button>
+            </aside>
+
+            <!-- 🛍️ GRID SẢN PHẨM -->
+            <section class="products-content">
+                <div class="products-grid" id="productsGrid">
+                    <!-- Danh sách máy ảnh sẽ được load động từ JavaScript -->
+                </div>
+            </section>
+        </div>
+
+    </main>
+
+    <!-- 🔍 QUICK VIEW MODAL -->
+    <div class="modal-quickview" id="quickviewModal">
+        <div class="modal-box">
+            <button class="modal-close-btn" id="btnCloseQuickview">&times;</button>
+            <div class="modal-layout" id="quickviewContent">
+                <!-- Nội dung được tiêm bằng JavaScript -->
+            </div>
+        </div>
+    </div>
+
+    <!-- 📊 COMPARE BAR -->
+    <div class="compare-bar" id="compareBar">
+        <div class="compare-container">
+            <div class="compare-info">
+                <span id="compareCount">0</span> Thiết bị đã chọn so sánh
+                <div class="compare-items-preview" id="compareThumbs">
+                    <!-- Preview ảnh nhỏ sản phẩm so sánh -->
+                </div>
+            </div>
+            <button class="btn-compare-action" id="btnOpenComparePopup">SO SÁNH NGAY</button>
+        </div>
+    </div>
+
+    <!-- 📊 COMPARE POPUP -->
+    <div class="compare-popup" id="comparePopup">
+        <div class="compare-popup-box">
+            <button class="modal-close-btn" id="btnCloseComparePopup">&times;</button>
+            <h3 class="compare-popup-title">BẢNG SO SÁNH THÔNG SỐ CHI TIẾT</h3>
+            <div style="overflow-x: auto;">
+                <table class="compare-table" id="compareTable">
+                    <!-- Render bảng so sánh bằng JavaScript -->
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <!-- 🧭 FOOTER NGUYÊN BẢN -->
+    <footer class="main-footer">
+        <div class="footer-container">
+            <div class="footer-column brand-info">
+                <h3>MID<span>CAMERA</span></h3>
+                <p>Hệ thống cho thuê máy ảnh, ống kính và thiết bị ngành ảnh cao cấp. Mang đến giải pháp tối ưu cho các nhiếp ảnh gia và studio chuyên nghiệp.</p>
+                
+                <div class="social-icons">
+                    <a href="https://www.facebook.com/share/1AJJ4h3nU8/?mibextid=wwXIfr" target="_blank" title="Facebook">
+                        <i class="fa-brands fa-facebook-f"></i>
+                    </a>
+                    <a href="https://www.instagram.com/midcamera_/?utm_source=ig_web_button_share_sheet" target="_blank" title="Instagram">
+                        <i class="fa-brands fa-instagram"></i>
+                    </a>
+                    <a href="https://www.tiktok.com/@mid_camera37?is_from_webapp=1&sender_device=pc" target="_blank" title="Tiktok">
+                        <i class="fa-brands fa-tiktok"></i>
+                    </a>
+                </div>
+            </div>
+
+            <div class="footer-column">
+                <h4>Thiết Bị Cho Thuê</h4>
+                <ul>
+                    <li><a href="products.html">Máy ảnh Mirrorless</a></li>
+                    <li><a href="products.html">Compact cao cấp</a></li>
+                    <li><a href="products.html">Gimbal & Phụ kiện</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-column">
+                <h4>Chính Sách & Hỗ Trợ</h4>
+                <ul>
+                    <li><a href="policy.html">Thủ tục & Đặt cọc</a></li>
+                    <li><a href="policy.html">Điều khoản dịch vụ</a></li>
+                    <li><a href="policy.html">Chính sách bảo mật</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-column contact-info">
+                <h4>Liên Hệ Với Chúng Tôi</h4>
+                <p><i class="fa-solid fa-location-dot"></i> 45 Bạch Liêu, Thành Phố Vinh, Nghệ An</p>
+                <p><i class="fa-solid fa-phone"></i> Hotline: 0987.654.321</p>
+                <p><i class="fa-solid fa-envelope"></i> Email: Midcamera37@gmail.com</p>
+                <p><i class="fa-solid fa-clock"></i> Giờ làm việc: 08:00 - 21:00</p>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <div class="footer-bottom-container">
+                <p>&copy; 2026 MidCamera. All rights reserved. Thiết kế bởi Nhóm MidCamera.</p>
+            </div>
+        </div>
+    </footer>
+
+                });
+                tableHTML += `</tr>`;
+            });
+
+            // Thêm hàng nút đặt thuê cuối cùng
+            tableHTML += `
+                <tr>
+                    <td>Hành động</td>
+            `;
+            selectedProducts.forEach(prod => {
+                tableHTML += `
+                    <td>
+                        <button class="btn-primary" style="padding: 8px 18px; font-size: 0.75rem;" onclick="rentNow('${prod.id}')">ĐẶT THUÊ NGAY</button>
+                    </td>
+                `;
+            });
+            tableHTML += `</tr>`;
+
+            compareTable.innerHTML = tableHTML;
+            comparePopup.classList.add("active");
+        }
+
+        function closeComparePopup() {
+            comparePopup.classList.remove("active");
+        }
+    </script>
+</body>
+</html>

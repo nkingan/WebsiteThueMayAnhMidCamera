@@ -1,0 +1,1122 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Giới thiệu về chúng tôi — MIDCAMERA</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../CSS/header.css">
+    <link rel="stylesheet" href="../CSS/footer.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Montserrat:wght@600;700;800&family=Playfair+Display:ital,wght@0,400;0,600;1,400;1,600&display=swap');
+
+        :root {
+            --black: #000000;
+            --near-black: #0A0A0A;
+            --dark-gray: #111111;
+            --mid-gray: #1A1A1A;
+            --gray: #CCCCCC;
+            --light-gray: #E0E0E0;
+            --white: #FFFFFF;
+            --off-white: #F5F5F5;
+            --dot-bg: #F8F8F8;
+        }
+
+        /* Global Reset for this page */
+        .main-about {
+            font-family: 'Inter', sans-serif;
+            color: var(--dark-gray);
+            background: var(--white);
+            overflow-x: hidden;
+        }
+
+        /* Cursor */
+        .custom-cursor {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 40px;
+            height: 40px;
+            border: 2px solid var(--white);
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 9999;
+            transform: translate(-50%, -50%);
+            transition: width 0.2s ease, height 0.2s ease, background-color 0.2s ease, border-color 0.2s ease;
+            mix-blend-mode: difference;
+        }
+
+        .custom-cursor.hovering {
+            width: 80px;
+            height: 80px;
+            border-width: 3px;
+            background-color: transparent;
+        }
+
+        .custom-cursor.hovering-btn {
+            background-color: var(--white);
+            border-color: var(--white);
+        }
+
+        @media (pointer: coarse) {
+            .custom-cursor {
+                display: none;
+            }
+        }
+
+        /* Typography utilities */
+        .serif {
+            font-family: 'Playfair Display', serif;
+        }
+
+        .sans {
+            font-family: 'Inter', sans-serif;
+        }
+
+        .eyebrow {
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            font-weight: 600;
+        }
+
+        /* Section 1 - Hero */
+        .cinematic-hero {
+            position: relative;
+            height: 100vh;
+            background-color: var(--black);
+            color: var(--off-white);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            overflow: hidden;
+            background-image: url('../images/trangchu/about.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+
+        }
+
+        .cinematic-hero::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+            opacity: 0.15;
+            pointer-events: none;
+            z-index: 2;
+        }
+
+        .hero-gradient {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at center, rgba(20, 20, 20, 0) 0%, var(--black) 100%);
+            z-index: 1;
+        }
+
+        .cinematic-hero .content {
+            position: relative;
+            z-index: 3;
+            max-width: 1000px;
+            width: 100%;
+            padding: 0 40px;
+            box-sizing: border-box;
+            margin: 0 auto;
+        }
+
+        .cinematic-hero h1 {
+            font-size: clamp(2.5rem, 5.5vw, 75px);
+            line-height: 1.2;
+            margin: 0;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeUp 1s forwards;
+            text-shadow: 0 4px 15px rgba(0, 0, 0, 0.8), 0 2px 4px rgba(0, 0, 0, 0.9);
+        }
+
+        .cinematic-hero h1.line1 {
+            animation-delay: 0.3s;
+        }
+
+        .cinematic-hero h1.line2 {
+            font-style: italic;
+            font-weight: 300;
+            color: var(--gray);
+            animation-delay: 0.6s;
+        }
+
+        .cinematic-hero .subtitle {
+            margin: 25px auto 0 auto;
+            max-width: 720px;
+            font-size: 1.05rem;
+            line-height: 1.7;
+            color: var(--gray);
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeUp 1s forwards 0.9s;
+            text-shadow: 0 2px 8px rgba(0, 0, 0, 0.9), 0 1px 3px rgba(0, 0, 0, 0.95);
+        }
+
+        .scroll-cue {
+            position: absolute;
+            bottom: 40px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 1px;
+            height: 60px;
+            background: linear-gradient(to bottom, var(--gray) 0%, transparent 100%);
+            z-index: 3;
+            opacity: 0;
+            animation: fadeUp 1s forwards 1.2s, pulseDown 2s infinite 1.2s;
+        }
+
+        @keyframes pulseDown {
+            0% {
+                transform: translateX(-50%) scaleY(0);
+                transform-origin: top;
+            }
+
+            50% {
+                transform: translateX(-50%) scaleY(1);
+                transform-origin: top;
+            }
+
+            50.1% {
+                transform: translateX(-50%) scaleY(1);
+                transform-origin: bottom;
+            }
+
+            100% {
+                transform: translateX(-50%) scaleY(0);
+                transform-origin: bottom;
+            }
+        }
+
+        @keyframes fadeUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Section 2 - Stats */
+        .stats-section {
+            background-color: var(--near-black);
+            padding: 100px 20px;
+            color: var(--off-white);
+        }
+
+        .stats-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            gap: 40px;
+        }
+
+        .stat-box {
+            flex: 1;
+            text-align: center;
+            position: relative;
+        }
+
+        .stat-box:not(:last-child)::after {
+            content: '';
+            position: absolute;
+            right: -20px;
+            top: 20%;
+            height: 60%;
+            width: 1px;
+            background-color: #333;
+        }
+
+        .stat-number {
+            font-size: 65px;
+            font-weight: 100;
+            margin-bottom: 10px;
+            line-height: 1;
+        }
+
+        .stat-label {
+            color: var(--gray);
+            font-size: 1rem;
+        }
+
+        /* Section 3 - Before/After Slider */
+        .slider-section {
+            background-color: var(--white);
+            padding: 120px 20px;
+            text-align: center;
+        }
+
+        .slider-section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 60px;
+        }
+
+        .slider-container {
+            position: relative;
+            max-width: 1000px;
+            height: 500px;
+            margin: 0 auto;
+            overflow: hidden;
+            border-radius: 8px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            cursor: ew-resize;
+        }
+
+        .slider-image {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .img-before {
+            filter: blur(1px) saturate(0.3);
+        }
+
+        .img-after {
+            filter: contrast(1.1) saturate(1.1);
+        }
+
+        .slider-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 50%;
+            height: 100%;
+            overflow: hidden;
+        }
+
+        .slider-overlay img {
+            width: 1000px;
+            height: 500px;
+            object-fit: cover;
+            max-width: none;
+        }
+
+        .slider-handle {
+            position: absolute;
+            top: 0;
+            left: 50%;
+            width: 2px;
+            height: 100%;
+            background-color: var(--black);
+            transform: translateX(-50%);
+            pointer-events: none;
+        }
+
+        .slider-handle::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 40px;
+            height: 40px;
+            background-color: var(--white);
+            border: 2px solid var(--black);
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .slider-label {
+            position: absolute;
+            top: 20px;
+            background: rgba(0, 0, 0, 0.6);
+            color: white;
+            padding: 8px 16px;
+            border-radius: 4px;
+            font-size: 12px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            z-index: 10;
+            pointer-events: none;
+        }
+
+        .label-left {
+            left: 20px;
+        }
+
+        .label-right {
+            right: 20px;
+        }
+
+        /* Section 4 - Timeline */
+        .timeline-section {
+            background-color: var(--dark-gray);
+            padding: 120px 20px;
+            color: var(--white);
+            overflow: hidden;
+        }
+
+        .timeline-section h2 {
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 80px;
+        }
+
+        .timeline-scroll {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            gap: 40px;
+            overflow-x: auto;
+            padding: 20px;
+            scrollbar-width: none;
+        }
+
+        .timeline-scroll::-webkit-scrollbar {
+            display: none;
+        }
+
+        .timeline-card {
+            flex: 0 0 300px;
+            background-color: var(--mid-gray);
+            border: 1px solid #333;
+            border-radius: 8px;
+            padding: 40px 30px;
+            position: relative;
+            transition: transform 0.3s ease, border-color 0.3s ease;
+        }
+
+        .timeline-card:hover {
+            transform: translateY(-8px) scale(1.02);
+            border-color: #666;
+        }
+
+        .timeline-year-bg {
+            position: absolute;
+            top: -20px;
+            right: 10px;
+            font-size: 100px;
+            font-weight: 600;
+            color: rgba(255, 255, 255, 0.03);
+            pointer-events: none;
+        }
+
+        .timeline-year {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 20px;
+            color: var(--white);
+        }
+
+        .timeline-text {
+            font-size: 1rem;
+            color: var(--gray);
+            line-height: 1.6;
+        }
+
+        /* Section 5 - Team */
+        .team-section {
+            background: var(--dot-bg) radial-gradient(#d5d5d5 1px, transparent 1px);
+            background-size: 20px 20px;
+            padding: 120px 20px;
+            text-align: center;
+        }
+
+        .team-section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 80px;
+        }
+
+        .team-spread {
+            max-width: 1000px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 30px;
+        }
+
+        .polaroid {
+            background: var(--white);
+            padding: 12px 12px 30px 12px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            width: 230px;
+        }
+
+        .polaroid:nth-child(1) {
+            transform: rotate(-3deg);
+        }
+
+        .polaroid:nth-child(2) {
+            transform: rotate(2deg) translateY(10px);
+        }
+
+        .polaroid:nth-child(3) {
+            transform: rotate(-1deg) translateY(-10px);
+        }
+
+        .polaroid:nth-child(4) {
+            transform: rotate(3deg);
+        }
+
+        .polaroid:hover {
+            transform: rotate(0deg) scale(1.05) !important;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+            z-index: 10;
+        }
+
+        .polaroid-img {
+            width: 100%;
+            height: 200px;
+            background: linear-gradient(135deg, #e0e0e0, #f5f5f5);
+            margin-bottom: 15px;
+            object-fit: cover;
+            filter: grayscale(100%);
+        }
+
+        .polaroid-name {
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin-bottom: 5px;
+        }
+
+        .polaroid-role {
+            font-size: 0.85rem;
+            color: #666;
+            font-style: italic;
+        }
+
+        /* Section 6 - Masonry Gallery */
+        .gallery-section {
+            background-color: var(--black);
+            padding: 120px 20px;
+            color: var(--white);
+        }
+
+        .gallery-section h2 {
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .masonry-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            column-count: 3;
+            column-gap: 12px;
+        }
+
+        .masonry-item {
+            position: relative;
+            break-inside: avoid;
+            margin-bottom: 12px;
+            overflow: hidden;
+            border-radius: 4px;
+        }
+
+        .masonry-item img,
+        .masonry-item .placeholder-img {
+            width: 100%;
+            display: block;
+            transition: transform 0.4s ease, filter 0.4s ease;
+            background: linear-gradient(45deg, #111, #222);
+        }
+
+        .masonry-item:hover img,
+        .masonry-item:hover .placeholder-img {
+            transform: scale(1.03);
+            filter: brightness(1.2);
+        }
+
+        .masonry-item::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border: 1px solid transparent;
+            transition: border-color 0.4s ease;
+            pointer-events: none;
+        }
+
+        .masonry-item:hover::after {
+            border-color: rgba(255, 255, 255, 0.3);
+        }
+
+        .masonry-caption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 20px;
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
+            color: var(--white);
+            transform: translateY(100%);
+            transition: transform 0.3s ease;
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+        }
+
+        .masonry-item:hover .masonry-caption {
+            transform: translateY(0);
+        }
+
+        /* Heights for masonry placeholders */
+        .h-1 {
+            height: 300px;
+        }
+
+        .h-2 {
+            height: 450px;
+        }
+
+        .h-3 {
+            height: 250px;
+        }
+
+        .h-4 {
+            height: 500px;
+        }
+
+        .h-5 {
+            height: 350px;
+        }
+
+        /* Section 8 - CTA Finale */
+        .cta-finale {
+            background-color: var(--black);
+            padding: 150px 20px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            color: var(--white);
+        }
+
+        .cta-bg {
+            position: absolute;
+            inset: 0;
+            background: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+            opacity: 0.05;
+            animation: bgZoom 10s infinite alternate linear;
+        }
+
+        @keyframes bgZoom {
+            0% {
+                transform: scale(1);
+            }
+
+            100% {
+                transform: scale(1.05);
+            }
+        }
+
+        .cta-content {
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .cta-finale h2 {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            margin-bottom: 20px;
+        }
+
+        .cta-finale p {
+            font-size: 1.2rem;
+            color: var(--gray);
+            margin-bottom: 50px;
+        }
+
+        .cta-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .btn-cinematic {
+            padding: 16px 40px;
+            font-size: 12px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border-radius: 0;
+        }
+
+        .btn-primary {
+            background: var(--white);
+            color: var(--black);
+            border: 1px solid var(--white);
+        }
+
+        .btn-primary:hover {
+            background: transparent;
+            color: var(--white);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--white);
+            border: 1px solid var(--white);
+        }
+
+        .btn-secondary:hover {
+            background: var(--white);
+            color: var(--black);
+        }
+
+        /* Map section at the end */
+        .map-section-dark {
+            background-color: var(--white);
+            padding: 80px 20px;
+        }
+
+        .map-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .map-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+        }
+
+        /* Scroll Reveal */
+        .reveal {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: opacity 0.8s cubic-bezier(0.2, 0.8, 0.2, 1), transform 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        @media (max-width: 768px) {
+            .stats-container {
+                flex-direction: column;
+                gap: 40px;
+            }
+
+            .stat-box:not(:last-child)::after {
+                width: 60%;
+                height: 1px;
+                right: auto;
+                top: auto;
+                bottom: -20px;
+                left: 20%;
+            }
+
+            .slider-container {
+                height: 300px;
+            }
+
+            .slider-overlay img {
+                height: 300px;
+            }
+
+            .timeline-scroll {
+                flex-direction: column;
+            }
+
+            .timeline-card {
+                flex: auto;
+            }
+
+            .masonry-grid {
+                column-count: 1;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+            }
+
+            .map-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (min-width: 769px) and (max-width: 992px) {
+            .masonry-grid {
+                column-count: 2;
+            }
+        }
+    </style>
+</head>
+
+<body style="cursor: none;">
+
+    <!-- LENS CURSOR -->
+    <div class="custom-cursor" id="customCursor"></div>
+
+    <!-- 🧭 HEADER ĐỘNG -->
+    <div id="global-header" data-active-nav="gioithieu"></div>
+
+    <main class="main-about">
+
+        <!-- SECTION 1 - HERO -->
+        <section class="cinematic-hero">
+            <div class="hero-gradient"></div>
+            <div class="content">
+                <h1 class="serif line1">CÂU CHUYỆN CỦA MIDCAMERA</h1>
+                <p class="subtitle sans eyebrow">Khởi nguồn từ niềm đam mê lưu giữ khoảnh khắc và mong muốn tối ưu hóa
+                    chi phí
+                    cho cộng đồng nhiếp ảnh tại Vinh, Nghệ An</p>
+            </div>
+            <div class="scroll-cue"></div>
+        </section>
+
+        <!-- SECTION 2 - STATS -->
+        <section class="stats-section">
+            <div class="stats-container reveal">
+                <div class="stat-box">
+                    <div class="stat-number serif" data-target="9">0</div>
+                    <div class="stat-label sans eyebrow">Thiết bị chuyên nghiệp</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-number serif" data-target="500">0</div>
+                    <div class="stat-label sans eyebrow">Lượt thuê thành công</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-number serif" data-target="4.9" data-decimal="true">0</div>
+                    <div class="stat-label sans eyebrow">Đánh giá khách hàng</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 3 - BEFORE/AFTER SLIDER -->
+        <section class="slider-section">
+            <h2 class="serif reveal">Thiết bị tạo ra sự khác biệt</h2>
+            <div class="slider-container reveal" id="beforeAfterSlider">
+                <!-- Bottom Image (After) -->
+                <img src="../images/trangchu/hero.jpg" class="slider-image img-after" alt="DSLR Photo">
+                <div class="slider-label label-right sans eyebrow">Sony A7 IV</div>
+
+                <!-- Overlay Image (Before) -->
+                <div class="slider-overlay" id="sliderOverlay">
+                    <img src="../images/trangchu/hero.jpg" class="img-before" alt="Phone Photo" id="sliderImgBefore">
+                    <div class="slider-label label-left sans eyebrow">Điện thoại</div>
+                </div>
+
+                <!-- Handle -->
+                <div class="slider-handle" id="sliderHandle"></div>
+            </div>
+        </section>
+
+        <!-- SECTION 4 - TIMELINE -->
+        <section class="timeline-section">
+            <h2 class="serif reveal">Hành trình của chúng tôi</h2>
+            <div class="timeline-scroll reveal">
+
+                <div class="timeline-card hover-target">
+                    <div class="timeline-year-bg serif">2025</div>
+                    <div class="timeline-year serif">26/05/2025</div>
+                    <p class="timeline-text sans">📷 Tìm kiếm những người cùng đam mê và lý tưởng.</p>
+                </div>
+
+                <div class="timeline-card hover-target">
+                    <div class="timeline-year-bg serif">2025</div>
+                    <div class="timeline-year serif">20/10/2025</div>
+                    <p class="timeline-text sans">🎥 Lên ý tưởng và định hướng phát triển.</p>
+                </div>
+
+                <div class="timeline-card hover-target">
+                    <div class="timeline-year-bg serif">2025</div>
+                    <div class="timeline-year serif">17/12/2025</div>
+                    <p class="timeline-text sans">🏪 MIDCAMERA khởi nguồn tại Nghệ An.</p>
+                </div>
+
+                <div class="timeline-card hover-target">
+                    <div class="timeline-year-bg serif">2026</div>
+                    <div class="timeline-year serif">1/05/2026</div>
+                    <p class="timeline-text sans">⭐ Vượt mốc 500+ lượt thuê.</p>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- SECTION 5 - TEAM -->
+        <section class="team-section">
+            <h2 class="serif reveal">Đội ngũ của chúng tôi</h2>
+            <div class="team-spread reveal">
+
+                <div class="polaroid hover-target">
+                    <div class="polaroid-img"></div>
+                    <div class="polaroid-name sans">Nguyễn Huyền Linh</div>
+                    <div class="polaroid-role serif">Founder · Nhiếp ảnh gia</div>
+                </div>
+
+                <div class="polaroid hover-target">
+                    <div class="polaroid-img"></div>
+                    <div class="polaroid-name sans">Ngọ Kim Ngân</div>
+                    <div class="polaroid-role serif">Co-founder · Quản lý thiết bị</div>
+                </div>
+
+                <div class="polaroid hover-target">
+                    <div class="polaroid-img"></div>
+                    <div class="polaroid-name sans">Nguyễn Khánh Vân</div>
+                    <div class="polaroid-role serif">Kỹ thuật viên · Quay phim</div>
+                </div>
+
+                <div class="polaroid hover-target">
+                    <div class="polaroid-img"></div>
+                    <div class="polaroid-name sans">Vũ Thu Hiền</div>
+                    <div class="polaroid-role serif">Marketing · Content</div>
+                </div>
+
+            </div>
+        </section>
+        <!-- SECTION 6 - MASONRY GALLERY -->
+        <section class="gallery-section">
+            <h2 class="serif reveal">Những khoảnh khắc được tạo ra</h2>
+            <div class="masonry-grid reveal">
+                <div class="masonry-item hover-target">
+                    <div class="placeholder-img h-1"></div>
+                    <div class="masonry-caption eyebrow">Canon R50</div>
+                </div>
+                <div class="masonry-item hover-target">
+                    <div class="placeholder-img h-2"></div>
+                    <div class="masonry-caption eyebrow">fujifilm-x100v</div>
+                </div>
+                <div class="masonry-item hover-target">
+                    <div class="placeholder-img h-3"></div>
+                    <div class="masonry-caption eyebrow">Fujifilm X-T4</div>
+                </div>
+                <div class="masonry-item hover-target">
+                    <div class="placeholder-img h-4"></div>
+                    <div class="masonry-caption eyebrow">Pocket 3</div>
+                </div>
+                <div class="masonry-item hover-target">
+                    <div class="placeholder-img h-3"></div>
+                    <div class="masonry-caption eyebrow">Fujifilm xs20</div>
+                </div>
+                <div class="masonry-item hover-target">
+                    <div class="placeholder-img h-5"></div>
+                    <div class="masonry-caption eyebrow">Fujifilm xs10</div>
+                </div>
+                <div class="masonry-item hover-target">
+                    <div class="placeholder-img h-1"></div>
+                    <div class="masonry-caption eyebrow">Canon 24-70mm</div>
+                </div>
+                <div class="masonry-item hover-target">
+                    <div class="placeholder-img h-2"></div>
+                    <div class="masonry-caption eyebrow">Fujifil xt20</div>
+                </div>
+                <div class="masonry-item hover-target">
+                    <div class="placeholder-img h-2"></div>
+                    <div class="masonry-caption eyebrow">Fujifilm xt10</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 8 - CTA FINALE -->
+        <section class="cta-finale">
+            <div class="cta-bg"></div>
+            <div class="cta-content reveal">
+                <h2 class="serif">Sẵn sàng kể câu chuyện của bạn?</h2>
+                <p class="sans">Thuê thiết bị chuyên nghiệp. Tạo ra những khoảnh khắc không thể quên.</p>
+                <div class="cta-buttons">
+                    <a href="products.html" class="btn-cinematic btn-primary hover-btn">Thuê máy ngay</a>
+                    <a href="products.html" class="btn-cinematic btn-secondary hover-btn">Xem thiết bị</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Kế thừa Map Section cho đồng nhất -->
+        <section class="map-section-dark">
+            <div class="map-container reveal">
+                <div style="text-align: center; margin-bottom: 40px;">
+                    <h2 class="serif" style="font-size: 2.2rem; color: #111;">Liên hệ & Bản đồ</h2>
+                </div>
+                <div class="map-grid">
+                    <div style="border-radius: 8px; overflow: hidden; height: 350px;">
+                        <iframe
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3780.123549234839!2d105.6923456789!3d18.66532456789!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3139ce6b9f8f26ef%3A0x6e2c39cc2e4a8dc3!2s45%20B%E1%BA%A1ch%20Li%C3%Aau%2C%20B%E1%BA%BFn%20Th%E1%BB%A7y%2C%20Th%C3%A0nh%20ph%E1%BB%91%20Vinh%2C%20Ngh%E1%BB%87%20An%2C%20Vietnam!5e0!3m2!1sen!2s!4v1700000000000!5m2!1sen!2s"
+                            width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"
+                            referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    </div>
+                    <div>
+                        <h3 class="sans" style="font-size: 1.4rem; font-weight: 700; color: #111; margin-bottom: 20px;">
+                            MIDCAMERA
+                            VINH</h3>
+                        <p class="sans" style="color: #666; margin-bottom: 20px;">Cửa hàng mở cửa từ 08:00 - 21:00 hàng
+                            ngày (kể cả
+                            chủ nhật và ngày lễ).</p>
+                        <div
+                            style="display: flex; flex-direction: column; gap: 15px; color: #444; font-family: 'Inter', sans-serif;">
+                            <div><i class="fa-solid fa-location-dot" style="width: 25px;"></i> 45 Bạch Liêu, Phường Bến
+                                Thủy, Vinh,
+                                Nghệ An</div>
+                            <div><i class="fa-solid fa-phone" style="width: 25px;"></i> Hotline:
+                                <strong>0987.654.321</strong></div>
+                            <div><i class="fa-solid fa-envelope" style="width: 25px;"></i> Midcamera37@gmail.com</div>
+                            <div><i class="fa-brands fa-facebook" style="width: 25px;"></i> <a
+                                    href="https://www.facebook.com/people/Mid-Camera-Cho-thu%C3%AA-m%C3%A1y-%E1%BA%A3nh-TpVinh/61585324122699/"
+                                    target="_blank" style="color: #111; font-weight: 600;">Mid-Camera Vinh</a></div>
+                            <div><i class="fa-brands fa-instagram" style="width: 25px;"></i> <a
+                                    href="https://www.instagram.com/midcamera_" target="_blank"
+                                    style="color: #111; font-weight: 600;">@midcamera_</a></div>
+                            <div><i class="fa-brands fa-tiktok" style="width: 25px;"></i> <a
+                                    href="https://www.tiktok.com/@mid_camera37?_r=1&_d=secCgYIASAHKAESPgo8yuz2XoQQ2NQxcc9dR7jYbCX94Bqbu7QpPiJT6jisPiXI0JyGcwU6FoHu%2BBcS5pTUuocgsssbpTKugLJSGgA%3D&_svg=1&checksum=91aa96619bb9e67ea4ea4207b75d85fd20d349b5f9a5e544e1b95df7a7aa8140&item_author_type=2&reflow_sign_scene=7&rgssign=8.1.9kfTeO7VN3Xoaj4xCr28_Q&sec_uid=MS4wLjABAAAAJ2DE9LspQLloHKHAxW3WIzHdhZI-8RYntK_x7Q5oZNpWjwSy96fQYYa7dlHPymCt&sec_user_id=MS4wLjABAAAAK6RSw9KgkYCzJwnxV82nd4AULaughNz9OuGX7P7TRe0QdbUsgm9GPC9jRjMPhtcj&share_app_id=1233&share_author_id=7624735497013969940&share_link_id=631E7A82-7368-4634-B48E-178B8EEA0A27&share_region=VN&share_scene=1&sharer_language=vi&social_share_type=5&source=h5_m&timestamp=1780511984&tt_from=copy&u_code=db4gbh2bfhm7d3&ug_btm=b6880%2Cb5836&user_id=6798028789643019266&utm_campaign=client_share&utm_medium=ios&utm_source=copy"
+                                    target="_blank" style="color: #111; font-weight: 600;">@mid_camera37</a></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- 🧭 FOOTER ĐỘNG -->
+    <div id="global-footer"></div>
+
+    <!-- 🛠️ JAVASCRIPT ĐỘNG & CUSTOM -->
+    <script src="../js/main.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+
+            // 1. LENS CURSOR EFFECT
+            const cursor = document.getElementById('customCursor');
+            let mouseX = window.innerWidth / 2;
+            let mouseY = window.innerHeight / 2;
+            let cursorX = mouseX;
+            let cursorY = mouseY;
+
+            // Lerp function for smooth lagging
+            function lerp(start, end, amt) {
+                return (1 - amt) * start + amt * end;
+            }
+
+            document.addEventListener('mousemove', (e) => {
+                mouseX = e.clientX;
+                mouseY = e.clientY;
+            });
+
+            function animateCursor() {
+                cursorX = lerp(cursorX, mouseX, 0.2);
+                cursorY = lerp(cursorY, mouseY, 0.2);
+                cursor.style.left = `${cursorX}px`;
+                cursor.style.top = `${cursorY}px`;
+                requestAnimationFrame(animateCursor);
+            }
+            animateCursor();
+
+            // Hover effects for cursor
+            const hoverTargets = document.querySelectorAll('.hover-target, a, button, .slider-container');
+            const btnTargets = document.querySelectorAll('.hover-btn');
+
+            hoverTargets.forEach(target => {
+                target.addEventListener('mouseenter', () => cursor.classList.add('hovering'));
+                target.addEventListener('mouseleave', () => cursor.classList.remove('hovering'));
+            });
+
+            btnTargets.forEach(target => {
+                target.addEventListener('mouseenter', () => cursor.classList.add('hovering-btn'));
+                target.addEventListener('mouseleave', () => cursor.classList.remove('hovering-btn'));
+            });
+
+
+            // 2. SCROLL REVEAL ANIMATIONS
+            const reveals = document.querySelectorAll('.reveal');
+            const observerOptions = { threshold: 0.1, rootMargin: "0px 0px -50px 0px" };
+
+            const revealObserver = new IntersectionObserver((entries, observer) => {
+                entries.forEach((entry, index) => {
+                    if (entry.isIntersecting) {
+                        setTimeout(() => {
+                            entry.target.classList.add('active');
+                            // Trigger counter animation if it's the stats section
+                            if (entry.target.classList.contains('stats-container')) {
+                                animateCounters();
+                            }
+                        }, index * 100);
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, observerOptions);
+
+            reveals.forEach(reveal => revealObserver.observe(reveal));
+
+
+            // 3. COUNTER ANIMATION
+            function animateCounters() {
+                const counters = document.querySelectorAll('.stat-number');
+                counters.forEach(counter => {
+                    const target = parseFloat(counter.getAttribute('data-target'));
+                    const isDecimal = counter.getAttribute('data-decimal') === 'true';
+                    const duration = 2000;
+                    let start = null;
+
+                    function step(timestamp) {
+                        if (!start) start = timestamp;
+                        const progress = Math.min((timestamp - start) / duration, 1);
+                        const easeOutQuart = 1 - Math.pow(1 - progress, 4);
+
+                        let current = easeOutQuart * target;
+
+                        if (isDecimal) {
+                            counter.innerText = current.toFixed(1) + '★';
+                        } else {
+                            if (target >= 1000) {
+                                counter.innerText = Math.floor(current).toLocaleString() + '+';
+                            } else {
+                                counter.innerText = Math.floor(current) + '+';
+                            }
+                        }
+
+                        if (progress < 1) {
+                            window.requestAnimationFrame(step);
+                        }
+                    }
+                    window.requestAnimationFrame(step);
+                });
+            }
+
+
+            // 4. BEFORE/AFTER SLIDER
+            const slider = document.getElementById('beforeAfterSlider');
+            const overlay = document.getElementById('sliderOverlay');
+            const handle = document.getElementById('sliderHandle');
+            let isDragging = false;
+
+            function slide(clientX) {
+                const rect = slider.getBoundingClientRect();
+                let x = clientX - rect.left;
+                // Clamp
+                x = Math.max(0, Math.min(x, rect.width));
+                const percent = (x / rect.width) * 100;
+
+                overlay.style.width = `${percent}%`;
+                handle.style.left = `${percent}%`;
+            }
+
+            slider.addEventListener('mousedown', (e) => { isDragging = true; slide(e.clientX); });
+            window.addEventListener('mouseup', () => { isDragging = false; });
+            window.addEventListener('mousemove', (e) => { if (isDragging) slide(e.clientX); });
+
+            // Touch support
+            slider.addEventListener('touchstart', (e) => { isDragging = true; slide(e.touches[0].clientX); });
+            window.addEventListener('touchend', () => { isDragging = false; });
+            window.addEventListener('touchmove', (e) => { if (isDragging) slide(e.touches[0].clientX); });
+
+            // Keep overlay image size consistent with container on resize
+            const overlayImg = document.getElementById('sliderImgBefore');
+            function resizeSliderImage() {
+                overlayImg.style.width = slider.offsetWidth + 'px';
+            }
+            window.addEventListener('resize', resizeSliderImage);
+            resizeSliderImage(); // initial call
+        });
+    </script>
+</body>
+
+</html>
