@@ -379,13 +379,6 @@ function renderReviews() {
                     </button>
                 </div>
             </div>
-<<<<<<< HEAD
-            <div class="review-rating-stars">${starsStr}</div>
-            <p class="review-text">"${rev.content}"</p>
-            <span class="rented-product-badge">Đã có lịch trong hôm nay: ${rev.product}</span>
-        `;
-        reviewsGridContainer.appendChild(card);
-=======
         </div>`;
     }).join('');
 
@@ -445,7 +438,6 @@ function initCardEvents() {
         trigger.addEventListener('click', function() {
             openLightbox(this.src);
         });
->>>>>>> 21dfd586d0fcc62b03d0b645c6dda7dac948673b
     });
 }
 
