@@ -66,26 +66,58 @@ function checkPasswordStrength(password) {
     }
 }
 
-// Xử lý sự kiện đăng nhập giả lập
+// Lấy danh sách user đã đăng ký từ localStorage
+function getStoredUsers() {
+    const rawUsers = localStorage.getItem("mid_users");
+    return rawUsers ? JSON.parse(rawUsers) : [];
+}
+
+function setStoredUsers(users) {
+    localStorage.setItem("mid_users", JSON.stringify(users));
+}
+
+function findUserByLoginId(loginId) {
+    const users = getStoredUsers();
+    return users.find(user => user.email === loginId || user.phone === loginId);
+}
+
+function getPublicSession(user) {
+    return {
+        name: user.name,
+        email: user.email,
+        phone: user.phone,
+        role: user.role || "Thành viên",
+        created: user.created || new Date().toLocaleDateString("vi-VN")
+    };
+}
+
+// Xử lý sự kiện đăng nhập
 function handleLogin(e) {
     e.preventDefault();
     const loginIdInput = document.getElementById("loginId");
-    const loginId = loginIdInput ? loginIdInput.value : "";
-    
-    // Lưu thông tin user giả lập vào localStorage
-    const userSession = {
-        name: "Nguyễn Khánh Vân",
-        email: loginId.includes("@") ? loginId : "Midcamera37@gmail.com",
-        phone: !loginId.includes("@") ? loginId : "0987.654.321",
-        role: "Marketing",
-        created: "17/12/2025"
-    };
+    const loginPasswordInput = document.getElementById("loginPassword");
+    const loginId = loginIdInput ? loginIdInput.value.trim() : "";
+    const loginPassword = loginPasswordInput ? loginPasswordInput.value : "";
 
-    localStorage.setItem("mid_user", JSON.stringify(userSession));
-    
-    alert(`Chào mừng quay trở lại, ${userSession.name}! Đăng nhập thành công.`);
-    
-    // Kiểm tra có redirect sau khi đăng nhập không (ví dụ đi tiếp tới giỏ hàng)
+    if (!loginId || !loginPassword) {
+        alert("Vui lòng nhập đầy đủ email/số điện thoại và mật khẩu.");
+        return;
+    }
+
+    const user = findUserByLoginId(loginId);
+    if (!user) {
+        alert("Tài khoản chưa tồn tại. Vui lòng đăng ký trước hoặc kiểm tra lại email/số điện thoại.");
+        return;
+    }
+
+    if (user.password !== loginPassword) {
+        alert("Mật khẩu không đúng. Vui lòng thử lại.");
+        return;
+    }
+
+    localStorage.setItem("mid_user", JSON.stringify(getPublicSession(user)));
+    alert(`Chào mừng quay trở lại, ${user.name}! Đăng nhập thành công.`);
+
     const redirectUrl = localStorage.getItem("mid_redirect_after_login");
     if (redirectUrl) {
         localStorage.removeItem("mid_redirect_after_login");
@@ -95,7 +127,7 @@ function handleLogin(e) {
     }
 }
 
-// Xử lý sự kiện đăng ký giả lập
+// Xử lý sự kiện đăng ký
 function handleRegister(e) {
     e.preventDefault();
     const nameInput = document.getElementById("regName");
@@ -104,24 +136,49 @@ function handleRegister(e) {
     const passwordInput = document.getElementById("regPassword");
     const confirmPassInput = document.getElementById("regConfirmPassword");
 
-    const name = nameInput ? nameInput.value : "";
-    const phone = phoneInput ? phoneInput.value : "";
-    const email = emailInput ? emailInput.value : "";
+    const name = nameInput ? nameInput.value.trim() : "";
+    const phone = phoneInput ? phoneInput.value.trim() : "";
+    const email = emailInput ? emailInput.value.trim() : "";
     const password = passwordInput ? passwordInput.value : "";
     const confirmPass = confirmPassInput ? confirmPassInput.value : "";
+
+    if (!name || !phone || !email || !password || !confirmPass) {
+        alert("Vui lòng điền đầy đủ thông tin đăng ký.");
+        return;
+    }
 
     if (password !== confirmPass) {
         alert("Mật khẩu nhập lại không trùng khớp!");
         return;
     }
 
+    const users = getStoredUsers();
+    if (users.some(user => user.email === email)) {
+        alert("Email này đã được đăng ký. Vui lòng sử dụng email khác.");
+        return;
+    }
+    if (users.some(user => user.phone === phone)) {
+        alert("Số điện thoại này đã được đăng ký. Vui lòng sử dụng số khác.");
+        return;
+    }
+
+    const newUser = {
+        name,
+        phone,
+        email,
+        password,
+        role: "Thành viên",
+        created: new Date().toLocaleDateString("vi-VN")
+    };
+
+    users.push(newUser);
+    setStoredUsers(users);
+
     alert(`Chúc mừng ${name} đã đăng ký tài khoản MIDCAMERA thành công! Hãy tiến hành đăng nhập.`);
-    
-    // Tự động điền SĐT đăng ký sang form đăng nhập
+
     const loginIdInput = document.getElementById("loginId");
-    if (loginIdInput) loginIdInput.value = phone;
-    
-    // Switch tab sang đăng nhập
+    if (loginIdInput) loginIdInput.value = email;
+
     document.querySelectorAll(".auth-tab-item").forEach(t => {
         t.classList.remove("active");
         if (t.getAttribute("data-target") === "login") t.classList.add("active");
@@ -129,8 +186,7 @@ function handleRegister(e) {
     document.querySelectorAll(".auth-form-content").forEach(form => form.classList.remove("active"));
     const formLogin = document.getElementById("formLogin");
     if (formLogin) formLogin.classList.add("active");
-    
-    // Reset form đăng ký
+
     const formRegister = document.getElementById("formRegister");
     if (formRegister) formRegister.reset();
     checkPasswordStrength("");
