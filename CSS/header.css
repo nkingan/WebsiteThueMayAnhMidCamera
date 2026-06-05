@@ -1,18 +1,33 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Montserrat:wght@600;700;800&display=swap');
 
 :root {
-    /* --- BẢNG MÀU CHỦ ĐẠO CHO NỀN XÁM (GRAY TECH THEME) --- */
-    --bg-header-gray: #2A2A2C;     
-    --bg-search-box: #1E1E1F;      
-    
-    --text-light-pure: #FFFFFF;    /* Chữ màu trắng tinh khôi cho các mục nổi bật, Logo */
-    --text-light-gray: #CCCCCC;    /* Chữ màu xám sáng cho các mục menu thông thường */
-    --text-muted: #8E8E93;         /* Màu xám mờ cho các ký tự gợi ý (placeholder) */
-    
+    --bg-header-gray: #2A2A2C;
+    --bg-search-box: #1E1E1F;
+
+    --text-light-pure: #FFFFFF;
+    --text-light-gray: #CCCCCC;
+    --text-muted: #8E8E93;
+
     --font-title: 'Montserrat', sans-serif;
     --font-body: 'Inter', sans-serif;
     --radius-md: 8px;
     --radius-sm: 4px;
+
+    --header-height: 67px;
+    --header-height-mobile: 110px;
+}
+
+/* Luôn giữ scrollbar hiển thị
+   → viewport width không thay đổi khi chuyển trang */
+
+html {
+    overflow-y: scroll;          
+    scrollbar-gutter: stable;    
+    scroll-padding-top: calc(var(--header-height) + 16px);
+}
+
+body {
+    padding-top: var(--header-height);
 }
 
 /* Reset cơ bản cho Header độc lập */
@@ -24,17 +39,15 @@
 
 .main-header {
     font-family: var(--font-body);
-    background-color: var(--bg-header-gray); /* Đổ màu xám cho nền */
-    border-bottom: 1px solid #1A1A1A;        /* Viền dưới tối màu tạo độ sắc nét */
+    background-color: var(--bg-header-gray);
+    border-bottom: 1px solid #1A1A1A;
     position: fixed;
     top: 0;
-    z-index: 1000;
-    min-height: 67px;
-    padding: 0;  
-    width: 100%; 
-}
-body {
-    padding-top: 67px; /* đo chiều cao thực của header */
+    left: 0;                    
+    width: 100%;
+    z-index: 3000;
+    min-height: var(--header-height);
+    padding: 0;
 }
 
 .header-container {
@@ -44,11 +57,11 @@ body {
     align-items: center;
     justify-content: space-between;
     padding: 0 20px;
-    height: 100%;
+    height: var(--header-height);
     gap: 20px;
 }
 
-/* Style Logo (Chữ MID màu trắng, chữ CAMERA màu xám sáng) */
+/* Logo */
 .logo a {
     font-family: var(--font-title);
     font-size: 1.6rem;
@@ -58,10 +71,10 @@ body {
     letter-spacing: -0.03em;
 }
 .logo a span {
-    color: var(--text-light-gray); 
+    color: var(--text-light-gray);
 }
 
-/* Style Menu điều hướng */
+/* Nav Menu */
 .nav-menu ul {
     display: flex;
     list-style: none;
@@ -71,27 +84,26 @@ body {
     font-family: var(--font-title);
     font-size: 0.95rem;
     font-weight: 600;
-    color: var(--text-light-gray); /* Mặc định chữ màu xám sáng */
+    color: var(--text-light-gray);
     text-decoration: none;
     transition: all 0.3s ease;
     padding-bottom: 4px;
     border-bottom: 2px solid transparent;
 }
-
-/* Khi di chuột hoặc mục đang active: Chữ sáng bừng lên màu trắng và có gạch chân trắng */
-.nav-menu a:hover, .nav-menu a.active {
+.nav-menu a:hover,
+.nav-menu a.active {
     color: var(--text-light-pure);
-    border-bottom-color: var(--text-light-pure); 
+    border-bottom-color: var(--text-light-pure);
 }
 
-/* Khu vực chức năng (Search + Icons) */
+/* Header Actions */
 .header-actions {
     display: flex;
     align-items: center;
     gap: 20px;
 }
 
-/* Thanh tìm kiếm màu xám chìm (Dark Gray) */
+/* Search Box */
 .search-box {
     display: flex;
     background-color: var(--bg-search-box);
@@ -102,7 +114,7 @@ body {
     transition: border-color 0.3s ease;
 }
 .search-box:focus-within {
-    border-color: var(--text-light-gray); /* Bấm vào thì viền sáng lên */
+    border-color: var(--text-light-gray);
 }
 .search-box input {
     border: none;
@@ -111,9 +123,8 @@ body {
     padding-right: 10px;
     font-size: 0.85rem;
     width: 180px;
-    color: var(--text-light-pure); /* Chữ gõ vào màu trắng */
+    color: var(--text-light-pure);
 }
-/* Đổi màu chữ gợi ý trong ô input */
 .search-box input::placeholder {
     color: var(--text-muted);
 }
@@ -124,12 +135,58 @@ body {
     color: var(--text-light-gray);
 }
 
+/* Icons */
+.action-icon {
+    color: var(--text-light-gray);
+    font-size: 1.2rem;
+    position: relative;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+.action-icon:hover {
+    color: var(--text-light-pure);
+}
+
+.cart-count {
+    position: absolute;
+    top: -8px;
+    right: -10px;
+    background-color: var(--text-light-pure);
+    color: var(--bg-header-gray);
+    font-size: 0.7rem;
+    font-weight: bold;
+    padding: 2px 6px;
+    border-radius: 50%;
+}
+   /* SCROLL ANCHOR — tất cả element có id */
+  
+[id] {
+    scroll-margin-top: calc(var(--header-height) + 16px);
+}
+   
+body.page-trangchu  .nav-trangchu,
+body.page-mayanh    .nav-mayanh,
+body.page-ongkinh   .nav-ongkinh,
+body.page-phukien   .nav-phukien,
+body.page-banggia   .nav-banggia,
+body.page-chinhsach .nav-chinhsach {
+    color: var(--text-light-pure);
+    border-bottom-color: var(--text-light-pure);
+}
+
+   /* RESPONSIVE — tablet (max 900px) */
 @media (max-width: 900px) {
+    :root {
+        --header-height: 110px; /* Override biến → body padding tự cập nhật */
+    }
+
     .header-container {
         flex-wrap: wrap;
         align-items: center;
         justify-content: space-between;
         padding: 10px 15px;
+        height: auto;
+        min-height: var(--header-height);
     }
 
     .nav-menu {
@@ -146,6 +203,10 @@ body {
         overflow-x: auto;
         padding-bottom: 6px;
         -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+    }
+    .nav-menu ul::-webkit-scrollbar {
+        display: none;
     }
 
     .nav-menu li {
@@ -169,83 +230,19 @@ body {
         display: none;
     }
 
-    body {
-        padding-top: 110px;
+    [id] {
+        scroll-margin-top: calc(var(--header-height) + 16px);
     }
 }
-
+   /* RESPONSIVE — mobile (max 600px) */
 @media (max-width: 600px) {
     .header-container {
         padding: 10px 12px;
     }
-
     .nav-menu ul {
         gap: 10px;
     }
-
     .action-icon {
         font-size: 1.1rem;
     }
-}
-
-/* Icon Giỏ hàng & User */
-.action-icon {
-    color: var(--text-light-gray);
-    font-size: 1.2rem;
-    position: relative;
-    text-decoration: none;
-    transition: color 0.3s ease;
-}
-.action-icon:hover {
-    color: var(--text-light-pure); /* Di chuột vào icon sáng lên màu trắng */
-}
-
-/* Chấm tròn số lượng giỏ hàng nền trắng chữ đen nổi bật trên nền xám */
-.cart-count {
-    position: absolute;
-    top: -8px;
-    right: -10px;
-    background-color: var(--text-light-pure);
-    color: var(--bg-header-gray);
-    font-size: 0.7rem;
-    font-weight: bold;
-    padding: 2px 6px;
-    border-radius: 50%;
-}
-/* --- TỰ ĐỘNG BÔI SÁNG MENU THEO TRANG ĐANG CHẠY --- */
-
-/* 1. Nếu đang ở Trang Chủ */
-body.page-trangchu .nav-trangchu {
-    color: var(--text-light-pure);
-    border-bottom-color: var(--text-light-pure);
-}
-
-/* 2. Nếu đang ở Trang Máy Ảnh */
-body.page-mayanh .nav-mayanh {
-    color: var(--text-light-pure);
-    border-bottom-color: var(--text-light-pure);
-}
-
-/* 3. Nếu đang ở Trang Ống Kính */
-body.page-ongkinh .nav-ongkinh {
-    color: var(--text-light-pure);
-    border-bottom-color: var(--text-light-pure);
-}
-
-/* 4. Nếu đang ở Trang Phụ Kiện */
-body.page-phukien .nav-phukien {
-    color: var(--text-light-pure);
-    border-bottom-color: var(--text-light-pure);
-}
-
-/* 5. Nếu đang ở Trang Bảng Giá */
-body.page-banggia .nav-banggia {
-    color: var(--text-light-pure);
-    border-bottom-color: var(--text-light-pure);
-}
-
-/* 6. Nếu đang ở Trang Chính Sách */
-body.page-chinhsach .nav-chinhsach {
-    color: var(--text-light-pure);
-    border-bottom-color: var(--text-light-pure);
 }
