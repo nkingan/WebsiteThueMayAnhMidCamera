@@ -1,7 +1,3 @@
-/* ==========================================================================
-   MIDCAMERA GLOBAL BRAND STYLE GUIDE & HOMEPAGE CSS
-   Giao diện: Minimalist & Tech Professional (Trắng - Đen - Xám)
-   ========================================================================== */
 
 /* 1. KHAI BÁO BẢNG MÀU VÀ FONT CHỮ TOÀN TRANG */
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Montserrat:wght@600;700;800&display=swap');
@@ -45,14 +41,23 @@
 
 html {
     scroll-behavior: smooth;
+    min-height: 100%;
+    height: 100%;
+    overflow-x: hidden;
 }
 
 body {
+    min-height: 100%;
     font-family: var(--font-body);
     background-color: var(--bg-white);
     color: var(--text-main);
     line-height: 1.6;
     -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+}
+
+main {
+    min-height: calc(100vh - 67px);
 }
 
 /* 3. ĐỊNH DẠNG CÁC CẤP TIÊU ĐỀ (HEADINGS) */
@@ -633,12 +638,14 @@ footer svg {
     border-radius: 12px;
     overflow: hidden;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12); /* Tạo bóng đổ sang xịn mịn */
+    aspect-ratio: 16 / 9;
 }
 
 .video-container video {
     width: 100%;
-    height: auto;
+    height: 100%;
     display: block;
+    object-fit: cover;
 }
 /* --- CSS CHO SLIDER ĐÁNH GIÁ --- */
 .customer-reviews-slider {
