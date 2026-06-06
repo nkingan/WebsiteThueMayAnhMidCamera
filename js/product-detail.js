@@ -302,22 +302,36 @@ function calculateTotal() {
     const btnRentNow = document.getElementById("btnRentNow");
 
     if (currentProduct.status !== "maintenance") {
-        if (btnAddToCart) {
-            btnAddToCart.disabled = false;
-            btnAddToCart.textContent = "THÊM VÀO GIỎ HÀNG";
-            btnAddToCart.style.backgroundColor = "";
-            btnAddToCart.style.borderColor = "";
-            btnAddToCart.style.cursor = "";
-        }
-        if (btnRentNow) {
-            btnRentNow.disabled = false;
-            btnRentNow.textContent = "ĐẶT THUÊ NGAY";
-            btnRentNow.style.borderColor = "";
-            btnRentNow.style.color = "";
-            btnRentNow.style.cursor = "";
-        }
+    if (btnAddToCart) {
+        btnAddToCart.disabled = false;
+        btnAddToCart.textContent = "THÊM VÀO GIỎ HÀNG";
+
+        // Xóa trạng thái overlap
+        btnAddToCart.classList.remove("btn-disabled-overlap");
+
+        // Khôi phục class gốc
+        btnAddToCart.className = "btn-add-to-cart";
+
+        btnAddToCart.style.backgroundColor = "";
+        btnAddToCart.style.borderColor = "";
+        btnAddToCart.style.cursor = "";
     }
 
+    if (btnRentNow) {
+        btnRentNow.disabled = false;
+        btnRentNow.textContent = "ĐẶT THUÊ NGAY";
+
+        // Xóa trạng thái overlap
+        btnRentNow.classList.remove("btn-disabled-overlap");
+
+        // Khôi phục class gốc
+        btnRentNow.className = "btn-rent-now";
+
+        btnRentNow.style.borderColor = "";
+        btnRentNow.style.color = "";
+        btnRentNow.style.cursor = "";
+    }
+}
     if (end < start) {
         returnInput.value = startVal;
         calculateTotal();
