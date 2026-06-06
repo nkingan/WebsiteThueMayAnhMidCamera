@@ -30,6 +30,10 @@ body {
     padding-top: var(--header-height);
 }
 
+main {
+    min-height: calc(100vh - var(--header-height));
+}
+
 /* Reset cơ bản cho Header độc lập */
 .main-header *, .main-header *::before, .main-header *::after {
     box-sizing: border-box;

@@ -15,7 +15,7 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     });
 
-    // Lắng nghe quên mật khẩu
+    //  quên mật khẩu
     const forgotLink = document.querySelector(".forgot-password-link");
     if (forgotLink) {
         forgotLink.addEventListener("click", () => {
@@ -23,7 +23,7 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
-    // Lắng nghe các form submit
+    //  các form submit
     const formLogin = document.getElementById("formLogin");
     const formRegister = document.getElementById("formRegister");
 

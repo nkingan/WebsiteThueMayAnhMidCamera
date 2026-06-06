@@ -337,3 +337,45 @@
         grid-template-columns: 1fr;
     }
 }
+
+/* Buttons on account page - styled specifically for the profile form */
+.profile-info-grid .btn-primary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center; /* center text inside button */
+    gap: 8px;
+    padding: 10px 26px;
+    background: linear-gradient(90deg, #111 0%, #2b2b2b 100%);
+    color: #ffffff;
+    border: none;
+    border-radius: 8px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 0.92rem;
+    letter-spacing: 0.6px;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: transform .12s ease, box-shadow .12s ease, opacity .12s ease;
+    box-shadow: 0 8px 20px rgba(17,17,17,0.08);
+    margin-top: 15px;
+    grid-column: 1 / -1; /* span full form width */
+    justify-self: center; /* center the button in the grid */
+    width: auto;
+    min-width: 220px;
+}
+
+.profile-info-grid .btn-primary:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 28px rgba(17,17,17,0.12);
+    opacity: 0.98;
+}
+
+.profile-info-grid .btn-primary:active {
+    transform: translateY(0);
+    box-shadow: 0 6px 12px rgba(17,17,17,0.08);
+}
+
+.profile-info-grid .btn-primary:focus {
+    outline: 3px solid rgba(17,17,17,0.08);
+    outline-offset: 2px;
+}
