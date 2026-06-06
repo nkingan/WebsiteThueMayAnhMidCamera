@@ -20,9 +20,16 @@
 /* Luôn giữ scrollbar hiển thị
    → viewport width không thay đổi khi chuyển trang */
 
+html, body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    overflow-x: hidden;
+}
+
 html {
-    overflow-y: scroll;          
-    scrollbar-gutter: stable;    
+    overflow-y: scroll;
+    scrollbar-gutter: stable;
     scroll-padding-top: calc(var(--header-height) + 16px);
 }
 
@@ -32,6 +39,7 @@ body {
 
 main {
     min-height: calc(100vh - var(--header-height));
+    width: 100%;
 }
 
 /* Reset cơ bản cho Header độc lập */
